@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Interaction;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Interaction;
 
 class InteractionController extends Controller
 {
@@ -14,7 +15,8 @@ class InteractionController extends Controller
      */
     public function index()
     {
-        //
+        $interacciones = Interaction::all();
+        return response()->json($interacciones);
     }
 
     /**
