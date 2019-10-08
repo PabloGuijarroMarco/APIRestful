@@ -1,0 +1,190 @@
+@-webkit-keyframes chat {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes chat {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.vete {
+    animation-name: chat;
+    animation-duration: 1200ms;
+    -webkit-animation-name: chat;
+    -webkit-animation-duration: 1200ms;
+    animation-iteration-count: 1;
+}
+
+.app-loading {
+    position: absolute;
+    margin-left: 4.5em;
+}
+
+header {
+    color: black;
+    position: fixed;
+}
+
+#cabecera p {
+    margin: 0px !important;
+}
+
+.message {
+    border-radius: 5px;
+    margin: 0 15px 10px;
+    padding: 5px 5px;
+    position: relative;
+    font-weight: bold;
+    opacity: 0.8;
+    margin-top: 5%;
+}
+
+.message.to {
+    background-color: #fff;
+    color: #FF6201;
+    border: 2px solid #FF6201;
+    border-radius: 6px;
+    margin-left: 100px;
+    text-align: right;
+}
+
+.message.from {
+    background-color: #FF6201;
+    color: #fff;
+    margin-right: 100px;
+    text-align: left;
+}
+
+.message.to+.message.to,
+.message.from+.message.from {
+    margin-bottom: 100px;
+}
+
+#input {
+    margin-bottom: 10%;
+}
+
+.img {
+    width: 5px;
+    height: 5px;
+}
+
+#general {
+    width: 350px;
+    height: 466px;
+    float: right;
+    top: 5%;
+    display: none;
+    border: solid 2px;
+    border-color: #ACA5A4;
+    position: fixed;
+}
+
+#cabecera {
+    padding-left: 5px;
+    background-color: #FF6201;
+    color: white;
+    opacity: 1;
+    width: 100%;
+    height: 40px;
+}
+
+#chat {
+    background-color: #eee;
+    width: 100%;
+    height: 80%;
+    background-color: #fff;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#abajo {
+    width: 100%;
+    height: 14%;
+    background-color: white;
+}
+
+#abrir {
+    display: block;
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    top: 88%;
+    left: 0px;
+    margin-left: 93%;
+    border-radius: 100%;
+    border-width: 0;
+    background-color: #FF6201;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+#enviar {
+    width: 8%;
+    height: 80%;
+    margin-left: 3%;
+    cursor: pointer;
+}
+
+#inputtt {
+    width: 80%;
+}
+
+.input-group-text {
+    text-align: start;
+}
+
+#minimizar {
+    cursor: pointer;
+}
+
+#minimizar:hover {
+    background-color: #666262;
+}
+
+#cerrar {
+    cursor: pointer;
+}
+
+#cerrar:hover {
+    background-color: #666262;
+}
+
+@media only screen and (max-width: 768px) {
+    #abrir {
+        margin-left: 91%;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    #abrir {
+        margin-left: 85%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #abrir {
+        margin-left: 83%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #abrir {
+        margin-left: 81%;
+    }
+}

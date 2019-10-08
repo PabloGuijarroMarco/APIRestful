@@ -1,0 +1,59 @@
+<div style="position: fixed; bottom: 0;  right:0; width: 350px;z-index: 9999;" (clickOutside)="onClickedOutsideChat($event)" class="chat-container">
+
+
+    <button id="abrir" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('abrir').style.display='none' "><i class="fas fa-comment fa-2x"></i></button>
+
+
+    <div id="general" class="vete d-none flex-column justify-content-between" style="float: right ; position: relative;width:100%;">
+
+        <div id="cabecera" class="d-flex flex-row justify-content-between align-items-center">
+            <p class="w-75" style="font-weight: 600;">Malib&uacute; - Asistente virtual</p>
+            <div class="w-25 d-flex flex-row justify-content-end" style="padding-right: 8px; cursor: pointer">
+                <!-- <img id="minimizar" src="/assets/images/minimizar.PNG" alt="minimizar" onclick="document.getElementById('general').style.display='none'"> -->
+                <i class="fas fa-times" onclick="document.getElementById('general').style.display='none'; document.getElementById('abrir').style.display='block'"></i>
+                <!-- <img id="cerrar" src="/assets/images/cerrar.PNG" alt="cerrar" onclick="document.getElementById('general').style.display='none';
+            document.getElementById('abrir').style.display='none';" > -->
+            </div>
+            <!-- <img src="/assets/images/enviar_mensaje.png" alt="enviar_mensaje" (click)="sendMessage()">-->
+        </div>
+
+        <div id="chat" [ngStyle]="{'filter': (status === 'loading') ? 'brightness(60%)' : 'brightness(100%)'}" #chat [scrollTop]="chat.scrollHeight">
+            <ng-container *ngFor="let message of messages | async">
+
+                <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                            'to':   message.sentBy === 'user' }">
+                    <div *ngIf="message.content.includes('busqueda?query=')">
+                        <a href="{{ message.content }}">
+                            <img src="/assets/images/BuscarChat.PNG" style="margin-left:-5px; height: 100%; width: 100%; position:absolute; margin-top:-5px;">
+                            <br><br><br><br><br>
+                        </a>
+                    </div>
+
+                    <div *ngIf="message.content.includes('EstoEsUnaReserva,')" id="malo">
+                        <!--<a  href="{{ message.content }}">-->
+                        <img [src]="imgSrc" style="margin-left:-10px; height: 105%; width: 105%; position:absolute; margin-top:-5px; cursor: pointer;" (click)='res(message.content)'>
+
+                        <!--</a>-->
+                    </div>
+
+                    <span *ngIf="!message.content.includes('busqueda?query=')">{{ message.content }}</span>
+                </div>
+
+            </ng-container>
+        </div>
+        <div *ngIf="status === 'loading'" class="app-loading">
+            <div class="logo"></div>
+            <svg class="spinner" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg>
+        </div>
+        <div id="abajo" class="d-flex flex-row align-items-center justify-content-around">
+            <input id="inputtt" class="input-group-text" [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" placeholder="Escribe tu mensaje" autofocus>
+            <i class="far fa-paper-plane fa-2x" style="cursor: pointer" (click)="sendMessage()"></i>
+            <!-- <img id="enviar" src="/assets/images/enviar_mensaje.png" alt="enviar_mensaje" (click)="sendMessage()"> -->
+            <!--<button id="cerrar" onclick="document.getElementById('chat').style.display='none'">Cerrar</button>-->
+        </div>
+    </div>
+
+
+</div>
