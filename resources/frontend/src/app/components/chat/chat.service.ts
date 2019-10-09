@@ -25,17 +25,19 @@ export class ChatService {
 
   update (msg: Message){
     this.conversation.next([msg]);
+    console.log(msg);
   }
 
   converse(msg: string){
     const userMessage = new Message(msg, 'user');
     this.update(userMessage);
-
+    console.log(userMessage);
     return this.client.textRequest(msg)
                 .then(res => {
                   const speech = res.result.fulfillment.speech;
                   const botMessage = new Message(speech, 'bot');
                   this.update(botMessage);
+                  console.log(botMessage);
                 });
   }
 }
