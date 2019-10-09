@@ -16,8 +16,8 @@ export class Message{
 })
 export class ChatService {
 
-  //readonly token = environment.dialogflow.angularBot;
-  //readonly client = new ApiAiClient({accessToken: this.token});
+  readonly token = environment.dialogflow.angularBot;
+  readonly client = new ApiAiClient({accessToken: this.token});
 
   conversation = new BehaviorSubject<Message[]>([]);
 
@@ -31,11 +31,11 @@ export class ChatService {
     const userMessage = new Message(msg, 'user');
     this.update(userMessage);
 
-    /*return this.client.textRequest(msg)
+    return this.client.textRequest(msg)
                 .then(res => {
                   const speech = res.result.fulfillment.speech;
                   const botMessage = new Message(speech, 'bot');
                   this.update(botMessage);
-                });*/
+                });
   }
 }
