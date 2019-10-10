@@ -26,6 +26,20 @@ export class ChatDialogComponent implements OnInit {
   public resultsVisible = true;
   public token: string;
   public status: string;
+
+  public endpointUrl = 'https://query.wikidata.org/sparql';
+  public headers = { 'Accept' : 'application/sparql-results+json' };
+  public filter = "-1";
+  public resultData = null;
+  public list =[];
+  public grasas = 0;
+  public carbs = 0;
+  public prot = 0;
+  public kca = 0;
+
+  public sparqlQuery;
+  public fullUrl;
+  public requestBody;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -39,6 +53,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getFood();
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
       window.document.getElementById('chat').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -62,6 +77,32 @@ export class ChatDialogComponent implements OnInit {
     }
   }
 
+  getFood(){
+    this.sparqlQuery = "SELECT ?obj ?objLabel (SAMPLE(?kj) AS ?energy) (SAMPLE(?fat) AS ?fat) (SAMPLE(?carbs) AS ?carbs) (SAMPLE(?protein) AS ?protein) (SAMPLE(?img) AS ?foto) WHERE { SERVICE wikibase:label { bd:serviceParam wikibase:language 'en'. } SERVICE <http://dbpedia.org/sparql> { ?item <http://www.w3.org/2002/07/owl#sameAs> ?obj. ?item <http://dbpedia.org/property/kj> ?kj. ?item <http://dbpedia.org/property/fat> ?fat. ?item <http://dbpedia.org/property/carbs> ?carbs. ?item <http://dbpedia.org/property/protein> ?protein. FILTER(REGEX(?obj, 'http://www.wikidata.org/entity/')) } ?obj wdt:P279 wd:Q3314483. OPTIONAL { ?obj wdt:P18 ?img. } FILTER(EXISTS { ?obj wdt:P18 ?img. })} GROUP BY ?obj ?objLabel ORDER BY ?objLabel";
+    console.log(this.sparqlQuery);
+    this.fullUrl = this.endpointUrl + '?query=' + encodeURIComponent( this.sparqlQuery );
+     console.log(this.fullUrl);
+     let requestHeaders: any = { 'Accept': 'application/sparql-results+json' };
+     let responseLogin = fetch(this.fullUrl, {
+      method: 'POST',
+      headers: requestHeaders
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+	  console.log(this.resultData);
+      //showResult();
+  } );
+
+    //this.resultData = results.bindings;
+	  //console.log(resultData);
+     /*fetch( this.fullUrl, { requestHeaders } ).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+	  console.log(resultData);
+      //showResult();
+  } );*/
+
+  }
   /*res(a){
     this.token = this.userService.getToken();
     this.cont = 0;
