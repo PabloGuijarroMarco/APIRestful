@@ -53,7 +53,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getFood();
+    //this.getFood();
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
       window.document.getElementById('chat').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -75,11 +75,24 @@ export class ChatDialogComponent implements OnInit {
     if(this.cont===4){
       this.imgSrc = "/assets/images/ReservarChat2.PNG";
     }
+    //console.log(this.messages.source.source);
   }
 
-  getFood(){
-    this.sparqlQuery = "SELECT ?obj ?objLabel (SAMPLE(?kj) AS ?energy) (SAMPLE(?fat) AS ?fat) (SAMPLE(?carbs) AS ?carbs) (SAMPLE(?protein) AS ?protein) (SAMPLE(?img) AS ?foto) WHERE { SERVICE wikibase:label { bd:serviceParam wikibase:language 'en'. } SERVICE <http://dbpedia.org/sparql> { ?item <http://www.w3.org/2002/07/owl#sameAs> ?obj. ?item <http://dbpedia.org/property/kj> ?kj. ?item <http://dbpedia.org/property/fat> ?fat. ?item <http://dbpedia.org/property/carbs> ?carbs. ?item <http://dbpedia.org/property/protein> ?protein. FILTER(REGEX(?obj, 'http://www.wikidata.org/entity/')) } ?obj wdt:P279 wd:Q3314483. OPTIONAL { ?obj wdt:P18 ?img. } FILTER(EXISTS { ?obj wdt:P18 ?img. })} GROUP BY ?obj ?objLabel ORDER BY ?objLabel";
-    console.log(this.sparqlQuery);
+  prueba(a){
+    if(a=='PadresMiguel'){
+      console.log(a);
+      console.log(document.getElementById('u'));
+      this.sparqlQuery = 'SELECT ?item ?itemLabel WHERE  { ?item wdt:P40 wd:Q5682. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }}';
+      document.getElementById('u').innerText='';
+      this.getWikidata();
+      console.log(this.sparqlQuery);
+
+    }
+
+  }
+
+  getWikidata(){
+
     this.fullUrl = this.endpointUrl + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
      let requestHeaders: any = { 'Accept': 'application/sparql-results+json' };
@@ -89,9 +102,13 @@ export class ChatDialogComponent implements OnInit {
     }).then( body => body.json() ).then( json => {
       var { head: { vars }, results } = json;
       this.resultData = results.bindings;
-	  console.log(this.resultData);
+    console.log(this.resultData);
+    document.getElementById('u').innerText='Los padres de Miguel de Cervantes fueron '+this.resultData[0].itemLabel.value+' y '+this.resultData[1].itemLabel.value;
+    document.getElementById('u').id='otro';
       //showResult();
   } );
+
+
 
     //this.resultData = results.bindings;
 	  //console.log(resultData);
@@ -101,6 +118,14 @@ export class ChatDialogComponent implements OnInit {
 	  console.log(resultData);
       //showResult();
   } );*/
+
+  }
+
+
+  ngDoCheck(){
+    if(document.getElementById('u')!=null){
+      document.getElementById('u').click();
+    }
 
   }
   /*res(a){

@@ -18,25 +18,29 @@
         </div>
 
         <div id="chat" [ngStyle]="{'filter': (status === 'loading') ? 'brightness(60%)' : 'brightness(100%)'}" #chat [scrollTop]="chat.scrollHeight">
-            <ng-container *ngFor="let message of messages | async">
+            <ng-container *ngFor="let message of messages | async" >
 
-                <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                <div id='prueba' class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
                                             'to':   message.sentBy === 'user' }">
-                    <div *ngIf="message.content.includes('busqueda?query=')">
-                        <a href="{{ message.content }}">
+
+                       <!-- <a href="{{ message.content }}">
                             <img src="/assets/images/BuscarChat.PNG" style="margin-left:-5px; height: 100%; width: 100%; position:absolute; margin-top:-5px;">
                             <br><br><br><br><br>
                         </a>
-                    </div>
+                    </div>-->
 
-                    <div *ngIf="message.content.includes('EstoEsUnaReserva,')" id="malo">
+                     <!--<div *ngIf="message.content.includes('EstoEsUnaReserva,')" id="malo">-->
                         <!--<a  href="{{ message.content }}">-->
-                        <img [src]="imgSrc" style="margin-left:-10px; height: 105%; width: 105%; position:absolute; margin-top:-5px; cursor: pointer;" (click)='res(message.content)'>
-
+                        <!--<img [src]="imgSrc" style="margin-left:-10px; height: 105%; width: 105%; position:absolute; margin-top:-5px; cursor: pointer;" (click)='res(message.content)'>
+                        -->
                         <!--</a>-->
+                    <!--</div>-->
+                    <div *ngIf="!message.content.includes('PadresMiguel')" >
+                    <span>{{ message.content }}</span>
+                  </div>
+                    <div *ngIf="message.content.includes('PadresMiguel')" >
+                    <span id='u' (click)="prueba(message.content);">{{ message.content }}</span>
                     </div>
-
-                    <span *ngIf="!message.content.includes('busqueda?query=')">{{ message.content }}</span>
                 </div>
 
             </ng-container>
