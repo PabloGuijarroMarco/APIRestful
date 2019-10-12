@@ -84,14 +84,21 @@ export class ChatDialogComponent implements OnInit {
       console.log(document.getElementById('u'));
       this.sparqlQuery = 'SELECT ?item ?itemLabel WHERE  { ?item wdt:P40 wd:Q5682. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". }}';
       document.getElementById('u').innerText='';
-      this.getWikidata();
+      this.getWikidata(a);
       console.log(this.sparqlQuery);
 
     }
+    if(a=='ObrasMiguel'){
+      console.log(document.getElementById('u'));
+      this.sparqlQuery = 'SELECT ?item ?itemLabel  WHERE { ?item wdt:P50 wd:Q5682. SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],es". } }';
+      document.getElementById('u').innerText='';
+      this.getWikidata(a);
+      console.log(this.sparqlQuery);
 
+    }
   }
 
-  getWikidata(){
+  getWikidata(a){
 
     this.fullUrl = this.endpointUrl + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
@@ -103,8 +110,46 @@ export class ChatDialogComponent implements OnInit {
       var { head: { vars }, results } = json;
       this.resultData = results.bindings;
     console.log(this.resultData);
-    document.getElementById('u').innerText='Los padres de Miguel de Cervantes fueron '+this.resultData[0].itemLabel.value+' y '+this.resultData[1].itemLabel.value;
-    document.getElementById('u').id='otro';
+    if(a=='PadresMiguel'){
+      document.getElementById('u').innerText='Los padres de Miguel de Cervantes fueron '+this.resultData[0].itemLabel.value+' y '+this.resultData[1].itemLabel.value;
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasMiguel'){
+      
+      var cont = 0;
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].itemLabel.value.indexOf('Q65') == -1){
+          cont++;
+        }
+      }
+      console.log(document.getElementById('u').innerHTML);
+      document.getElementById('u').innerText='Tengo registradas '+cont+ ' obras de Miguel de Cervantes. Aquí te muestro aleatoriamente 7 de ellas:';
+      console.log(document.getElementById('u').innerHTML);
+      var obras = '';
+      for(let i=0;i<7;i++){
+        let num = this.getRandomInt(0, this.resultData.length);
+        if(this.resultData[num].itemLabel.value.indexOf('Q65') != -1){
+          console.log(this.resultData[num].itemLabel.value.indexOf('Q65'));
+          console.log(this.resultData[num].itemLabel.value);
+        i--;
+      }else{
+        if(i!=6 ){
+          if(i!=5){
+          obras=obras+this.resultData[num].itemLabel.value+', ';
+          }else{
+            obras=obras+this.resultData[num].itemLabel.value;
+          }
+        }else{
+  
+            obras=obras+' y '+this.resultData[num].itemLabel.value;
+          
+        }
+      }
+      }
+      document.getElementById('u').innerText=document.getElementById('u').innerText+' '+obras;
+
+      document.getElementById('u').id='otro';
+    }
       //showResult();
   } );
 
@@ -120,7 +165,9 @@ export class ChatDialogComponent implements OnInit {
   } );*/
 
   }
-
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
 
   ngDoCheck(){
     if(document.getElementById('u')!=null){

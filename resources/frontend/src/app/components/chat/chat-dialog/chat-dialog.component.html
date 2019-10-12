@@ -35,11 +35,11 @@
                         -->
                         <!--</a>-->
                     <!--</div>-->
-                    <div *ngIf="!message.content.includes('PadresMiguel')" >
+                    <div *ngIf="!message.content.includes('PadresMiguel') && !message.content.includes('ObrasMiguel')">
                     <span>{{ message.content }}</span>
                   </div>
-                    <div *ngIf="message.content.includes('PadresMiguel')" >
-                    <span id='u' (click)="prueba(message.content);">{{ message.content }}</span>
+                    <div *ngIf="message.content.includes('PadresMiguel') || message.content.includes('ObrasMiguel')" >
+                    <span id='u' (click)="prueba(message.content);"></span>
                     </div>
                 </div>
 
