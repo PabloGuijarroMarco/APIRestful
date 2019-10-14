@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService, Message } from '../chat.service';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { scan } from 'rxjs/internal/operators/scan';
+import { map, catchError, tap } from 'rxjs/operators';
 //import { nextContext } from '@angular/core/src/render3';
 //import { BookingsService } from 'src/app/services/bookings.service';
 //import { RestaurantesService } from 'src/app/services/restaurantes.service';
@@ -40,9 +42,11 @@ export class ChatDialogComponent implements OnInit {
   public sparqlQuery;
   public fullUrl;
   public requestBody;
+  public res;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
+    protected http: HttpClient,
     public chat: ChatService,
     //private bookingService: BookingsService,
     //private router: Router,
@@ -53,7 +57,8 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getFood();
+    this.getTiempo();
+    //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
       window.document.getElementById('chat').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest'});
@@ -115,7 +120,7 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('u').id='otro';
     }
     if(a=='ObrasMiguel'){
-      
+
       var cont = 0;
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].itemLabel.value.indexOf('Q65') == -1){
@@ -140,9 +145,9 @@ export class ChatDialogComponent implements OnInit {
             obras=obras+this.resultData[num].itemLabel.value;
           }
         }else{
-  
+
             obras=obras+' y '+this.resultData[num].itemLabel.value;
-          
+
         }
       }
       }
@@ -153,18 +158,27 @@ export class ChatDialogComponent implements OnInit {
       //showResult();
   } );
 
+  }
 
+  getTiempo(){
 
-    //this.resultData = results.bindings;
-	  //console.log(resultData);
-     /*fetch( this.fullUrl, { requestHeaders } ).then( body => body.json() ).then( json => {
-      var { head: { vars }, results } = json;
-      this.resultData = results.bindings;
-	  console.log(resultData);
-      //showResult();
-  } );*/
+    this.http.get('https://opendata.aemet.es/opendata/api/valores/climatologicos/inventarioestaciones/todasestaciones/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb2d1aWphcnJvOTZAZ21haWwuY29tIiwianRpIjoiNDllYmI5YWQtZjJjNy00NjVmLThiMjItZTc2MDk5ZGZlYjUzIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE1NzEwNDY4MTgsInVzZXJJZCI6IjQ5ZWJiOWFkLWYyYzctNDY1Zi04YjIyLWU3NjA5OWRmZWI1MyIsInJvbGUiOiIifQ.hj9XhrR9R0275CZvmJYz4MiLuQU8HUe5AVJSwbMjeiU').subscribe(data => {
+      console.log(data.datos);
+      let url = data.datos;
+      let a = this.http.get(url).subscribe(data => {
+        console.log(data);
+         });
+    });
+
 
   }
+
+  private extractData(res: Response) {
+    let body = res;
+    console.log(body);
+    return body || { };
+  }
+
   getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
