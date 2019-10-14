@@ -57,7 +57,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTiempo();
+    //this.getTiempo();
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
@@ -100,6 +100,10 @@ export class ChatDialogComponent implements OnInit {
       this.getWikidata(a);
       console.log(this.sparqlQuery);
 
+    }
+
+    if(a=='TiempoYaHoy'){
+      this.getTiempoHoy();
     }
   }
 
@@ -168,6 +172,18 @@ export class ChatDialogComponent implements OnInit {
       let a = this.http.get(url).subscribe(data => {
         console.log(data);
          });
+    });
+
+
+  }
+
+  getTiempoHoy(){
+
+    this.http.get('https://opendata.aemet.es/opendata/api/prediccion/nacional/hoy/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWJsb2d1aWphcnJvOTZAZ21haWwuY29tIiwianRpIjoiNDllYmI5YWQtZjJjNy00NjVmLThiMjItZTc2MDk5ZGZlYjUzIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE1NzEwNDY4MTgsInVzZXJJZCI6IjQ5ZWJiOWFkLWYyYzctNDY1Zi04YjIyLWU3NjA5OWRmZWI1MyIsInJvbGUiOiIifQ.hj9XhrR9R0275CZvmJYz4MiLuQU8HUe5AVJSwbMjeiU').subscribe(data => {
+      console.log(data.datos);
+      let url = data.datos;
+      document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
+      document.getElementById('u').id='otro';
     });
 
 
