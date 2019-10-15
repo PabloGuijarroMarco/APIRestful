@@ -105,6 +105,12 @@ export class ChatDialogComponent implements OnInit {
     if(a=='TiempoYaHoy'){
       this.getTiempoHoy();
     }
+
+    if(a=='NacimientoMiguel'){
+      this.sparqlQuery = 'SELECT ?item ?itemLabel ?placeLabel ?date WHERE {  ?item wdt:P31 wd:Q5 .  ?item wdt:P735 wd:Q15620295. ?item wdt:P734 wd:Q37222317. ?item wdt:P19 ?place. ?item wdt:P569 ?date.  SERVICE wikibase:label { bd:serviceParam wikibase:language "es". } }';
+      document.getElementById('u').innerText='';
+      this.getWikidata(a);
+    }
   }
 
   getWikidata(a){
@@ -121,6 +127,10 @@ export class ChatDialogComponent implements OnInit {
     console.log(this.resultData);
     if(a=='PadresMiguel'){
       document.getElementById('u').innerText='Los padres de Miguel de Cervantes fueron '+this.resultData[0].itemLabel.value+' y '+this.resultData[1].itemLabel.value;
+      document.getElementById('u').id='otro';
+    }
+    if(a=='NacimientoMiguel'){
+      document.getElementById('u').innerText='Miguel de Cervantes nació el '+this.resultData[0].date.value+' en '+this.resultData[0].placeLabel.value;
       document.getElementById('u').id='otro';
     }
     if(a=='ObrasMiguel'){
