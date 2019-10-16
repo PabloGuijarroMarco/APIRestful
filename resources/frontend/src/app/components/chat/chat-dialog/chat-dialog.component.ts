@@ -116,6 +116,11 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('u').innerText='';
       this.getWikidata(a);
     }
+    if(a=='fotoMiguel'){
+      this.sparqlQuery = 'SELECT ?item ?itemLabel ?image WHERE { ?item wdt:P31 wd:Q5 .  ?item wdt:P735 wd:Q15620295. ?item wdt:P734 wd:Q37222317. ?item wdt:P18 ?image. SERVICE wikibase:label { bd:serviceParam wikibase:language "es". } }';
+      document.getElementById('u').innerText='';
+      this.getWikidata(a);
+    }
   }
 
   getWikidata(a){
@@ -139,6 +144,11 @@ export class ChatDialogComponent implements OnInit {
       let div = divide[0].split("-");
       console.log(div[0]);
       document.getElementById('u').innerText='Miguel de Cervantes nació el 29 de septiembre de '+div[0]+' en '+this.resultData[0].placeLabel.value;
+      document.getElementById('u').id='otro';
+    }
+    if(a=='fotoMiguel'){
+      document.getElementById('u').innerHTML='Aquí tienes: <a href="'+this.resultData[0].image.value+'"><image src="'+this.resultData[0].image.value+'" style="width:100%;height:100%;"></a>';
+      console.log(document.getElementById('u'));
       document.getElementById('u').id='otro';
     }
     if(a=='MurioMiguel'){
