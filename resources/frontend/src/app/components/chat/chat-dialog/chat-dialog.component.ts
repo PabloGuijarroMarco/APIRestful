@@ -111,6 +111,11 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('u').innerText='';
       this.getWikidata(a);
     }
+    if(a=='MurioMiguel'){
+      this.sparqlQuery = 'SELECT ?item ?itemLabel ?placeLabel ?date WHERE { ?item wdt:P31 wd:Q5 .  ?item wdt:P735 wd:Q15620295. ?item wdt:P734 wd:Q37222317. ?item wdt:P20 ?place. ?item wdt:P570 ?date. SERVICE wikibase:label { bd:serviceParam wikibase:language "es". } }';
+      document.getElementById('u').innerText='';
+      this.getWikidata(a);
+    }
   }
 
   getWikidata(a){
@@ -134,6 +139,51 @@ export class ChatDialogComponent implements OnInit {
       let div = divide[0].split("-");
       console.log(div[0]);
       document.getElementById('u').innerText='Miguel de Cervantes nació el 29 de septiembre de '+div[0]+' en '+this.resultData[0].placeLabel.value;
+      document.getElementById('u').id='otro';
+    }
+    if(a=='MurioMiguel'){
+
+      let divide = this.resultData[0].date.value.split("T");
+      let div = divide[0].split("-");
+      console.log(div[0]);
+      let mes;
+    if(div[1]==='01'){
+      mes='enero';
+    }
+    if(div[1]==='02'){
+      mes='febrero';
+    }
+    if(div[1]==='03'){
+      mes='marzo';
+    }
+    if(div[1]==='04'){
+      mes='abril';
+    }
+    if(div[1]==='05'){
+      mes='mayo';
+    }
+    if(div[1]==='06'){
+      mes='junio';
+    }
+    if(div[1]==='07'){
+      mes='julio';
+    }
+    if(div[1]==='08'){
+      mes='agosto';
+    }
+    if(div[1]==='09'){
+      mes='septiembre';
+    }
+    if(div[1]==='10'){
+      mes='octubre';
+    }
+    if(div[1]==='11'){
+      mes='noviembre';
+    }
+    if(div[1]==='12'){
+      mes='diciembre';
+    }
+      document.getElementById('u').innerText='Miguel de Cervantes murió el '+div[2]+' de '+mes+' de '+div[0]+' en '+this.resultData[0].placeLabel.value;
       document.getElementById('u').id='otro';
     }
     if(a=='ObrasMiguel'){
