@@ -130,7 +130,10 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('u').id='otro';
     }
     if(a=='NacimientoMiguel'){
-      document.getElementById('u').innerText='Miguel de Cervantes nació el '+this.resultData[0].date.value+' en '+this.resultData[0].placeLabel.value;
+      let divide = this.resultData[0].date.value.split("T");
+      let div = divide[0].split("-");
+      console.log(div[0]);
+      document.getElementById('u').innerText='Miguel de Cervantes nació el 29 de septiembre de '+div[0]+' en '+this.resultData[0].placeLabel.value;
       document.getElementById('u').id='otro';
     }
     if(a=='ObrasMiguel'){
