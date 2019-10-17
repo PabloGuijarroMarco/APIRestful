@@ -106,6 +106,12 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoHoy();
     }
 
+    if(a=='ocupacionMiguel' || a=='movimientoMiguel'){
+      this.sparqlQuery = 'PREFIX entity: <http://www.wikidata.org/entity/> SELECT ?propUrl ?propLabel ?valUrl ?valLabel ?picture WHERE {	hint:Query hint:optimizer "None" .	{	BIND(entity:Q5682 AS ?valUrl) .		BIND("N/A" AS ?propUrl ) .		BIND("identity"@en AS ?propLabel ) .	}	UNION	{	entity:Q5682 ?propUrl ?valUrl .		?property ?ref ?propUrl .		?property rdf:type wikibase:Property .		?property rdfs:label ?propLabel	}	  	?valUrl rdfs:label ?valLabel	FILTER (LANG(?valLabel) = "es") .	OPTIONAL{ ?valUrl wdt:P18 ?picture .} FILTER (lang(?propLabel) = "es" ) } ORDER BY ?propUrl ?valUrl LIMIT 200';
+      document.getElementById('u').innerText='';
+      this.getWikidata(a);
+    }
+
     if(a=='NacimientoMiguel'){
       this.sparqlQuery = 'SELECT ?item ?itemLabel ?placeLabel ?date WHERE {  ?item wdt:P31 wd:Q5 .  ?item wdt:P735 wd:Q15620295. ?item wdt:P734 wd:Q37222317. ?item wdt:P19 ?place. ?item wdt:P569 ?date.  SERVICE wikibase:label { bd:serviceParam wikibase:language "es". } }';
       document.getElementById('u').innerText='';
@@ -137,6 +143,37 @@ export class ChatDialogComponent implements OnInit {
     console.log(this.resultData);
     if(a=='PadresMiguel'){
       document.getElementById('u').innerText='Los padres de Miguel de Cervantes fueron '+this.resultData[0].itemLabel.value+' y '+this.resultData[1].itemLabel.value;
+      document.getElementById('u').id='otro';
+    }
+    if(a=='movimientoMiguel'){
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='movimiento'){
+          document.getElementById('u').innerText='Miguel de Cervantes perteneció al movimiento literario conocido como '+this.resultData[i].valLabel.value;
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ocupacionMiguel'){
+      document.getElementById('u').innerText='Miguel de Cervantes era ';
+      //let valprev='kjsdf';
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='ocupación'){
+          if(this.resultData[i].valLabel.value!=this.resultData[i-1].valLabel.value){
+            //console.log(valprev);
+            //valprev=this.resultData[i].valLabel.value;
+            if(this.resultData[i+1].propLabel.value!='ocupación'){
+              document.getElementById('u').innerText=document.getElementById('u').innerText+' y '+this.resultData[i].valLabel.value;
+            }else{
+              if(this.resultData[i+2].propLabel.value!='ocupación'){
+                document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value;
+              }else{
+                document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value+', ';
+              }
+           
+            }
+          }
+        }
+      }
       document.getElementById('u').id='otro';
     }
     if(a=='NacimientoMiguel'){
