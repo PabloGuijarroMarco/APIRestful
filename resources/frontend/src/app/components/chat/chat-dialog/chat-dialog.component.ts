@@ -106,7 +106,7 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoHoy();
     }
 
-    if(a=='ocupacionMiguel' || a=='movimientoMiguel' || 'hijaMiguel' || 'generosMiguel' || 'causamuerteMiguel' || 'religionMiguel' || 'enterradoMiguel' || 'idiomasMiguel'){
+    if(a=='ocupacionMiguel' || a=='movimientoMiguel' || 'hijaMiguel' || 'generosMiguel' || 'causamuerteMiguel' || 'religionMiguel' || 'enterradoMiguel' || 'idiomasMiguel' || 'mujerMiguel'){
       this.sparqlQuery = 'PREFIX entity: <http://www.wikidata.org/entity/> SELECT ?propUrl ?propLabel ?valUrl ?valLabel ?picture WHERE {	hint:Query hint:optimizer "None" .	{	BIND(entity:Q5682 AS ?valUrl) .		BIND("N/A" AS ?propUrl ) .		BIND("identity"@en AS ?propLabel ) .	}	UNION	{	entity:Q5682 ?propUrl ?valUrl .		?property ?ref ?propUrl .		?property rdf:type wikibase:Property .		?property rdfs:label ?propLabel	}	  	?valUrl rdfs:label ?valLabel	FILTER (LANG(?valLabel) = "es") .	OPTIONAL{ ?valUrl wdt:P18 ?picture .} FILTER (lang(?propLabel) = "es" ) } ORDER BY ?propUrl ?valUrl LIMIT 200';
       document.getElementById('u').innerText='';
       this.getWikidata(a);
@@ -181,6 +181,14 @@ export class ChatDialogComponent implements OnInit {
       for(let i=0; i<this.resultData.length; i++){
         if(this.resultData[i].propLabel.value=='religión'){
           document.getElementById('u').innerText='Miguel de Cervantes creía en la '+this.resultData[i].valLabel.value;
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='mujerMiguel'){
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='cónyuge'){
+          document.getElementById('u').innerText='La esposa de Miguel de Cervantes fue '+this.resultData[i].valLabel.value+'. En honor a ella me pusieron Catalina de nombre.';
         }
       }
       document.getElementById('u').id='otro';
