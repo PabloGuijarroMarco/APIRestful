@@ -106,7 +106,7 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoHoy();
     }
 
-    if(a=='ocupacionMiguel' || a=='movimientoMiguel'){
+    if(a=='ocupacionMiguel' || a=='movimientoMiguel' || 'hijaMiguel' || 'generosMiguel' || 'causamuerteMiguel' || 'religionMiguel' || 'enterradoMiguel' || 'idiomasMiguel'){
       this.sparqlQuery = 'PREFIX entity: <http://www.wikidata.org/entity/> SELECT ?propUrl ?propLabel ?valUrl ?valLabel ?picture WHERE {	hint:Query hint:optimizer "None" .	{	BIND(entity:Q5682 AS ?valUrl) .		BIND("N/A" AS ?propUrl ) .		BIND("identity"@en AS ?propLabel ) .	}	UNION	{	entity:Q5682 ?propUrl ?valUrl .		?property ?ref ?propUrl .		?property rdf:type wikibase:Property .		?property rdfs:label ?propLabel	}	  	?valUrl rdfs:label ?valLabel	FILTER (LANG(?valLabel) = "es") .	OPTIONAL{ ?valUrl wdt:P18 ?picture .} FILTER (lang(?propLabel) = "es" ) } ORDER BY ?propUrl ?valUrl LIMIT 200';
       document.getElementById('u').innerText='';
       this.getWikidata(a);
@@ -153,6 +153,70 @@ export class ChatDialogComponent implements OnInit {
       }
       document.getElementById('u').id='otro';
     }
+    if(a=='hijaMiguel'){
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='hijo o hija'){
+          document.getElementById('u').innerText='La hija de Miguel de Cervantes se llamaba '+this.resultData[i].valLabel.value;
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='enterradoMiguel'){
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='lugar de sepultura'){
+          document.getElementById('u').innerText='Miguel de Cervantes fue sepultado en el '+this.resultData[i].valLabel.value;
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='idiomasMiguel'){
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='lengua materna'){
+          document.getElementById('u').innerText='La lengua materna de Miguel de Cervantes fue el '+this.resultData[i].valLabel.value+'. No aprendió ningún otro idioma durante su vida. Por ello sus obras también fueron originalmente escritas en este mismo idioma.';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='religionMiguel'){
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='religión'){
+          document.getElementById('u').innerText='Miguel de Cervantes creía en la '+this.resultData[i].valLabel.value;
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='causamuerteMiguel'){
+      document.getElementById('u').innerText='Miguel de Cervantes murió por';
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='circunstancias de la muerte'){
+          document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value+'.';
+        }
+      }
+      document.getElementById('u').innerText=document.getElementById('u').innerText+' Más concretamente debido a una';
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='causa de muerte'){
+          document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value+'.';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='generosMiguel'){
+      document.getElementById('u').innerText='Las obras de Miguel de Cervantes pertenecen a los géneros';
+      for(let i=0; i<this.resultData.length; i++){
+        if(this.resultData[i].propLabel.value=='género'){
+          if(this.resultData[i+1].propLabel.value!='género'){
+            document.getElementById('u').innerText=document.getElementById('u').innerText+' y '+this.resultData[i].valLabel.value;
+          }else{
+            if(this.resultData[i+2].propLabel.value!='género'){
+              document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value;
+            }else{
+               document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value+',';
+            }
+          }
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
     if(a=='ocupacionMiguel'){
       document.getElementById('u').innerText='Miguel de Cervantes era ';
       //let valprev='kjsdf';
@@ -169,7 +233,7 @@ export class ChatDialogComponent implements OnInit {
               }else{
                 document.getElementById('u').innerText=document.getElementById('u').innerText+' '+this.resultData[i].valLabel.value+', ';
               }
-           
+
             }
           }
         }
