@@ -1,0 +1,8 @@
+{
+  "/bvmc-lod/*":{
+    "target": "http://data.cervantesvirtual.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+
+}

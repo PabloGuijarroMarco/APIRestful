@@ -57,7 +57,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getTiempo();
+    this.pruebabvmc();
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
@@ -81,6 +81,26 @@ export class ChatDialogComponent implements OnInit {
       this.imgSrc = "/assets/images/ReservarChat2.PNG";
     }
     //console.log(this.messages.source.source);
+  }
+
+  pruebabvmc(){
+    this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
+    //document.getElementById('u').innerText='';
+    //this.getWikidata(a);
+    this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
+     console.log(this.fullUrl);
+
+
+     let requestHeaders: any = { 'Accept': 'application/sparql-results+json','content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
+     let responseLogin = fetch(this.fullUrl, {
+      method: 'POST',
+      headers: requestHeaders
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+    console.log(this.resultData);
+    });
+
   }
 
   prueba(a){
