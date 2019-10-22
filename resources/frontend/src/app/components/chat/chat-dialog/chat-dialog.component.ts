@@ -57,7 +57,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pruebabvmc();
+    //this.pruebabvmc();
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
@@ -83,8 +83,10 @@ export class ChatDialogComponent implements OnInit {
     //console.log(this.messages.source.source);
   }
 
-  pruebabvmc(){
-    this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
+  pruebabvmc(a){
+    if(a=='EdicionesQuijote'){
+      this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
+    }
     //document.getElementById('u').innerText='';
     //this.getWikidata(a);
     this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
@@ -100,7 +102,17 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });
-
+    if(a=='EdicionesQuijote'){
+      console.log(document.getElementById('u'));
+      document.getElementById('u').innerHTML= 'En la biblioteca tenemos registradas '+this.resultData.length+' ediciones del Quijote. Haga click sobre la que desee informarse: <ul id="lis"></ul>';
+      for(let i=0;i<this.resultData.length;i++){
+        document.getElementById('lis').innerHTML=document.getElementById('lis').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].m.value+'" style="color: #00ff5a;">'+this.resultData[i].title.value+'</a></li>';
+      }
+      //console.log(document.getElementById('u'));
+      //document.getElementById('u').innerHTML=document.getElementById('u').innerHTML+'</ul>';
+      console.log(document.getElementById('u'));
+      document.getElementById('u').id='otro';
+    }
   }
 
   prueba(a){
@@ -128,6 +140,10 @@ export class ChatDialogComponent implements OnInit {
 
     if(a=='TiempoYaMañana'){
       this.getTiempoManana();
+    }
+
+    if(a=='EdicionesQuijote'){
+      this.pruebabvmc(a);
     }
 
     if(a=='ocupacionMiguel' || a=='movimientoMiguel' || 'hijaMiguel' || 'generosMiguel' || 'causamuerteMiguel' || 'religionMiguel' || 'enterradoMiguel' || 'idiomasMiguel' || 'mujerMiguel'){
