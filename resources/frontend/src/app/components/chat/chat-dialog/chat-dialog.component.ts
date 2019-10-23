@@ -104,7 +104,7 @@ export class ChatDialogComponent implements OnInit {
     });
     if(a=='EdicionesQuijote'){
       console.log(document.getElementById('u'));
-      document.getElementById('u').innerHTML= 'En la biblioteca tenemos registradas '+this.resultData.length+' ediciones del Quijote. Haga click sobre la que desee informarse: <ul id="lis"></ul>';
+      document.getElementById('u').innerHTML= '<a name="Ancla" id="a">En</a> la biblioteca tenemos registradas '+this.resultData.length+' ediciones del Quijote. Haga click sobre la que desee informarse: <ul id="lis"></ul>';
       for(let i=0;i<this.resultData.length;i++){
         document.getElementById('lis').innerHTML=document.getElementById('lis').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].m.value+'" style="color: #00ff5a;">'+this.resultData[i].title.value+'</a></li>';
       }
@@ -112,7 +112,16 @@ export class ChatDialogComponent implements OnInit {
       //document.getElementById('u').innerHTML=document.getElementById('u').innerHTML+'</ul>';
       console.log(document.getElementById('u'));
       document.getElementById('u').id='otro';
+
+      //document.getElementById('general').style.display='flex';
+      setTimeout(() => {
+        this.abrirdenuevo()
+       }, 20);
     }
+  }
+
+  abrirdenuevo(){
+    document.getElementById('anclado').click();
   }
 
   prueba(a){
