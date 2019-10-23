@@ -87,6 +87,9 @@ export class ChatDialogComponent implements OnInit {
     if(a=='EdicionesQuijote'){
       this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
     }
+    if(a=='idiomasBiblio'){
+      this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
+    }
     //document.getElementById('u').innerText='';
     //this.getWikidata(a);
     this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
@@ -117,6 +120,10 @@ export class ChatDialogComponent implements OnInit {
       setTimeout(() => {
         this.abrirdenuevo()
        }, 20);
+    }
+    if(a=='idiomasBiblio'){
+      document.getElementById('u').innerText='La Biblioteca Virtual Miguel de Cervantes posee obras en '+this.resultData.length+' idiomas diferentes';
+      document.getElementById('u').id='otro';
     }
   }
 
@@ -151,7 +158,7 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoManana();
     }
 
-    if(a=='EdicionesQuijote'){
+    if(a=='EdicionesQuijote' || a=='idiomasBiblio'){
       this.pruebabvmc(a);
     }
 
