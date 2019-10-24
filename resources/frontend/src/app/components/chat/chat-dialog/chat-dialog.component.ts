@@ -87,7 +87,7 @@ export class ChatDialogComponent implements OnInit {
     if(a=='EdicionesQuijote'){
       this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
     }
-    if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin'){
+    if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall'){
       this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
     }
     //document.getElementById('u').innerText='';
@@ -286,6 +286,87 @@ export class ChatDialogComponent implements OnInit {
       }
       document.getElementById('u').id='otro';
     }
+    if(a=='ObrasMitico'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='sem'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en semítico haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasKara'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='kaa'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en kara-Kalpak haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasUgar'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='uga'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ugaritic haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasNoru'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='no'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en noruego haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasSiri'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='syr'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sirio moderno haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasNah'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='nah'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en nahua haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasLatin'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='la'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en latín haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasHol'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='nl'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en holandés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasGall'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='gl'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en gallego haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
   }
 
   abrirdenuevo(){
@@ -319,7 +400,7 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoManana();
     }
 
-    if(a=='EdicionesQuijote' || a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin'){
+    if(a=='EdicionesQuijote' || a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall'){
       this.pruebabvmc(a);
     }
 
