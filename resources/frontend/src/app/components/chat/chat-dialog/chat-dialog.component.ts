@@ -87,7 +87,7 @@ export class ChatDialogComponent implements OnInit {
     if(a=='EdicionesQuijote'){
       this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
     }
-    if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus'){
+    if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus' || a=='ObrasSiriac' || a=='ObrasDan' || a=='ObrasLengSig' || a=='ObrasCreo' || a=='ObrasRuma' || a=='ObrasHungar'){
       this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
     }
     //document.getElementById('u').innerText='';
@@ -475,6 +475,61 @@ export class ChatDialogComponent implements OnInit {
       }
       document.getElementById('u').id='otro';
     }
+    if(a=='ObrasSiriac'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='syc'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en siriaco haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasDan'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='da'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en danés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasLengSig'){
+      
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='LSE'){
+          console.log('holaa');
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lengua de signos española haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasCreo'){
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='bi'){
+          //console.log('holaa');
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en creole haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasRuma'){
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='ro'){
+          //console.log('holaa');
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en rumano haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasHungar'){
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='hu'){
+          //console.log('holaa');
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en húngaro haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
   }
 
   abrirdenuevo(){
@@ -508,7 +563,7 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoManana();
     }
 
-    if(a=='EdicionesQuijote' || a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc' || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus'){
+    if(a=='EdicionesQuijote' || a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc' || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus' || a=='ObrasSiriac' || a=='ObrasDan' || a=='ObrasLengSig' || a=='ObrasCreo' || a=='ObrasRuma' || a=='ObrasHungar'){
       this.pruebabvmc(a);
     }
 
