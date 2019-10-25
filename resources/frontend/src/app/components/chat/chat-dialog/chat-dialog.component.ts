@@ -87,7 +87,7 @@ export class ChatDialogComponent implements OnInit {
     if(a=='EdicionesQuijote'){
       this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
     }
-    if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg'){
+    if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus'){
       this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
     }
     //document.getElementById('u').innerText='';
@@ -448,6 +448,33 @@ export class ChatDialogComponent implements OnInit {
       }
       document.getElementById('u').id='otro';
     }
+    if(a=='ObrasArabe'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='ar'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en árabe haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasCatal'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='ca'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en catalán haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
+    if(a=='ObrasRus'){
+      //console.log('holaa');
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].code.value=='ru'){
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ruso haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+        }
+      }
+      document.getElementById('u').id='otro';
+    }
   }
 
   abrirdenuevo(){
@@ -481,7 +508,7 @@ export class ChatDialogComponent implements OnInit {
       this.getTiempoManana();
     }
 
-    if(a=='EdicionesQuijote' || a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc' || a=='ObrasGrieg'){
+    if(a=='EdicionesQuijote' || a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc' || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus'){
       this.pruebabvmc(a);
     }
 
