@@ -122,7 +122,7 @@ export class ChatDialogComponent implements OnInit {
        }, 20);
     }
     if(a=='idiomasBiblio'){
-      document.getElementById('u').innerText='La Biblioteca Virtual Miguel de Cervantes posee obras en '+this.resultData.length+' idiomas diferentes';
+      document.getElementById('u').innerText='La Biblioteca Virtual Miguel de Cervantes posee obras en '+this.resultData.length+' idiomas diferentes. Dígame el idioma del que desea que le muestre obras';
       document.getElementById('u').id='otro';
     }
     if(a=='ObrasEs'){
