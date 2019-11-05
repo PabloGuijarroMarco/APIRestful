@@ -57,7 +57,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.pruebabvmc();
+    //this.pruebahoroscopo();
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
@@ -81,6 +81,60 @@ export class ChatDialogComponent implements OnInit {
       this.imgSrc = "/assets/images/ReservarChat2.PNG";
     }
     //console.log(this.messages.source.source);
+  }
+
+  pruebahoroscopo(a){
+    console.log(document.getElementById('u'));
+  console.log(a);
+    this.http.get('https://api.adderou.cl/tyaas/').subscribe(data => {
+
+      this.resultData=data;
+      console.log(this.resultData);
+      let d=this.resultData.titulo.split(' ');
+      if(a=='+aries'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.aries.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.aries.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.aries.amor+' En el dinero: '+this.resultData.horoscopo.aries.dinero+' En la salud: '+this.resultData.horoscopo.aries.salud;
+      }
+      if(a=='+acuario'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.acuario.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.acuario.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.acuario.amor+' En el dinero: '+this.resultData.horoscopo.acuario.dinero+' En la salud: '+this.resultData.horoscopo.acuario.salud;
+      }
+      if(a=='+cancer' || a=='+cáncer'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.cancer.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.cancer.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.cancer.amor+' En el dinero: '+this.resultData.horoscopo.cancer.dinero+' En la salud: '+this.resultData.horoscopo.cancer.salud;
+      }
+      if(a=='+capricornio'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.capricornio.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.capricornio.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.capricornio.amor+' En el dinero: '+this.resultData.horoscopo.capricornio.dinero+' En la salud: '+this.resultData.horoscopo.capricornio.salud;
+      }
+      if(a=='+escorpion' || a=='+escorpión' || a=='+escorpio'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.escorpion.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.escorpion.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.escorpion.amor+' En el dinero: '+this.resultData.horoscopo.escorpion.dinero+' En la salud: '+this.resultData.horoscopo.escorpion.salud;
+      }
+      if(a=='+geminis' || a=='+géminis'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.geminis.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.geminis.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.geminis.amor+' En el dinero: '+this.resultData.horoscopo.geminis.dinero+' En la salud: '+this.resultData.horoscopo.geminis.salud;
+      }
+      if(a=='+leo'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.leo.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.leo.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.leo.amor+' En el dinero: '+this.resultData.horoscopo.leo.dinero+' En la salud: '+this.resultData.horoscopo.leo.salud;
+      }
+      if(a=='+libra'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.libra.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.libra.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.libra.amor+' En el dinero: '+this.resultData.horoscopo.libra.dinero+' En la salud: '+this.resultData.horoscopo.libra.salud;
+      }
+      if(a=='+piscis'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.piscis.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.piscis.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.piscis.amor+' En el dinero: '+this.resultData.horoscopo.piscis.dinero+' En la salud: '+this.resultData.horoscopo.piscis.salud;
+      }
+      if(a=='+sagitario'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.sagitario.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.sagitario.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.sagitario.amor+' En el dinero: '+this.resultData.horoscopo.sagitario.dinero+' En la salud: '+this.resultData.horoscopo.sagitario.salud;
+      }
+      if(a=='+tauro'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.tauro.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.tauro.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.tauro.amor+' En el dinero: '+this.resultData.horoscopo.tauro.dinero+' En la salud: '+this.resultData.horoscopo.tauro.salud;
+      }
+      if(a=='+virgo'){
+        document.getElementById('u').innerText='Para el signo '+this.resultData.horoscopo.virgo.nombre+', los nacidos durante el período del '+this.resultData.horoscopo.virgo.fechaSigno+', tenemos la siguiente predicción para hoy, día '+d[0]+' de '+d[1]+'. '+'En el amor: '+this.resultData.horoscopo.virgo.amor+' En el dinero: '+this.resultData.horoscopo.virgo.dinero+' En la salud: '+this.resultData.horoscopo.virgo.salud;
+      }
+      document.getElementById('u').id='otro';
+      //let url = this.resultData.datos;
+      //
+      //document.getElementById('u').innerHTML='La predicción del tiempo general de españa para hoy la puede consultar haciendo clic <a href='+url+' style="color: #00ff5a;">aquí</a>';
+      //console.log(document.getElementById('u'));
+      //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
+  //    document.getElementById('u').id='otro';
+    });
   }
 
   pruebabvmc(a){
@@ -494,7 +548,7 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('u').id='otro';
     }
     if(a=='ObrasLengSig'){
-      
+
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='LSE'){
           console.log('holaa');
@@ -609,6 +663,9 @@ export class ChatDialogComponent implements OnInit {
   }
 
   prueba(a){
+    if(a=='+aries' || a=='+acuario' || a=='+tauro' || a=='+geminis' || a=='+géminis' || a=='+cáncer' || a=='+cancer' || a=='+leo' || a=='+virgo' || a=='+libra' || a=='+escorpión' || a=='+escorpion' || a=='+escorpio' || a=='+sagitario' || a=='+capricornio' || a=='+piscis'){
+      this.pruebahoroscopo(a);
+    }
     if(a=='PadresMiguel'){
       console.log(a);
       console.log(document.getElementById('u'));
