@@ -57,7 +57,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.pruebahoroscopo();
+    this.pruebatraductor();
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
@@ -81,6 +81,14 @@ export class ChatDialogComponent implements OnInit {
       this.imgSrc = "/assets/images/ReservarChat2.PNG";
     }
     //console.log(this.messages.source.source);
+  }
+
+  pruebatraductor(){
+  let key='trnsl.1.1.20191106T225230Z.24b8558444bacd85.30d10b5cf43f49f23f2bf45e28463f19465b9936';
+  this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text=Hola&lang=es-en').subscribe(data => {
+      console.log(data);
+      this.resultData=data;
+    });
   }
 
   pruebahoroscopo(a){
