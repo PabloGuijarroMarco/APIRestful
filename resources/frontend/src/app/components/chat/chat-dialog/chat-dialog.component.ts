@@ -153,6 +153,18 @@ export class ChatDialogComponent implements OnInit {
   if(envi[3].includes('Bengalí') || envi[3].includes('Bengali') || envi[3].includes('bengalí') || envi[3].includes('bengali')){
     acual='bn';
   }
+  if(envi[3].includes('Punjabi') || envi[3].includes('punjabi')){
+    acual='pa';
+  }
+  if(envi[3].includes('Birmano') || envi[3].includes('birmano')){
+    acual='my';
+  }
+  if(envi[3].includes('Papiamento') || envi[3].includes('papiamento')){
+    acual='pap';
+  }
+  if(envi[3].includes('Búlgaro') || envi[3].includes('Bulgaro') || envi[3].includes('búlgaro') || envi[3].includes('bulgaro')){
+    acual='bg';
+  }
   this.adarle='otrosdfsd'+localStorage.getItem('a');
   this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+envi[2]+'&lang=es-'+acual).subscribe(data => {
       console.log(data);
