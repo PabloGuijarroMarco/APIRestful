@@ -43,6 +43,7 @@ export class ChatDialogComponent implements OnInit {
   public fullUrl;
   public requestBody;
   public res;
+  public adarle;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -57,7 +58,8 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pruebatraductor();
+    //this.pruebatraductor();
+    localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
@@ -83,12 +85,43 @@ export class ChatDialogComponent implements OnInit {
     //console.log(this.messages.source.source);
   }
 
-  pruebatraductor(){
+  pruebatraductor(a){
   let key='trnsl.1.1.20191106T225230Z.24b8558444bacd85.30d10b5cf43f49f23f2bf45e28463f19465b9936';
-  this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text=Hola&lang=es-en').subscribe(data => {
+    console.log(document.getElementById('u'));
+  let envi=a.split('+');
+  let acual;
+  if(envi[3].includes('inglés') || envi[3].includes('ingles') || envi[3].includes('Ingles') || envi[3].includes('Inglés')){
+    acual='en';
+  }
+  if(envi[3].includes('Azerbaiyán') || envi[3].includes('Azerbaiyan') || envi[3].includes('azerbaiyan') || envi[3].includes('azerbaiyán')){
+    acual='az';
+  }
+  if(envi[3].includes('Malayalam') || envi[3].includes('malayalam')){
+    acual='ml';
+  }
+  if(envi[3].includes('Albanés') || envi[3].includes('Albanes') || envi[3].includes('albanés') || envi[3].includes('albanes')){
+    acual='sq';
+  }
+
+  this.adarle='otrosdfsd'+localStorage.getItem('a');
+  this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+envi[2]+'&lang=es-'+acual).subscribe(data => {
       console.log(data);
       this.resultData=data;
+      document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      console.log(this.resultData.text[0]);
     });
+    setTimeout(() => {
+      this.cambioidya()
+     }, 100);
+
+  }
+
+  cambioidya(){
+    document.getElementById('u').id=this.adarle;
+    let temporal = parseInt(localStorage.getItem('a'))+1;
+    let temp2=String(temporal);
+    localStorage.removeItem('a');
+    localStorage.setItem('a',temp2);
   }
 
   pruebahoroscopo(a){
@@ -671,6 +704,10 @@ export class ChatDialogComponent implements OnInit {
   }
 
   prueba(a){
+    console.log(a);
+    if(a.includes('+EstoEsUnaTraduccion')){
+      this.pruebatraductor(a);
+    }
     if(a=='+aries' || a=='+acuario' || a=='+tauro' || a=='+geminis' || a=='+géminis' || a=='+cáncer' || a=='+cancer' || a=='+leo' || a=='+virgo' || a=='+libra' || a=='+escorpión' || a=='+escorpion' || a=='+escorpio' || a=='+sagitario' || a=='+capricornio' || a=='+piscis'){
       this.pruebahoroscopo(a);
     }
