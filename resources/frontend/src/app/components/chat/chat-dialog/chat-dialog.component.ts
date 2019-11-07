@@ -102,7 +102,57 @@ export class ChatDialogComponent implements OnInit {
   if(envi[3].includes('Albanés') || envi[3].includes('Albanes') || envi[3].includes('albanés') || envi[3].includes('albanes')){
     acual='sq';
   }
-
+  if(envi[3].includes('Maltés') || envi[3].includes('Maltes') || envi[3].includes('maltés') || envi[3].includes('maltes')){
+    acual='mt';
+  }
+  if(envi[3].includes('Amharic') || envi[3].includes('amharic')){
+    acual='am';
+  }
+  if(envi[3].includes('Macedonian') || envi[3].includes('macedonian')){
+    acual='mk';
+  }
+  if(envi[3].includes('Maorí') || envi[3].includes('maorí') || envi[3].includes('Maori') || envi[3].includes('maori')){
+    acual='mi';
+  }
+  if(envi[3].includes('Árabe') || envi[3].includes('Arabe') || envi[3].includes('árabe') || envi[3].includes('arabe')){
+    acual='ar';
+  }
+  if(envi[3].includes('Marathi') || envi[3].includes('marathi')){
+    acual='mr';
+  }
+  if(envi[3].includes('Armenio') || envi[3].includes('armenio')){
+    acual='hy';
+  }
+  if(envi[3].includes('Mari') || envi[3].includes('mari')){
+    acual='mhr';
+  }
+  if(envi[3].includes('Afrikaans') || envi[3].includes('afrikaans')){
+    acual='af';
+  }
+  if(envi[3].includes('Mongol') || envi[3].includes('mongol')){
+    acual='mn';
+  }
+  if(envi[3].includes('Vasco') || envi[3].includes('vasco') || envi[3].includes('euskera') || envi[3].includes('Euskera')){
+    acual='eu';
+  }
+  if(envi[3].includes('Alemán') || envi[3].includes('Aleman') || envi[3].includes('alemán') || envi[3].includes('aleman')){
+    acual='de';
+  }
+  if(envi[3].includes('Bashkir') || envi[3].includes('bashkir')){
+    acual='ba';
+  }
+  if(envi[3].includes('Nepali') || envi[3].includes('nepali')){
+    acual='ne';
+  }
+  if(envi[3].includes('Bielorruso') || envi[3].includes('bielorruso')){
+    acual='be';
+  }
+  if(envi[3].includes('Noruego') || envi[3].includes('Noruego')){
+    acual='no';
+  }
+  if(envi[3].includes('Bengalí') || envi[3].includes('Bengali') || envi[3].includes('bengalí') || envi[3].includes('bengali')){
+    acual='bn';
+  }
   this.adarle='otrosdfsd'+localStorage.getItem('a');
   this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+envi[2]+'&lang=es-'+acual).subscribe(data => {
       console.log(data);
