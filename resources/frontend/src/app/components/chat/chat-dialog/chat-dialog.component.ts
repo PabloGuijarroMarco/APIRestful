@@ -384,7 +384,7 @@ export class ChatDialogComponent implements OnInit {
 
   setTimeout(() => {
     this.traduccion2(acual)
-   }, 100);
+   }, 200);
   }
 
   traduccion2(acual){
