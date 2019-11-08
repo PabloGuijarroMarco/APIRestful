@@ -192,7 +192,7 @@ export class ChatDialogComponent implements OnInit {
   if(envi[3].includes('Ruso') || envi[3].includes('ruso')){
     acual='ru';
   }
-  if(envi[3].includes('Haitiano') || envi[3].includes('haitiano') || envi[3].includes('criollo') || envi[3].includes('Criollo') || envi[3].includes('Haitiano (criollo)' || envi[3].includes('haitiano (criollo)')){
+  if(envi[3].includes('Haitiano') || envi[3].includes('haitiano') || envi[3].includes('criollo') || envi[3].includes('Criollo') || envi[3].includes('Haitiano (criollo)') || envi[3].includes('haitiano (criollo)')){
     acual='ht';
   }
   if(envi[3].includes('Cebuano') || envi[3].includes('cebuano')){
@@ -356,6 +356,18 @@ export class ChatDialogComponent implements OnInit {
   }
   if(envi[3].includes('Luxemburgués') || envi[3].includes('luxemburgués') || envi[3].includes('Luxemburgues') || envi[3].includes('luxemburgues')){
     acual='lb';
+  }
+  if(envi[3].includes('Javanés') || envi[3].includes('javanés') || envi[3].includes('Javanes') || envi[3].includes('javanes')){
+    acual='jv';
+  }
+  if(envi[3].includes('Malgache') || envi[3].includes('malgache')){
+    acual='mg';
+  }
+  if(envi[3].includes('Japonés') || envi[3].includes('japonés') || envi[3].includes('Japones') || envi[3].includes('japones')){
+    acual='ja';
+  }
+  if(envi[3].includes('Malayo') || envi[3].includes('malayo')){
+    acual='ms';
   }
   this.adarle='otrosdfsd'+localStorage.getItem('a');
   this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+envi[2]+'&lang=es-'+acual).subscribe(data => {
