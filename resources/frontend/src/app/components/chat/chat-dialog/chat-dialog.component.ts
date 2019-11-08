@@ -44,6 +44,7 @@ export class ChatDialogComponent implements OnInit {
   public requestBody;
   public res;
   public adarle;
+  public textoatrad;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -89,6 +90,7 @@ export class ChatDialogComponent implements OnInit {
   let key='trnsl.1.1.20191106T225230Z.24b8558444bacd85.30d10b5cf43f49f23f2bf45e28463f19465b9936';
     console.log(document.getElementById('u'));
   let envi=a.split('+');
+  this.textoatrad=envi[2];
   let acual;
   if(envi[3].includes('inglés') || envi[3].includes('ingles') || envi[3].includes('Ingles') || envi[3].includes('Inglés')){
     acual='en';
@@ -363,14 +365,31 @@ export class ChatDialogComponent implements OnInit {
   if(envi[3].includes('Malgache') || envi[3].includes('malgache')){
     acual='mg';
   }
-  if(envi[3].includes('Japonés') || envi[3].includes('japonés') || envi[3].includes('Japones') || envi[3].includes('japones')){
+  /*if(envi[3].includes('Japonés') || envi[3].includes('japonés') || envi[3].includes('Japones') || envi[3].includes('japones')){
     acual='ja';
-  }
+  }*/
   if(envi[3].includes('Malayo') || envi[3].includes('malayo')){
     acual='ms';
   }
+
+
+  this.http.get('https://translate.yandex.net/api/v1.5/tr.json/detect?key='+key+'&text='+envi[2]).subscribe(data => {
+      console.log(data);
+      this.resultData=data;
+      document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      console.log(this.resultData.text[0]);
+    });
+
   this.adarle='otrosdfsd'+localStorage.getItem('a');
-  this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+envi[2]+'&lang=es-'+acual).subscribe(data => {
+
+  setTimeout(() => {
+    this.traduccion2(acual)
+   }, 100);
+  }
+
+  traduccion2(acual){
+    let key='trnsl.1.1.20191106T225230Z.24b8558444bacd85.30d10b5cf43f49f23f2bf45e28463f19465b9936';
+    this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+this.textoatrad+'&lang='+this.resultData.lang+'-'+acual).subscribe(data => {
       console.log(data);
       this.resultData=data;
       document.getElementById(this.adarle).innerText=this.resultData.text[0];
@@ -379,7 +398,6 @@ export class ChatDialogComponent implements OnInit {
     setTimeout(() => {
       this.cambioidya()
      }, 100);
-
   }
 
   cambioidya(){
