@@ -165,6 +165,198 @@ export class ChatDialogComponent implements OnInit {
   if(envi[3].includes('Búlgaro') || envi[3].includes('Bulgaro') || envi[3].includes('búlgaro') || envi[3].includes('bulgaro')){
     acual='bg';
   }
+  if(envi[3].includes('Persa') || envi[3].includes('persa')){
+    acual='fa';
+  }
+  if(envi[3].includes('Bosnio') || envi[3].includes('bosnio')){
+    acual='bs';
+  }
+  if(envi[3].includes('Polaco') || envi[3].includes('polaco')){
+    acual='pl';
+  }
+  if(envi[3].includes('Galés') || envi[3].includes('Gales') || envi[3].includes('galés') || envi[3].includes('gales')){
+    acual='cy';
+  }
+  if(envi[3].includes('Portugués') || envi[3].includes('Portugues') || envi[3].includes('portugués') || envi[3].includes('portugues')){
+    acual='pt';
+  }
+  if(envi[3].includes('Húngaro') || envi[3].includes('Hungaro') || envi[3].includes('húngaro') || envi[3].includes('hungaro')){
+    acual='hu';
+  }
+  if(envi[3].includes('Rumano') || envi[3].includes('rumano')){
+    acual='ro';
+  }
+  if(envi[3].includes('Vietnamita') || envi[3].includes('vietnamita')){
+    acual='vi';
+  }
+  if(envi[3].includes('Ruso') || envi[3].includes('ruso')){
+    acual='ru';
+  }
+  if(envi[3].includes('Haitiano') || envi[3].includes('haitiano') || envi[3].includes('criollo') || envi[3].includes('Criollo') || envi[3].includes('Haitiano (criollo)' || envi[3].includes('haitiano (criollo)')){
+    acual='ht';
+  }
+  if(envi[3].includes('Cebuano') || envi[3].includes('cebuano')){
+    acual='ceb';
+  }
+  if(envi[3].includes('Gallego') || envi[3].includes('gallego')){
+    acual='gl';
+  }
+  if(envi[3].includes('Serbio') || envi[3].includes('serbio')){
+    acual='sr';
+  }
+  if(envi[3].includes('Holandés') || envi[3].includes('Holandes') || envi[3].includes('holandés') || envi[3].includes('holandes')){
+    acual='nl';
+  }
+  if(envi[3].includes('Cingalés') || envi[3].includes('Cingales') || envi[3].includes('cingalés') || envi[3].includes('cingales')){
+    acual='si';
+  }
+  if(envi[3].includes('Hill Mari') || envi[3].includes('Hill mari') || envi[3].includes('hill Mari') || envi[3].includes('hill mari')){
+    acual='mrj';
+  }
+  if(envi[3].includes('Eslovaco') || envi[3].includes('eslovaco')){
+    acual='sk';
+  }
+  if(envi[3].includes('Griego') || envi[3].includes('griego')){
+    acual='el';
+  }
+  if(envi[3].includes('Esloveno') || envi[3].includes('esloveno')){
+    acual='sl';
+  }
+  if(envi[3].includes('Georgiano') || envi[3].includes('georgiano')){
+    acual='ka';
+  }
+  if(envi[3].includes('Swahili') || envi[3].includes('swahili')){
+    acual='sw';
+  }
+  if(envi[3].includes('Gujarati') || envi[3].includes('gujarati')){
+    acual='gu';
+  }
+  if(envi[3].includes('Sundanese') || envi[3].includes('sundanese')){
+    acual='su';
+  }
+  if(envi[3].includes('Danish') || envi[3].includes('danish')){
+    acual='da';
+  }
+  if(envi[3].includes('Tajik') || envi[3].includes('tajik')){
+    acual='tg';
+  }
+  if(envi[3].includes('Hebreo') || envi[3].includes('hebreo')){
+    acual='he';
+  }
+  if(envi[3].includes('Tailandés') || envi[3].includes('tailandés') || envi[3].includes('Tailandes') || envi[3].includes('tailandes')){
+    acual='th';
+  }
+  if(envi[3].includes('Yiddish') || envi[3].includes('yiddish')){
+    acual='yi';
+  }
+  if(envi[3].includes('Tagalog') || envi[3].includes('tagalog')){
+    acual='tl';
+  }
+  if(envi[3].includes('Indonesian') || envi[3].includes('indonesian')){
+    acual='id';
+  }
+  if(envi[3].includes('Tamil') || envi[3].includes('tamil')){
+    acual='ta';
+  }
+  if(envi[3].includes('Irlandés') || envi[3].includes('irlandés') || envi[3].includes('Irlandes') || envi[3].includes('irlandes')){
+    acual='ga';
+  }
+  if(envi[3].includes('Tártaro') || envi[3].includes('tártaro') || envi[3].includes('Tartaro') || envi[3].includes('tartaro')){
+    acual='tt';
+  }
+  if(envi[3].includes('Italiano') || envi[3].includes('italiano')){
+    acual='it';
+  }
+  if(envi[3].includes('Telugu') || envi[3].includes('telugu')){
+    acual='te';
+  }
+  if(envi[3].includes('Islandés') || envi[3].includes('islandés') || envi[3].includes('Islandes') || envi[3].includes('islandes')){
+    acual='is';
+  }
+  if(envi[3].includes('Turco') || envi[3].includes('turco')){
+    acual='tr';
+  }
+  if(envi[3].includes('Español') || envi[3].includes('español')){
+    acual='es';
+  }
+  if(envi[3].includes('Udmurt') || envi[3].includes('udmurt')){
+    acual='udm';
+  }
+  if(envi[3].includes('Kazajo') || envi[3].includes('kazajo')){
+    acual='kk';
+  }
+  if(envi[3].includes('Uzbeko') || envi[3].includes('uzbeko')){
+    acual='uz';
+  }
+  if(envi[3].includes('Kannada') || envi[3].includes('kannada')){
+    acual='kn';
+  }
+  if(envi[3].includes('Ucraniano') || envi[3].includes('ucraniano')){
+    acual='uk';
+  }
+  if(envi[3].includes('Catalán') || envi[3].includes('catalán') || envi[3].includes('Catalan') || envi[3].includes('catalan')){
+    acual='ca';
+  }
+  if(envi[3].includes('Urdu') || envi[3].includes('urdu')){
+    acual='ur';
+  }
+  if(envi[3].includes('Kirguís') || envi[3].includes('kirguís') || envi[3].includes('kirguis') || envi[3].includes('Kirguis')){
+    acual='ky';
+  }
+  if(envi[3].includes('Finlandés') || envi[3].includes('finlandés') || envi[3].includes('Finlandes') || envi[3].includes('finlandes')){
+    acual='fi';
+  }
+  if(envi[3].includes('Chino') || envi[3].includes('chino')){
+    acual='zh';
+  }
+  if(envi[3].includes('Francés') || envi[3].includes('francés') || envi[3].includes('Frances') || envi[3].includes('frances')){
+    acual='fr';
+  }
+  if(envi[3].includes('Coreano') || envi[3].includes('coreano')){
+    acual='ko';
+  }
+  if(envi[3].includes('Hindi') || envi[3].includes('hindi')){
+    acual='hi';
+  }
+  if(envi[3].includes('Xhosa') || envi[3].includes('xhosa')){
+    acual='xh';
+  }
+  if(envi[3].includes('Croata') || envi[3].includes('croata')){
+    acual='hr';
+  }
+  if(envi[3].includes('Khmer') || envi[3].includes('khmer')){
+    acual='km';
+  }
+  if(envi[3].includes('Checo') || envi[3].includes('checo')){
+    acual='cs';
+  }
+  if(envi[3].includes('Laosiano') || envi[3].includes('laosiano')){
+    acual='lo';
+  }
+  if(envi[3].includes('Sueco') || envi[3].includes('sueco')){
+    acual='sv';
+  }
+  if(envi[3].includes('Latín') || envi[3].includes('latín') || envi[3].includes('Latin') || envi[3].includes('latin')){
+    acual='la';
+  }
+  if(envi[3].includes('Escocés') || envi[3].includes('escocés') || envi[3].includes('Escoces') || envi[3].includes('escoces')){
+    acual='gd';
+  }
+  if(envi[3].includes('Letón') || envi[3].includes('letón') || envi[3].includes('Leton') || envi[3].includes('leton')){
+    acual='lv';
+  }
+  if(envi[3].includes('Estonio') || envi[3].includes('estonio')){
+    acual='et';
+  }
+  if(envi[3].includes('Lituano') || envi[3].includes('lituano')){
+    acual='lt';
+  }
+  if(envi[3].includes('Esperanto') || envi[3].includes('esperanto')){
+    acual='eo';
+  }
+  if(envi[3].includes('Luxemburgués') || envi[3].includes('luxemburgués') || envi[3].includes('Luxemburgues') || envi[3].includes('luxemburgues')){
+    acual='lb';
+  }
   this.adarle='otrosdfsd'+localStorage.getItem('a');
   this.http.get('https://translate.yandex.net/api/v1.5/tr.json/translate?key='+key+'&text='+envi[2]+'&lang=es-'+acual).subscribe(data => {
       console.log(data);
