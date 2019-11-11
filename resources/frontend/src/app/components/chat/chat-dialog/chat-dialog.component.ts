@@ -472,8 +472,10 @@ export class ChatDialogComponent implements OnInit {
   }
 
   obrasya(a){
-    
-      this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "Vega, Lope de") . }';
+    document.getElementById('u').innerText='Se está realizando la búsqueda...';
+    let div = a.split("+");
+    let buscar = div[2];
+      this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'") . }';
     
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
@@ -488,10 +490,17 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });
-
-    
+    if(this.resultData.length!=0){
+    for(let i=0;i<this.resultData.length;i++){
+      if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/work/')){
+        document.getElementById('u').innerHTML='He encontrado <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>';
+      }
+    }
+  }else{
+    document.getElementById('u').innerText='No he encontrado ninguna obra en la biblioteca con ese nombre.';
+  }    
       document.getElementById('u').id='otro';
-    
+      
   }
 
   edicionesquijote(a){
