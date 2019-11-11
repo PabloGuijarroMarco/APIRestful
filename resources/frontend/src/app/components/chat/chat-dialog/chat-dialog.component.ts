@@ -77,7 +77,7 @@ export class ChatDialogComponent implements OnInit {
 
   sendMessage(){
     //console.log(this.formValue);
-    if(this.formValue!=undefined){
+    if(this.formValue!=undefined && this.formValue!=''){
     this.chat.converse(this.formValue);
     this.formValue = '';
     this.cont = this.cont+1;
