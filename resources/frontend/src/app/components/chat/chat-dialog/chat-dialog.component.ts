@@ -76,6 +76,8 @@ export class ChatDialogComponent implements OnInit {
   }
 
   sendMessage(){
+    //console.log(this.formValue);
+    if(this.formValue!=undefined){
     this.chat.converse(this.formValue);
     this.formValue = '';
     this.cont = this.cont+1;
@@ -84,6 +86,7 @@ export class ChatDialogComponent implements OnInit {
       this.imgSrc = "/assets/images/ReservarChat2.PNG";
     }
     //console.log(this.messages.source.source);
+  }
   }
 
   pruebatraductor(a){
