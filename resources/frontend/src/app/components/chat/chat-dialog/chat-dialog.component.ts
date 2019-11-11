@@ -91,7 +91,7 @@ export class ChatDialogComponent implements OnInit {
     console.log(document.getElementById('u'));
   let envi=a.split('+');
   this.textoatrad=envi[2];
-  let acual;
+  let acual='malisimo';
   if(envi[3].includes('inglés') || envi[3].includes('ingles') || envi[3].includes('Ingles') || envi[3].includes('Inglés')){
     acual='en';
   }
@@ -372,7 +372,7 @@ export class ChatDialogComponent implements OnInit {
     acual='ms';
   }
 
-
+  if(acual!='malisimo'){
   this.http.get('https://translate.yandex.net/api/v1.5/tr.json/detect?key='+key+'&text='+envi[2]).subscribe(data => {
       console.log(data);
       this.resultData=data;
@@ -384,7 +384,13 @@ export class ChatDialogComponent implements OnInit {
 
   setTimeout(() => {
     this.traduccion2(acual)
-   }, 200);
+   }, 250);
+  }else{
+    document.getElementById('u').innerText='Ese idioma no existe o no está disponible para realizar la traducción';
+
+    document.getElementById('u').id='this.adarle';
+    this.adarle='otrosdfsd'+localStorage.getItem('a');
+  }
   }
 
   traduccion2(acual){
