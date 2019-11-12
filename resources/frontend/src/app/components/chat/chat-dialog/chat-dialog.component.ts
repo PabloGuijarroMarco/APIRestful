@@ -471,7 +471,42 @@ export class ChatDialogComponent implements OnInit {
     });
   }
 
+  buscarAutorcito(a){
+    document.getElementById('u').innerText='Se está realizando la búsqueda...';
+    let div = a.split("+");
+    let buscar = div[2];
+      this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'") . }';
+    
+      this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
+     console.log(this.fullUrl);
+
+
+     let requestHeaders: any = { 'Accept': 'application/sparql-results+json','content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
+     let responseLogin = fetch(this.fullUrl, {
+      method: 'POST',
+      headers: requestHeaders
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+    console.log(this.resultData);
+    });
+    if(this.resultData.length!=0){
+    for(let i=0;i<this.resultData.length;i++){
+      if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
+        document.getElementById('u').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+      }
+      if(i==this.resultData.length-1 && !this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
+        document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+      }
+    }
+  }else{
+    document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+  }    
+      document.getElementById('u').id='otro';
+  }
+
   obrasya(a){
+    //this.resultData='';
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     let div = a.split("+");
     let buscar = div[2];
@@ -1052,6 +1087,9 @@ export class ChatDialogComponent implements OnInit {
 
   prueba(a){
     console.log(a);
+    if(a.includes('+AutorBuscar')){
+      this.buscarAutorcito(a);
+    }
     if(a.includes('+EstoEsUnaTraduccion')){
       this.pruebatraductor(a);
     }
