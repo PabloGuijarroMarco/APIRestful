@@ -520,6 +520,11 @@ export class ChatDialogComponent implements OnInit {
       }
       console.log(this.daleya);
       buscar=this.daleya;
+    }else{
+      var ui=buscar.split(' ');
+      if(ui.length=2){
+        buscar=ui[1]+', '+ui[0];
+      }
     }
     console.log(buscar);
       this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
