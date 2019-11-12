@@ -499,7 +499,7 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     let div = a.split("+");
     let buscar = div[2];
-    if(a.includes('de')){
+    if(a.includes(' de ')){
       console.log('yeee');
       let prob=a.split("+");
       console.log(prob);
