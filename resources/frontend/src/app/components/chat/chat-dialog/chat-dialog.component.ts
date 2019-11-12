@@ -45,6 +45,7 @@ export class ChatDialogComponent implements OnInit {
   public res;
   public adarle;
   public textoatrad;
+  public daleya;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -471,10 +472,56 @@ export class ChatDialogComponent implements OnInit {
     });
   }
 
+  nuevointento(){
+    
+    console.log(document.getElementById('otro22'));
+    console.log(this.resultData);
+    if(this.resultData.length!=0){
+    for(let i=0;i<this.resultData.length;i++){
+      if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
+        document.getElementById('otro22').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+      }
+      if(i==this.resultData.length-1 && !document.getElementById('otro22').innerText.includes('He encontrado a')){
+        document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+      }
+    }
+  }else{
+    document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+  }    
+      document.getElementById('u').id='otro';
+      //this.daleya='';
+      setTimeout(() => {
+        this.limpiarvariable()
+       }, 19400);
+  }
   buscarAutorcito(a){
+    
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     let div = a.split("+");
     let buscar = div[2];
+    if(a.includes('de')){
+      console.log('yeee');
+      let prob=a.split("+");
+      console.log(prob);
+      let otro=prob[2];
+      console.log(otro);
+      let prob2=otro.split("de");
+      console.log(prob2);
+      var otravez=prob2[1].split(' ');
+      console.log(otravez);
+      if(otravez.length==2){
+      let res=otravez[1]+', '+prob2[0]+'de';
+      this.daleya=res;
+      }else{
+        for(let i=1;i<otravez.length-1;i++){
+          this.daleya=otravez[i]+' ';
+        }
+        this.daleya=this.daleya+otravez[otravez.length-1]+', '+prob2[0]+'de';
+      }
+      console.log(this.daleya);
+      buscar=this.daleya;
+    }
+    console.log(buscar);
       this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'") . }';
     
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
@@ -495,15 +542,26 @@ export class ChatDialogComponent implements OnInit {
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
         document.getElementById('u').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
       }
-      if(i==this.resultData.length-1 && !this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
+      if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('He encontrado a')){
         document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
       }
     }
   }else{
     document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
   }    
-      document.getElementById('u').id='otro';
-
+      document.getElementById('u').id='otro22';
+      //this.daleya='';
+      console.log(otravez);
+      if(otravez){
+        console.log('entra');
+      if(otravez.length>2){
+        document.getElementById('otro22').innerText='Se está realizando la búsqueda...';
+        setTimeout(() => {
+          this.nuevointento();
+         }, 4500);
+      
+      }
+    }
       setTimeout(() => {
         this.limpiarvariable()
        }, 19400);
@@ -533,6 +591,9 @@ export class ChatDialogComponent implements OnInit {
     for(let i=0;i<this.resultData.length;i++){
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/work/')){
         document.getElementById('u').innerHTML='He encontrado <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>';
+      }
+      if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('He encontrado')){
+        document.getElementById('u').innerText='No he encontrado ninguna obra en la biblioteca con ese nombre.';
       }
     }
   }else{
