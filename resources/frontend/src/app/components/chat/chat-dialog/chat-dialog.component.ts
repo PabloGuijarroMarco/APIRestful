@@ -503,6 +503,10 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
   }    
       document.getElementById('u').id='otro';
+
+      setTimeout(() => {
+        this.limpiarvariable()
+       }, 19400);
   }
 
   obrasya(a){
@@ -535,7 +539,16 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('u').innerText='No he encontrado ninguna obra en la biblioteca con ese nombre.';
   }    
       document.getElementById('u').id='otro';
+
+      setTimeout(() => {
+        this.limpiarvariable()
+       }, 19400);
       
+  }
+
+  limpiarvariable(){
+    console.log('Hola');
+    this.resultData=null;
   }
 
   edicionesquijote(a){
