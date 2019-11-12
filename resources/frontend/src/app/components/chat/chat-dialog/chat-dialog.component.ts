@@ -524,6 +524,9 @@ export class ChatDialogComponent implements OnInit {
       var ui=buscar.split(' ');
       if(ui.length=2){
         buscar=ui[1]+', '+ui[0];
+        if(ui[1]==undefined){
+          buscar=ui[0];
+        }
       }
     }
     console.log(buscar);
