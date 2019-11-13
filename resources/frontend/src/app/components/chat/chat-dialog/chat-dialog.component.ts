@@ -46,6 +46,7 @@ export class ChatDialogComponent implements OnInit {
   public adarle;
   public textoatrad;
   public daleya;
+  public apellid;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -531,6 +532,7 @@ export class ChatDialogComponent implements OnInit {
       }
       if(ui.length==3){
         buscar=ui[1]+' '+ui[2]+', '+ui[0];
+        this.apellid=true;
     }
     }
     console.log(buscar);
@@ -556,10 +558,22 @@ export class ChatDialogComponent implements OnInit {
       }
       if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('He encontrado a')){
         document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(this.apellid=true){
+          console.log('holadfsd');
+          document.getElementById('u').innerText='Se está realizando la búsqueda...';
+          buscar=ui[2]+', '+ui[0]+' '+ui[1];
+          this.otracosita(buscar);
+        }
       }
     }
   }else{
     document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+    if(this.apellid=true){
+      console.log('holadfsd');
+      document.getElementById('u').innerText='Se está realizando la búsqueda...';
+      buscar=ui[2]+', '+ui[0]+' '+ui[1];
+      this.otracosita(buscar);
+    }
   }    
       document.getElementById('u').id='otro22';
       //this.daleya='';
@@ -574,9 +588,41 @@ export class ChatDialogComponent implements OnInit {
       
       }
     }
+    
       setTimeout(() => {
         this.limpiarvariable()
        }, 19400);
+  }
+
+  otracosita(buscar){
+    this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
+    
+      this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
+     console.log(this.fullUrl);
+
+
+     let requestHeaders: any = { 'Accept': 'application/sparql-results+json','content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
+     let responseLogin = fetch(this.fullUrl, {
+      method: 'POST',
+      headers: requestHeaders
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+    console.log(this.resultData);
+    });
+
+    if(this.resultData.length!=0){
+      for(let i=0;i<this.resultData.length;i++){
+        if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
+          document.getElementById('otro22').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+        }
+        if(i==this.resultData.length-1 && !document.getElementById('otro22').innerText.includes('He encontrado a')){
+          document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        }
+      }
+    }else{
+      document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+    }    
   }
 
   obrasya(a){
