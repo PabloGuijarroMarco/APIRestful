@@ -48,6 +48,7 @@ export class ChatDialogComponent implements OnInit {
   public daleya;
   public apellid;
   public nuevoaux;
+  public resultData2;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -62,7 +63,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.noticiasprueba();
+    //this.noticiasprueba();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -93,13 +94,42 @@ export class ChatDialogComponent implements OnInit {
   }
 
   noticiasprueba(){
-    let key='a1fa704bfaa38ddafc3fa3cfdd2a2720.fb7c08da5b';
+    //let key='a1fa704bfaa38ddafc3fa3cfdd2a2720.fb7c08da5b'; hasta el 13 de diciembre no va
+    document.getElementById('u').id='dfsdfdsfsd';
+    let key='ccd3c6d9b6006efc99e69152cc46391c.73318dcc74';
     this.http.get('https://api.trawlingweb.com/?token='+key+'&q=&order=desc&ts=1572562800000').subscribe(data => {
       console.log(data);
-      this.resultData=data;
+      this.resultData2=data;
       //document.getElementById(this.adarle).innerText=this.resultData.text[0];
       //console.log(this.resultData.text[0]);
     });
+    document.getElementById('dfsdfdsfsd').innerHTML='<a name="Ancla2" id="a">Aquí</a> te dejo con 10 de las noticias de interés más recientes que he encontrado: <ul id="dalel"></ul>';
+    console.log(document.getElementById('dalel'));
+
+    setTimeout(() => {
+      this.noticiasfrescas()
+     }, 1000);
+
+    
+    
+  }
+
+  noticiasfrescas(){ 
+    var a=0;
+    console.log(this.resultData2.response);
+    for(let i=0;i<100;i++){
+      console.log('holafuera');
+      if(this.resultData2.response.data[i].site_language=="es"){
+        if(a<10){
+        console.log('hola');
+        document.getElementById('dalel').innerHTML=document.getElementById('dalel').innerHTML+'<li type="disc"> <a href="'+this.resultData2.response.data[i].url+'" style="color: #00ff5a;">'+this.resultData2.response.data[i].title+'</a></li>';
+        a=a+1;
+        }
+      }
+    }
+    setTimeout(() => {
+      this.abrirdenuevo2()
+     }, 20);
   }
 
   pruebatraductor(a){
@@ -1275,8 +1305,15 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado').click();
   }
 
+  abrirdenuevo2(){
+    document.getElementById('anclado2').click();
+  }
+
   prueba(a){
     console.log(a);
+    if(a=='NoticiasDarYa'){
+      this.noticiasprueba();
+    }
     if(a.includes('+AutorBuscar')){
       this.buscarAutorcito(a);
     }
