@@ -62,7 +62,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.pruebatraductor();
+    this.noticiasprueba();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -90,6 +90,16 @@ export class ChatDialogComponent implements OnInit {
     }
     //console.log(this.messages.source.source);
   }
+  }
+
+  noticiasprueba(){
+    let key='a1fa704bfaa38ddafc3fa3cfdd2a2720.fb7c08da5b';
+    this.http.get('https://api.trawlingweb.com/?token='+key+'&q=&order=desc&ts=1572562800000').subscribe(data => {
+      console.log(data);
+      this.resultData=data;
+      //document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      //console.log(this.resultData.text[0]);
+    });
   }
 
   pruebatraductor(a){
