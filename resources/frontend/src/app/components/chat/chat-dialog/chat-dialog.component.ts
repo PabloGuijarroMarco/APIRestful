@@ -49,6 +49,7 @@ export class ChatDialogComponent implements OnInit {
   public apellid;
   public nuevoaux;
   public resultData2;
+  public resultData3;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -63,7 +64,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.noticiasprueba();
+    //this.youtubeprueba();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -91,6 +92,41 @@ export class ChatDialogComponent implements OnInit {
     }
     //console.log(this.messages.source.source);
   }
+  }
+
+  youtubeprueba(){
+    document.getElementById('u').id='dfsdfdsfsd1';
+    let key='20aa83ba7d06fd6d3c88c09e1184fab5.c7e2e38416';
+    this.http.get('https://youtube.trawlingweb.com/search/?token='+key+'&q=biblioteca%20virtual%20miguel%20de%20cervantes').subscribe(data => {
+      console.log(data);
+      this.resultData3=data;
+      //document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      //console.log(this.resultData.text[0]);
+    });
+    document.getElementById('dfsdfdsfsd1').innerHTML='<a name="Ancla3" id="a">Aquí</a> te dejo con 10 de los vídeos subidos en el canal oficial de la BVMC en YouTube: <ul id="dalel1"></ul>';
+    console.log(document.getElementById('dalel1'));
+    setTimeout(() => {
+      this.videosfrescos()
+     }, 1000);
+    
+  }
+
+  videosfrescos(){
+    var a=0;
+    console.log(this.resultData3.response);
+    for(let i=0;i<50;i++){
+      console.log('holafuera');
+      if(this.resultData3.response.data[i].channelTitle=="cervantesvirtual"){
+        if(a<10){
+        console.log('hola');
+        document.getElementById('dalel1').innerHTML=document.getElementById('dalel1').innerHTML+'<li type="disc" style="margin-left:-10%;">'+this.resultData3.response.data[i].title+':<span style="margin-left: -11%;"><iframe width="109%" height="100%" src="'+this.resultData3.response.data[i].urlEmbed+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></li>';
+        a=a+1;
+        }
+      }
+    }
+    setTimeout(() => {
+      this.abrirdenuevo3()
+     }, 20);
   }
 
   noticiasprueba(){
@@ -1309,8 +1345,15 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado2').click();
   }
 
+  abrirdenuevo3(){
+    document.getElementById('anclado3').click();
+  }
+
   prueba(a){
     console.log(a);
+    if(a=='VídeosBibliotecaYa'){
+      this.youtubeprueba();
+    }
     if(a=='NoticiasDarYa'){
       this.noticiasprueba();
     }
