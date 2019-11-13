@@ -649,6 +649,7 @@ export class ChatDialogComponent implements OnInit {
     console.log(document.getElementById('otro33'));
     document.getElementById('otro33').innerText='Se está realizando la búsqueda...';
     if(this.nuevoaux.length!=0){
+      
       for(let i=0;i<this.nuevoaux.length;i++){
         if(this.nuevoaux[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
           document.getElementById('otro33').innerHTML='He encontrado a <a href="'+this.nuevoaux[i].autor.value+'" style="color: #00ff5a;">"'+this.nuevoaux[i].nombreautor.value+'"</a>.';
@@ -661,9 +662,11 @@ export class ChatDialogComponent implements OnInit {
         }
       }
     }else{
+      
       document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
     } 
     document.getElementById('otro33').id='otro35';
+    console.log('holajajaja');
     setTimeout(() => {
       this.limpiarvariable()
      }, 5400);
