@@ -117,12 +117,16 @@ export class ChatDialogComponent implements OnInit {
     //this.resultData5=text;
     let obj = JSON.parse(text);
     console.log(obj);
+    if(obj.results.length!=0){
     document.getElementById('u').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los 10 primeros resultados de la búsqueda: <ul id="dalel2"></ul>';
     document.getElementById('u').id='dsfsdghb';
     for(let i=0;i<10;i++){
       document.getElementById('dalel2').innerHTML=document.getElementById('dalel2').innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #00ff5a;">'+obj.results[i].title+'</a></li>';
     }
-    
+    }else{
+      document.getElementById('u').innerHTML='No se han obtenido resultados en la búsqueda';
+      document.getElementById('u').id='dsfsdghb';
+    }
   })
   .catch(function(error) {
     console.log('Request failed', error)
@@ -131,7 +135,7 @@ export class ChatDialogComponent implements OnInit {
 
   setTimeout(() => {
       this.abrirdenuevo4()
-     }, 1000);
+     }, 20);
   
   }
 
