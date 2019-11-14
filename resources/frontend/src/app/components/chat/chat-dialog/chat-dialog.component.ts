@@ -50,6 +50,7 @@ export class ChatDialogComponent implements OnInit {
   public nuevoaux;
   public resultData2;
   public resultData3;
+  public resultData4;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -64,7 +65,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.youtubeprueba();
+    //this.twitterejemplo();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -94,6 +95,15 @@ export class ChatDialogComponent implements OnInit {
   }
   }
 
+  /*twitterejemplo(){
+    this.http.get('/1.1/statuses/user_timeline.json?screen_name=FBVMC').subscribe(data => {
+      console.log(data);
+      this.resultData4=data;
+      //document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      //console.log(this.resultData.text[0]);
+    });
+  }*/
+
   youtubeprueba(){
     document.getElementById('u').id='dfsdfdsfsd1';
     let key='20aa83ba7d06fd6d3c88c09e1184fab5.c7e2e38416';
@@ -108,7 +118,7 @@ export class ChatDialogComponent implements OnInit {
     setTimeout(() => {
       this.videosfrescos()
      }, 1000);
-    
+
   }
 
   videosfrescos(){
@@ -146,11 +156,11 @@ export class ChatDialogComponent implements OnInit {
       this.noticiasfrescas()
      }, 1000);
 
-    
-    
+
+
   }
 
-  noticiasfrescas(){ 
+  noticiasfrescas(){
     var a=0;
     console.log(this.resultData2.response);
     for(let i=0;i<100;i++){
@@ -551,7 +561,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   nuevointento(){
-    
+
     console.log(document.getElementById('otro22'));
     console.log(this.resultData);
     if(this.resultData.length!=0){
@@ -565,7 +575,7 @@ export class ChatDialogComponent implements OnInit {
     }
   }else{
     document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-  }    
+  }
       document.getElementById('u').id='otro';
       //this.daleya='';
       setTimeout(() => {
@@ -573,7 +583,7 @@ export class ChatDialogComponent implements OnInit {
        }, 19400);
   }
   buscarAutorcito(a){
-    
+
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     let div = a.split("+");
     let buscar = div[2];
@@ -614,7 +624,7 @@ export class ChatDialogComponent implements OnInit {
     }
     console.log(buscar);
       this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
-    
+
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
 
@@ -651,7 +661,7 @@ export class ChatDialogComponent implements OnInit {
       buscar=ui[2]+', '+ui[0]+' '+ui[1];
       this.otracosita(buscar);
     }
-  }    
+  }
       document.getElementById('u').id='otro22';
       //this.daleya='';
       console.log(otravez);
@@ -662,10 +672,10 @@ export class ChatDialogComponent implements OnInit {
         setTimeout(() => {
           this.nuevointento();
          }, 4500);
-      
+
       }
     }
-    
+
       setTimeout(() => {
         this.limpiarvariable()
        }, 19400);
@@ -674,7 +684,7 @@ export class ChatDialogComponent implements OnInit {
   otracosita(buscar){
     console.log('entrar entra');
     this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
-    
+
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
 
@@ -690,7 +700,7 @@ export class ChatDialogComponent implements OnInit {
     console.log(this.resultData);
     });
     console.log(document.getElementById('otro22'));
-       
+
     if(this.resultData.length!=0){
       //console.log('entra1');
       for(let i=0;i<this.resultData.length;i++){
@@ -709,7 +719,7 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('u').id='otro22';
       console.log(document.getElementById('otro22'));
     this.resultData=null;
-    }    
+    }
     if(document.getElementById('otro22')){
       setTimeout(() => {
         this.aversiva()
@@ -725,7 +735,7 @@ export class ChatDialogComponent implements OnInit {
     console.log(document.getElementById('otro33'));
     document.getElementById('otro33').innerText='Se está realizando la búsqueda...';
     if(this.nuevoaux.length!=0){
-      
+
       for(let i=0;i<this.nuevoaux.length;i++){
         if(this.nuevoaux[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
           document.getElementById('otro33').innerHTML='He encontrado a <a href="'+this.nuevoaux[i].autor.value+'" style="color: #00ff5a;">"'+this.nuevoaux[i].nombreautor.value+'"</a>.';
@@ -738,15 +748,15 @@ export class ChatDialogComponent implements OnInit {
         }
       }
     }else{
-      
+
       document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-    } 
+    }
     document.getElementById('otro33').id='otro35';
     console.log('holajajaja');
     setTimeout(() => {
       this.limpiarvariable()
      }, 5400);
-    
+
   }
 
   obrasya(a){
@@ -755,7 +765,7 @@ export class ChatDialogComponent implements OnInit {
     let div = a.split("+");
     let buscar = div[2];
       this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
-    
+
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
 
@@ -780,13 +790,13 @@ export class ChatDialogComponent implements OnInit {
     }
   }else{
     document.getElementById('u').innerText='No he encontrado ninguna obra en la biblioteca con ese nombre.';
-  }    
+  }
       document.getElementById('u').id='otro';
 
       setTimeout(() => {
         this.limpiarvariable()
        }, 19400);
-      
+
   }
 
   limpiarvariable(){
@@ -795,9 +805,9 @@ export class ChatDialogComponent implements OnInit {
   }
 
   edicionesquijote(a){
-    
+
       this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
-    
+
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
 
@@ -812,7 +822,7 @@ export class ChatDialogComponent implements OnInit {
     console.log(this.resultData);
     });
 
-    
+
       console.log(document.getElementById('u'));
       document.getElementById('u').innerHTML= '<a name="Ancla" id="a">En</a> la biblioteca tenemos registradas '+this.resultData.length+' ediciones del Quijote. Haga click sobre la que desee informarse: <ul id="lis"></ul>';
       for(let i=0;i<this.resultData.length;i++){
@@ -827,13 +837,13 @@ export class ChatDialogComponent implements OnInit {
       setTimeout(() => {
         this.abrirdenuevo()
        }, 20);
-    
+
   }
 
   pruebabvmc(a){
     console.log(a);
-    
-    
+
+
     if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus' || a=='ObrasSiriac' || a=='ObrasDan' || a=='ObrasLengSig' || a=='ObrasCreo' || a=='ObrasRuma' || a=='ObrasHungar' || a=='ObrasSignIn' || 'ObrasTaga' || a=='ObrasPola' || a=='ObrasJapos' || a=='ObrasMulti' || a=='ObrasEusk' || a=='ObrasLitu' || a=='ObrasPersa'){
       this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
     }
@@ -852,8 +862,8 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });
-    
-    
+
+
     if(a=='idiomasBiblio'){
       document.getElementById('u').innerText='La Biblioteca Virtual Miguel de Cervantes posee obras en '+this.resultData.length+' idiomas diferentes. Dígame el idioma del que desea que le muestre obras';
       document.getElementById('u').id='otro';
