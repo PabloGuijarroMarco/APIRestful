@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { scan } from 'rxjs/internal/operators/scan';
 import { map, catchError, tap } from 'rxjs/operators';
+import { Headers, RequestOptions } from '@angular/http';
 //import { nextContext } from '@angular/core/src/render3';
 //import { BookingsService } from 'src/app/services/bookings.service';
 //import { RestaurantesService } from 'src/app/services/restaurantes.service';
@@ -51,6 +52,7 @@ export class ChatDialogComponent implements OnInit {
   public resultData2;
   public resultData3;
   public resultData4;
+  public resultData5;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -65,7 +67,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.twitterejemplo();
+    //this.googleejemplo();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -94,6 +96,45 @@ export class ChatDialogComponent implements OnInit {
     //console.log(this.messages.source.source);
   }
   }
+
+  googleejemplo(a){
+    let div=a.split('+');
+    //8b335f7b12msh681633c2ffcabd1p193a52jsna97eed9c770d
+  console.log(div[2]);
+    fetch("https://faroo-faroo-web-search.p.rapidapi.com/api?q="+div[2], {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "faroo-faroo-web-search.p.rapidapi.com",
+		"x-rapidapi-key": "8b335f7b12msh681633c2ffcabd1p193a52jsna97eed9c770d"
+	},
+  "mode": "cors"
+})
+.then(function(response) {
+    return response.text();
+  })
+  .then(function(text) {
+    //console.log('Request successful', text);
+    //this.resultData5=text;
+    let obj = JSON.parse(text);
+    console.log(obj);
+    document.getElementById('u').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los 10 primeros resultados de la búsqueda: <ul id="dalel2"></ul>';
+    document.getElementById('u').id='dsfsdghb';
+    for(let i=0;i<10;i++){
+      document.getElementById('dalel2').innerHTML=document.getElementById('dalel2').innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #00ff5a;">'+obj.results[i].title+'</a></li>';
+    }
+    
+  })
+  .catch(function(error) {
+    console.log('Request failed', error)
+  });
+  
+
+  setTimeout(() => {
+      this.abrirdenuevo4()
+     }, 1000);
+  
+  }
+
 
   /*twitterejemplo(){
     this.http.get('/1.1/statuses/user_timeline.json?screen_name=FBVMC').subscribe(data => {
@@ -1359,8 +1400,15 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado3').click();
   }
 
+  abrirdenuevo4(){
+    document.getElementById('anclado4').click();
+  }
+
   prueba(a){
     console.log(a);
+    if(a.includes('+BuscarInternet')){
+      this.googleejemplo(a);
+    }
     if(a=='VídeosBibliotecaYa'){
       this.youtubeprueba();
     }
