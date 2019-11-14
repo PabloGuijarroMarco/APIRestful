@@ -98,6 +98,8 @@ export class ChatDialogComponent implements OnInit {
   }
 
   googleejemplo(a){
+    document.getElementById('u').innerText='Se está realizando la búsqueda...';
+    document.getElementById('u').id='dsfsdghb';
     let div=a.split('+');
     //8b335f7b12msh681633c2ffcabd1p193a52jsna97eed9c770d
   console.log(div[2]);
@@ -118,24 +120,31 @@ export class ChatDialogComponent implements OnInit {
     let obj = JSON.parse(text);
     console.log(obj);
     if(obj.results.length!=0){
-    document.getElementById('u').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los 10 primeros resultados de la búsqueda: <ul id="dalel2"></ul>';
-    document.getElementById('u').id='dsfsdghb';
+      if(obj.results.length==10){
+    document.getElementById('dsfsdghb').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los 10 primeros resultados de la búsqueda: <ul id="dalel2"></ul>';
+      }else{
+        document.getElementById('dsfsdghb').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los resultados de la búsqueda: <ul id="dalel2"></ul>';
+      }
     for(let i=0;i<10;i++){
       document.getElementById('dalel2').innerHTML=document.getElementById('dalel2').innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #00ff5a;">'+obj.results[i].title+'</a></li>';
     }
+    setTimeout(() => {
+      console.log('hola');
+      document.getElementById('anclado4').click();
+     }, 20);
     }else{
-      document.getElementById('u').innerHTML='No se han obtenido resultados en la búsqueda';
-      document.getElementById('u').id='dsfsdghb';
+      document.getElementById('dsfsdghb').innerHTML='No se han obtenido resultados en la búsqueda';
+      //document.getElementById('u').id='dsfsdghb';
     }
   })
   .catch(function(error) {
     console.log('Request failed', error)
+    document.getElementById('dsfsdghb').innerHTML='Esta funcionalidad está temporalmente fuera de servicio. Vuelva a intentarlo en unos minutos.';
+    //document.getElementById('u').id='dsfsdghb';
   });
   
 
-  setTimeout(() => {
-      this.abrirdenuevo4()
-     }, 20);
+  
   
   }
 
@@ -1404,9 +1413,7 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado3').click();
   }
 
-  abrirdenuevo4(){
-    document.getElementById('anclado4').click();
-  }
+  
 
   prueba(a){
     console.log(a);
