@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { scan } from 'rxjs/internal/operators/scan';
 import { map, catchError, tap } from 'rxjs/operators';
 import { Headers, RequestOptions } from '@angular/http';
+//import { TwitterService } from 'ngx-twitter-api';
 //import { nextContext } from '@angular/core/src/render3';
 //import { BookingsService } from 'src/app/services/bookings.service';
 //import { RestaurantesService } from 'src/app/services/restaurantes.service';
@@ -53,11 +54,13 @@ export class ChatDialogComponent implements OnInit {
   public resultData3;
   public resultData4;
   public resultData5;
+  public result = '';
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
     protected http: HttpClient,
     public chat: ChatService,
+    //private twitter: TwitterService,
     //private bookingService: BookingsService,
     //private router: Router,
     //private restaurantesService: RestaurantesService,
@@ -67,7 +70,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.googleejemplo();
+    this.twitterejemplo();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -149,14 +152,93 @@ export class ChatDialogComponent implements OnInit {
   }
 
 
-  /*twitterejemplo(){
-    this.http.get('/1.1/statuses/user_timeline.json?screen_name=FBVMC').subscribe(data => {
+  twitterejemplo(){
+    let APIkey='ClDRmNrlAQmnucHd6cGJGiqym';
+    let APIsecretkey='aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH';
+    let Accesstoken='979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE'; 
+    let Accesstokensecret='3ObsJHvegTiJ34WQUiwGPWlBndS9C8YiIp7apGMnl3Grd'; 
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    this.http.post('http://localhost:3000/authorize',{headers: headers}).subscribe(data => {
       console.log(data);
       this.resultData4=data;
       //document.getElementById(this.adarle).innerText=this.resultData.text[0];
       //console.log(this.resultData.text[0]);
     });
-  }*/
+    /*this.http.get('/1.1/statuses/user_timeline.json?screen_name=FBVMC').subscribe(data => {
+      console.log(data);
+      this.resultData4=data;
+      //document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      //console.log(this.resultData.text[0]);
+    });*/
+
+    
+
+    
+
+   /* let requestHeaders: any = { 'content-type': 'application/x-www-form-urlencoded;' };
+    let requestParams: any = {
+		
+		"oauth_access_token": "979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE",
+		"oauth_access_token_secret": "3ObsJHvegTiJ34WQUiwGPWlBndS9C8YiIp7apGMnl3Grd",
+    "consumer_key": "ClDRmNrlAQmnucHd6cGJGiqym",
+    "consumer_secret": "aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH"
+	};
+  
+     let responseLogin = fetch('/1.1/statuses/user_timeline.json?screen_name=FBVMC', {
+      method: 'POST',
+      headers: requestHeaders,
+      body: requestParams
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+    console.log(this.resultData);
+    });*/
+    
+    /*fetch("https://twitterbukativ1.p.rapidapi.com/search", {
+	"method": "POST",
+	"headers": {
+		"x-rapidapi-host": "TwitterBukatiV1.p.rapidapi.com",
+		"x-rapidapi-key": "e0059871e3mshc4cae406990e4abp188935jsn2deb4a0d69b4",
+		"content-type": "application/x-www-form-urlencoded"
+	},
+	"body": {
+		"consumerKey": "ClDRmNrlAQmnucHd6cGJGiqym",
+		"query": "FBVMC",
+		"accessTokenKey": "979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE",
+		"consumerSecret": "aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH",
+		"accessTokenSecret": "3ObsJHvegTiJ34WQUiwGPWlBndS9C8YiIp7apGMnl3Grd"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.log(err);
+});*/
+ 
+  
+    /*this.http.get(
+      '/1.1/statuses/user_timeline.json?screen_name=FBVMC',
+      {
+        count: 5
+      },
+      {
+        consumerKey: APIkey,
+        consumerSecret: APIsecretkey
+      },
+      {
+        token: Accesstoken,
+        tokenSecret: Accesstokensecret
+      }
+  ).subscribe((res)=>{
+    console.log(res);
+      //this.result = res.json().map(tweet => tweet.text);
+      //console.log(this.result);
+  });*/
+  
+  }
 
   youtubeprueba(){
     document.getElementById('u').id='dfsdfdsfsd1';
