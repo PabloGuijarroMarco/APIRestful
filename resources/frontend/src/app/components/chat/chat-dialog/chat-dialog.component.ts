@@ -70,7 +70,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.twitterejemplo();
+    //this.twitterejemplo();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -153,6 +153,9 @@ export class ChatDialogComponent implements OnInit {
 
 
   twitterejemplo(){
+
+    document.getElementById('u').id='yukuyuku';
+
     let APIkey='ClDRmNrlAQmnucHd6cGJGiqym';
     let APIsecretkey='aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH';
     let Accesstoken='979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE'; 
@@ -162,13 +165,21 @@ export class ChatDialogComponent implements OnInit {
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     this.http.post('http://localhost:3000/authorize',{headers: headers}).subscribe(data => {
       console.log(data);
-      this.resultData4=data;
-      console.log(this.resultData4.data);
+      
       //setTimeout(() => {
       var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     this.http.post('http://localhost:3000/search', {headers: headers}).subscribe(data => {
       console.log(data);
+      this.resultData4=data;
+      console.log(this.resultData4);
+      document.getElementById('yukuyuku').innerHTML='<a name="Ancla5" id="a">Aquí</a> te dejo los 10 últimos tweets publicados por la biblioteca en su cuenta de Twitter: <ul id="dalel3"></ul>';
+      for(let i=0;i<10;i++){
+      document.getElementById('dalel3').innerHTML=document.getElementById('dalel3').innerHTML+'<li type="disc" style="margin-left: -12%;">'+this.resultData4.data[i].text+'</li>';
+    }
+    setTimeout(() => {
+      this.abrirdenuevo4()
+     }, 20);
       });
      //}, 500);
       
@@ -1510,10 +1521,15 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado3').click();
   }
 
-  
+  abrirdenuevo4(){
+    document.getElementById('anclado5').click();
+  }
 
   prueba(a){
     console.log(a);
+    if(a=='+TwitterATope'){
+      this.twitterejemplo();
+    }
     if(a.includes('+BuscarInternet')){
       this.googleejemplo(a);
     }
