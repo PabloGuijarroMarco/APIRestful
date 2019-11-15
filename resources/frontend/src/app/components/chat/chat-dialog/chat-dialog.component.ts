@@ -1528,7 +1528,7 @@ export class ChatDialogComponent implements OnInit {
   prueba(a){
     console.log(a);
     if(a=='DameLasRedecitas'){
-      document.getElementById('u').innerHTML='¡Por supuesto! La BVMC tiene cuenta de <a href="http://twitter.com/fbvmc" style="color: #00ff5a;">Twitter</a>, página de <a href="http://www.facebook.com/pages/Biblioteca-Virtual-Miguel-de-Cervantes/115005045196224" style="color: #00ff5a;">Facebook</a> y canal de <a href="http://www.youtube.com/cervantesvirtual" style="color: #00ff5a;">YouTube</a>. Además puedes pedirme a mí directamente sus últimos tweets y te los enseñaré encantada';
+      document.getElementById('u').innerHTML='¡Por supuesto! La BVMC tiene cuenta de <a href="http://twitter.com/fbvmc" style="color: #00ff5a;">Twitter</a>, página de <a href="http://www.facebook.com/pages/Biblioteca-Virtual-Miguel-de-Cervantes/115005045196224" style="color: #00ff5a;">Facebook</a> y canal de <a href="http://www.youtube.com/cervantesvirtual" style="color: #00ff5a;">YouTube</a>. Además puedes pedirme a mí directamente sus últimos tweets o vídeos y te los enseñaré encantada';
       document.getElementById('u').id='jtjytjytyt';
     }
     if(a=='+TwitterATope'){
