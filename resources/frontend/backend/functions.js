@@ -16,6 +16,18 @@ functions = {
                 res.json({success: true, data:config.bearertoken});
             }
         })
+    },
+    search: function(req,res){
+        //var searchquery=req.body.query;
+        //var encsearchquery=encodeURIComponent(searchquery);
+        var bearerheader = 'Bearer ' + config.bearertoken;
+        request.get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=FBVMC', {headers:{Authorization: bearerheader}}, function(error, body, response){
+            if(error)
+            console.log(error);
+            else {
+                res.json({success: true, data: JSON.parse(body.body)});
+            }
+        })
     }
 }
 

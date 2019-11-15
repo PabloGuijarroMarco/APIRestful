@@ -163,6 +163,21 @@ export class ChatDialogComponent implements OnInit {
     this.http.post('http://localhost:3000/authorize',{headers: headers}).subscribe(data => {
       console.log(data);
       this.resultData4=data;
+      console.log(this.resultData4.data);
+      //setTimeout(() => {
+      var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    this.http.post('http://localhost:3000/search', {headers: headers}).subscribe(data => {
+      console.log(data);
+      });
+     //}, 500);
+      
+     /* this.http.get('/1.1/statuses/user_timeline.json?screen_name=FBVMC').subscribe(data => {
+      console.log(data);
+      this.resultData4=data;
+      //document.getElementById(this.adarle).innerText=this.resultData.text[0];
+      //console.log(this.resultData.text[0]);
+    });*/
       //document.getElementById(this.adarle).innerText=this.resultData.text[0];
       //console.log(this.resultData.text[0]);
     });
