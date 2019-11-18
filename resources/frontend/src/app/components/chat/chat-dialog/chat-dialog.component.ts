@@ -926,7 +926,12 @@ export class ChatDialogComponent implements OnInit {
 
   obrasya(a){
     //this.resultData='';
+    document.getElementById("inputtt").disabled = true;
+    document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
+    document.getElementById("inputtt").style="cursor:wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
+    document.getElementById('durico').style="cursor: auto";
+    //document.getElementById('u').innerText='Se está realizando la búsqueda...';
     let div = a.split("+");
     let buscar = div[2];
       this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
