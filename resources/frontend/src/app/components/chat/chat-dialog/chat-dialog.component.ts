@@ -70,7 +70,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.obrasdeautor();
+    //this.obrasdeautor();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -722,8 +722,48 @@ export class ChatDialogComponent implements OnInit {
     });
   }
 
-  obrasdeautor(){
-    var buscar='vega, lope de';
+  obrasdeautor(a){
+    //var buscar='vega, lope de';
+    let div = a.split("+");
+    let buscar = div[2];
+    if(a.includes(' de ')){
+      console.log('yeee');
+      let prob=a.split("+");
+      console.log(prob);
+      let otro=prob[2];
+      console.log(otro);
+      let prob2=otro.split("de");
+      console.log(prob2);
+      var otravez=prob2[1].split(' ');
+      console.log(otravez);
+      if(otravez.length==2){
+      let res=otravez[1]+', '+prob2[0]+'de';
+      this.daleya=res;
+      }else{
+        for(let i=1;i<otravez.length-1;i++){
+          this.daleya=otravez[i]+' ';
+        }
+        this.daleya=this.daleya+otravez[otravez.length-1]+', '+prob2[0]+'de';
+      }
+      console.log(this.daleya);
+      buscar=this.daleya;
+    }else{
+      var ui=buscar.split(' ');
+      console.log(ui);
+      if(ui.length==2){
+        buscar=ui[1]+', '+ui[0];
+        if(ui[1]==undefined){
+          buscar=ui[0];
+        }
+      }
+      if(ui.length==3){
+        buscar=ui[1]+' '+ui[2]+', '+ui[0];
+        this.apellid=true;
+    }
+    if(ui.length==4){
+      buscar=ui[2]+' '+ui[3]+', '+ui[0]+' '+ui[1];
+    }
+    }
     this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor ?obra ?titulo WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") .	?autor <http://rdaregistry.info/Elements/a/authorOf> ?obra.  	?obra rdfs:label ?titulo. }';
 
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
@@ -739,6 +779,7 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });
+    document.getElementById('u').id='kjdsjkhjsd';
   }
 
   nuevointento(){
@@ -1561,6 +1602,9 @@ export class ChatDialogComponent implements OnInit {
 
   prueba(a){
     console.log(a);
+    if(a.includes('+ObrasPorAutor')){
+      this.obrasdeautor(a);
+    }
     if(a=='DameLasRedecitas'){
       document.getElementById('u').innerHTML='¡Por supuesto! La BVMC tiene cuenta de <a href="http://twitter.com/fbvmc" style="color: #00ff5a;">Twitter</a>, página de <a href="http://www.facebook.com/pages/Biblioteca-Virtual-Miguel-de-Cervantes/115005045196224" style="color: #00ff5a;">Facebook</a> y canal de <a href="http://www.youtube.com/cervantesvirtual" style="color: #00ff5a;">YouTube</a>. Además puedes pedirme a mí directamente sus últimos tweets o vídeos y te los enseñaré encantada';
       document.getElementById('u').id='jtjytjytyt';
