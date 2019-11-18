@@ -70,7 +70,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.twitterejemplo();
+    this.obrasdeautor();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
     this.messages = this.chat.conversation.asObservable().
@@ -719,6 +719,25 @@ export class ChatDialogComponent implements OnInit {
       //console.log(document.getElementById('u'));
       //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
   //    document.getElementById('u').id='otro';
+    });
+  }
+
+  obrasdeautor(){
+    var buscar='vega, lope de';
+    this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor ?obra ?titulo WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") .	?autor <http://rdaregistry.info/Elements/a/authorOf> ?obra.  	?obra rdfs:label ?titulo. }';
+
+      this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
+     console.log(this.fullUrl);
+
+
+     let requestHeaders: any = { 'Accept': 'application/sparql-results+json','content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
+     let responseLogin = fetch(this.fullUrl, {
+      method: 'POST',
+      headers: requestHeaders
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+    console.log(this.resultData);
     });
   }
 
