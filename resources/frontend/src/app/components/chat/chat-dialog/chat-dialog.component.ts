@@ -809,7 +809,7 @@ export class ChatDialogComponent implements OnInit {
     }else{
       console.log('holano10');
       document.getElementById('u').innerHTML='<a name="Ancla6" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #00ff5a;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
-      for(let i=0;i<10;i++){
+      for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
           document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
@@ -1033,7 +1033,7 @@ export class ChatDialogComponent implements OnInit {
     if(document.getElementById('kjdsjkhjsd')){
       setTimeout(() => {
         this.aversiva2()
-       }, 4600);
+       }, 5600);
     }
     document.getElementById('kjdsjkhjsd').id='otro33';
     this.apellid=false;
@@ -1071,7 +1071,7 @@ export class ChatDialogComponent implements OnInit {
     }else{
       console.log('holano10');
       document.getElementById('otro33').innerHTML='<a name="Ancla6" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #00ff5a;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
-      for(let i=0;i<10;i++){
+      for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
           document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
@@ -1080,6 +1080,12 @@ export class ChatDialogComponent implements OnInit {
           
         }
       }
+      console.log('Hola');
+    this.resultData=null;
+    document.getElementById("inputtt").disabled = false;
+    document.getElementById("inputtt").placeholder='Escribe tu mensaje';
+    document.getElementById("inputtt").style="cursor:auto";
+    document.getElementById('durico').style="cursor: pointer";
     }
     }else{
 
