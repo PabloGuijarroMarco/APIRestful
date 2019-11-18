@@ -145,10 +145,10 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('dsfsdghb').innerHTML='Esta funcionalidad está temporalmente fuera de servicio. Vuelva a intentarlo en unos minutos.';
     //document.getElementById('u').id='dsfsdghb';
   });
-  
 
-  
-  
+
+
+
   }
 
 
@@ -158,14 +158,14 @@ export class ChatDialogComponent implements OnInit {
 
     let APIkey='ClDRmNrlAQmnucHd6cGJGiqym';
     let APIsecretkey='aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH';
-    let Accesstoken='979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE'; 
-    let Accesstokensecret='3ObsJHvegTiJ34WQUiwGPWlBndS9C8YiIp7apGMnl3Grd'; 
+    let Accesstoken='979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE';
+    let Accesstokensecret='3ObsJHvegTiJ34WQUiwGPWlBndS9C8YiIp7apGMnl3Grd';
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     this.http.post('http://localhost:3000/authorize',{headers: headers}).subscribe(data => {
       console.log(data);
-      
+
       //setTimeout(() => {
       var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -182,7 +182,7 @@ export class ChatDialogComponent implements OnInit {
      }, 20);
       });
      //}, 500);
-      
+
      /* this.http.get('/1.1/statuses/user_timeline.json?screen_name=FBVMC').subscribe(data => {
       console.log(data);
       this.resultData4=data;
@@ -199,19 +199,19 @@ export class ChatDialogComponent implements OnInit {
       //console.log(this.resultData.text[0]);
     });*/
 
-    
 
-    
+
+
 
    /* let requestHeaders: any = { 'content-type': 'application/x-www-form-urlencoded;' };
     let requestParams: any = {
-		
+
 		"oauth_access_token": "979333295233257472-2aUu8ernd0LMrCbpIqH7UuBfa3ZVsZE",
 		"oauth_access_token_secret": "3ObsJHvegTiJ34WQUiwGPWlBndS9C8YiIp7apGMnl3Grd",
     "consumer_key": "ClDRmNrlAQmnucHd6cGJGiqym",
     "consumer_secret": "aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH"
 	};
-  
+
      let responseLogin = fetch('/1.1/statuses/user_timeline.json?screen_name=FBVMC', {
       method: 'POST',
       headers: requestHeaders,
@@ -221,7 +221,7 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });*/
-    
+
     /*fetch("https://twitterbukativ1.p.rapidapi.com/search", {
 	"method": "POST",
 	"headers": {
@@ -243,8 +243,8 @@ export class ChatDialogComponent implements OnInit {
 .catch(err => {
 	console.log(err);
 });*/
- 
-  
+
+
     /*this.http.get(
       '/1.1/statuses/user_timeline.json?screen_name=FBVMC',
       {
@@ -263,7 +263,7 @@ export class ChatDialogComponent implements OnInit {
       //this.result = res.json().map(tweet => tweet.text);
       //console.log(this.result);
   });*/
-  
+
   }
 
   youtubeprueba(){
@@ -745,8 +745,11 @@ export class ChatDialogComponent implements OnInit {
        }, 19400);
   }
   buscarAutorcito(a){
-
+    document.getElementById("inputtt").disabled = true;
+    document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
+    document.getElementById("inputtt").style="cursor:wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
+    document.getElementById('durico').style="cursor: auto";
     let div = a.split("+");
     let buscar = div[2];
     if(a.includes(' de ')){
@@ -964,6 +967,10 @@ export class ChatDialogComponent implements OnInit {
   limpiarvariable(){
     console.log('Hola');
     this.resultData=null;
+    document.getElementById("inputtt").disabled = false;
+    document.getElementById("inputtt").placeholder='Escribe tu mensaje';
+    document.getElementById("inputtt").style="cursor:auto";
+    document.getElementById('durico').style="cursor: pointer";
   }
 
   edicionesquijote(a){
