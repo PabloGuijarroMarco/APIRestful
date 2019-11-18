@@ -723,6 +723,11 @@ export class ChatDialogComponent implements OnInit {
   }
 
   obrasdeautor(a){
+    document.getElementById("inputtt").disabled = true;
+    document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
+    document.getElementById("inputtt").style="cursor:wait";
+    document.getElementById('u').innerText='Se está realizando la búsqueda...';
+    document.getElementById('durico').style="cursor: auto";
     //var buscar='vega, lope de';
     let div = a.split("+");
     let buscar = div[2];
@@ -1080,11 +1085,12 @@ export class ChatDialogComponent implements OnInit {
 
       document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
     }
+    setTimeout(() => {
+      this.abrirdenuevo6()
+     }, 20);
     document.getElementById('otro33').id='otro35';
     console.log('holajajaja');
-    setTimeout(() => {
-      this.limpiarvariable()
-     }, 5400);
+    
 
   }
 
