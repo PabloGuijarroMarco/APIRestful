@@ -786,6 +786,9 @@ export class ChatDialogComponent implements OnInit {
         buscar=ui[1]+' '+ui[2]+', '+ui[0];
         this.apellid=true;
     }
+    if(ui.length==4){
+      buscar=ui[2]+' '+ui[3]+', '+ui[0]+' '+ui[1];
+    }
     }
     console.log(buscar);
       this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") . }';
