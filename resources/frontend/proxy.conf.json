@@ -3,10 +3,5 @@
     "target": "http://data.cervantesvirtual.com",
     "secure": false,
     "changeOrigin": true
-  },
-  "/1.1/*":{
-    "target": "https://api.twitter.com",
-    "secure": false,
-    "changeOrigin": true
   }
 }
