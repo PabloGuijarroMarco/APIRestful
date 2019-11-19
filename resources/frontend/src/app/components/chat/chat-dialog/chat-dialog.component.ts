@@ -54,6 +54,7 @@ export class ChatDialogComponent implements OnInit {
   public resultData3;
   public resultData4;
   public resultData5;
+  public resultData88;
   public result = '';
   //bsModalRef: BsModalRef;
   constructor(
@@ -1278,7 +1279,17 @@ export class ChatDialogComponent implements OnInit {
   }
 
   edicionesquijote(a){
-
+    var num=0;
+    if(localStorage.getItem('quijote')){
+      num=parseInt(localStorage.getItem('quijote'));
+      num=num+1;
+      localStorage.removeItem('quijote');
+    }
+    console.log(num);
+    if(!localStorage.getItem('quijote')){
+      localStorage.setItem('quijote',String(num));
+    }
+    document.getElementById('u').id='u'+num;
       this.sparqlQuery = 'PREFIX rdam: <http://rdaregistry.info/Elements/m/> SELECT ?m ?title WHERE {	?m rdam:workManifested <http://data.cervantesvirtual.com/work/2904> .	?m rdam:title ?title . }';
 
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
@@ -1291,26 +1302,36 @@ export class ChatDialogComponent implements OnInit {
       headers: requestHeaders
     }).then( body => body.json() ).then( json => {
       var { head: { vars }, results } = json;
-      this.resultData = results.bindings;
-    console.log(this.resultData);
+      this.resultData88 = results.bindings;
+    console.log(this.resultData88);
     });
+    console.log(document.getElementById('u'+num));
 
-
-      console.log(document.getElementById('u'));
-      document.getElementById('u').innerHTML= '<a name="Ancla" id="a">En</a> la biblioteca tenemos registradas '+this.resultData.length+' ediciones del Quijote. Haga click sobre la que desee informarse: <ul id="lis"></ul>';
-      for(let i=0;i<this.resultData.length;i++){
-        document.getElementById('lis').innerHTML=document.getElementById('lis').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].m.value+'" style="color: #00ff5a;">'+this.resultData[i].title.value+'</a></li>';
-      }
+    setTimeout(() => {
+      document.getElementById('u'+num).innerHTML= '<a name="Ancla'+num+'" id="a">En</a> la biblioteca tenemos registradas '+this.resultData88.length+' ediciones del Quijote. Haga click sobre la que desee informarse: <ul id="lis'+num+'"></ul>';
+      console.log(document.getElementById('lis'+num));
+      setTimeout(() => {
+      this.otroo(num)
+    }, 1000);
+    }, 1000);
       //console.log(document.getElementById('u'));
       //document.getElementById('u').innerHTML=document.getElementById('u').innerHTML+'</ul>';
-      console.log(document.getElementById('u'));
-      document.getElementById('u').id='otro';
+      console.log(document.getElementById('u'+num));
+      //document.getElementById('u').id='otro';
 
       //document.getElementById('general').style.display='flex';
-      setTimeout(() => {
-        this.abrirdenuevo()
-       }, 20);
 
+
+  }
+
+  otroo(num){
+
+      for(let i=0;i<this.resultData88.length;i++){
+        document.getElementById('lis'+num).innerHTML=document.getElementById('lis'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData88[i].m.value+'" style="color: #00ff5a;">'+this.resultData88[i].title.value+'</a></li>';
+      }
+      setTimeout(() => {
+        this.abrirdenuevo(num)
+       }, 20);
   }
 
   pruebabvmc(a){
@@ -1820,8 +1841,10 @@ export class ChatDialogComponent implements OnInit {
     }
   }
 
-  abrirdenuevo(){
+  abrirdenuevo(num){
+    (<HTMLInputElement> document.getElementById("averq7")).href='#Ancla'+num;
     document.getElementById('anclado').click();
+    document.getElementById('inputtt').focus();
   }
 
   abrirdenuevo2(num){
