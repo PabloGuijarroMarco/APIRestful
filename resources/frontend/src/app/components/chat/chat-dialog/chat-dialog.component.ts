@@ -153,8 +153,17 @@ export class ChatDialogComponent implements OnInit {
 
 
   twitterejemplo(){
-
-    document.getElementById('u').id='yukuyuku';
+    var num=0;
+    if(localStorage.getItem('twitter')){
+      num=parseInt(localStorage.getItem('twitter'));
+      num=num+1;
+      localStorage.removeItem('twitter');
+    }
+    console.log(num);
+    if(!localStorage.getItem('twitter')){
+      localStorage.setItem('twitter',String(num));
+    }
+    document.getElementById('u').id='yukuyuku'+num;
 
     let APIkey='ClDRmNrlAQmnucHd6cGJGiqym';
     let APIsecretkey='aE1SMc7leKjs1FP8uPPxggSFIacte4huSL4oK250VpTxVX8pSH';
@@ -173,12 +182,12 @@ export class ChatDialogComponent implements OnInit {
       console.log(data);
       this.resultData4=data;
       console.log(this.resultData4);
-      document.getElementById('yukuyuku').innerHTML='<a name="Ancla5" id="a">Aquí</a> te dejo los 10 últimos tweets publicados por la biblioteca en su cuenta de Twitter: <ul id="dalel3"></ul>';
+      document.getElementById('yukuyuku'+num).innerHTML='<a name="Ancla5'+num+'" id="a">Aquí</a> te dejo los 10 últimos tweets publicados por la biblioteca en su cuenta de Twitter: <ul id="dalel3'+num+'"></ul>';
       for(let i=0;i<10;i++){
-      document.getElementById('dalel3').innerHTML=document.getElementById('dalel3').innerHTML+'<li type="disc" style="margin-left: -12%;">'+this.resultData4.data[i].text+'</li>';
+      document.getElementById('dalel3'+num).innerHTML=document.getElementById('dalel3'+num).innerHTML+'<li type="disc" style="margin-left: -12%;">'+this.resultData4.data[i].text+'</li>';
     }
     setTimeout(() => {
-      this.abrirdenuevo4()
+      this.abrirdenuevo4(num)
      }, 20);
       });
      //}, 500);
@@ -1791,8 +1800,10 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado3').click();
   }
 
-  abrirdenuevo4(){
+  abrirdenuevo4(num){
+    (<HTMLInputElement> document.getElementById("averq")).href='#Ancla5'+num;
     document.getElementById('anclado5').click();
+    document.getElementById('inputtt').focus();
   }
 
   abrirdenuevo6(){
