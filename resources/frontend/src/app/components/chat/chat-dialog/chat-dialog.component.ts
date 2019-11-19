@@ -725,9 +725,9 @@ export class ChatDialogComponent implements OnInit {
   obrasdeautor(a){
     document.getElementById("inputtt").disabled = true;
     document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
-    document.getElementById("inputtt").style="cursor:wait";
+    document.getElementById("inputtt").style.cursor="wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
-    document.getElementById('durico').style="cursor: auto";
+    document.getElementById('durico').style.cursor="auto";
     //var buscar='vega, lope de';
     let div = a.split("+");
     let buscar = div[2];
@@ -868,9 +868,9 @@ export class ChatDialogComponent implements OnInit {
   buscarAutorcito(a){
     document.getElementById("inputtt").disabled = true;
     document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
-    document.getElementById("inputtt").style="cursor:wait";
+    document.getElementById("inputtt").style.cursor="wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
-    document.getElementById('durico').style="cursor: auto";
+    document.getElementById('durico').style.cursor="auto";
     let div = a.split("+");
     let buscar = div[2];
     if(a.includes(' de ')){
@@ -1084,8 +1084,8 @@ export class ChatDialogComponent implements OnInit {
     this.resultData=null;
     document.getElementById("inputtt").disabled = false;
     document.getElementById("inputtt").placeholder='Escribe tu mensaje';
-    document.getElementById("inputtt").style="cursor:auto";
-    document.getElementById('durico').style="cursor: pointer";
+    document.getElementById("inputtt").style.cursor="auto";
+    document.getElementById('durico').style.cursor="pointer";
     }
     }else{
 
@@ -1182,9 +1182,9 @@ export class ChatDialogComponent implements OnInit {
     //this.resultData='';
     document.getElementById("inputtt").disabled = true;
     document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
-    document.getElementById("inputtt").style="cursor:wait";
+    document.getElementById("inputtt").style.cursor="wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
-    document.getElementById('durico').style="cursor: auto";
+    document.getElementById('durico').style.cursor="auto";
     //document.getElementById('u').innerText='Se está realizando la búsqueda...';
     let div = a.split("+");
     let buscar = div[2];
@@ -1228,8 +1228,8 @@ export class ChatDialogComponent implements OnInit {
     this.resultData=null;
     document.getElementById("inputtt").disabled = false;
     document.getElementById("inputtt").placeholder='Escribe tu mensaje';
-    document.getElementById("inputtt").style="cursor:auto";
-    document.getElementById('durico').style="cursor: pointer";
+    document.getElementById("inputtt").style.cursor="auto";
+    document.getElementById('durico').style.cursor="pointer";
   }
 
   edicionesquijote(a){
