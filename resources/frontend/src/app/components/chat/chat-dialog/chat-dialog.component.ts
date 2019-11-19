@@ -321,8 +321,18 @@ export class ChatDialogComponent implements OnInit {
   }
 
   noticiasprueba(){
+    var num=0;
+    if(localStorage.getItem('noticias')){
+      num=parseInt(localStorage.getItem('noticias'));
+      num=num+1;
+      localStorage.removeItem('noticias');
+    }
+    console.log(num);
+    if(!localStorage.getItem('noticias')){
+      localStorage.setItem('noticias',String(num));
+    }
     //let key='a1fa704bfaa38ddafc3fa3cfdd2a2720.fb7c08da5b'; hasta el 13 de diciembre no va
-    document.getElementById('u').id='dfsdfdsfsd';
+    document.getElementById('u').id='dfsdfdsfsd'+num;
     let key='ccd3c6d9b6006efc99e69152cc46391c.73318dcc74';
     this.http.get('https://api.trawlingweb.com/?token='+key+'&q=&order=desc&ts=1572562800000').subscribe(data => {
       console.log(data);
@@ -330,18 +340,18 @@ export class ChatDialogComponent implements OnInit {
       //document.getElementById(this.adarle).innerText=this.resultData.text[0];
       //console.log(this.resultData.text[0]);
     });
-    document.getElementById('dfsdfdsfsd').innerHTML='<a name="Ancla2" id="a">Aquí</a> te dejo con 10 de las noticias de interés más recientes que he encontrado: <ul id="dalel"></ul>';
-    console.log(document.getElementById('dalel'));
+    document.getElementById('dfsdfdsfsd'+num).innerHTML='<a name="Ancla2'+num+'" id="a">Aquí</a> te dejo con 10 de las noticias de interés más recientes que he encontrado: <ul id="dalel'+num+'"></ul>';
+    console.log(document.getElementById('dalel'+num));
 
     setTimeout(() => {
-      this.noticiasfrescas()
-     }, 1000);
+      this.noticiasfrescas(num)
+     }, 2000);
 
 
 
   }
 
-  noticiasfrescas(){
+  noticiasfrescas(num){
     var a=0;
     console.log(this.resultData2.response);
     for(let i=0;i<100;i++){
@@ -349,13 +359,13 @@ export class ChatDialogComponent implements OnInit {
       if(this.resultData2.response.data[i].site_language=="es"){
         if(a<10){
         console.log('hola');
-        document.getElementById('dalel').innerHTML=document.getElementById('dalel').innerHTML+'<li type="disc"> <a href="'+this.resultData2.response.data[i].url+'" style="color: #00ff5a;">'+this.resultData2.response.data[i].title+'</a></li>';
+        document.getElementById('dalel'+num).innerHTML=document.getElementById('dalel'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData2.response.data[i].url+'" style="color: #00ff5a;">'+this.resultData2.response.data[i].title+'</a></li>';
         a=a+1;
         }
       }
     }
     setTimeout(() => {
-      this.abrirdenuevo2()
+      this.abrirdenuevo2(num)
      }, 20);
   }
 
@@ -1802,8 +1812,10 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado').click();
   }
 
-  abrirdenuevo2(){
+  abrirdenuevo2(num){
+    (<HTMLInputElement> document.getElementById("averq2")).href='#Ancla2'+num;
     document.getElementById('anclado2').click();
+    document.getElementById('inputtt').focus();
   }
 
   abrirdenuevo3(num){
