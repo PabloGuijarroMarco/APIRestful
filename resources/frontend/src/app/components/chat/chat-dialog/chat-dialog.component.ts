@@ -101,8 +101,18 @@ export class ChatDialogComponent implements OnInit {
   }
 
   googleejemplo(a){
+    var num=0;
+    if(localStorage.getItem('buscar')){
+      num=parseInt(localStorage.getItem('buscar'));
+      num=num+1;
+      localStorage.removeItem('buscar');
+    }
+    console.log(num);
+    if(!localStorage.getItem('buscar')){
+      localStorage.setItem('buscar',String(num));
+    }
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
-    document.getElementById('u').id='dsfsdghb';
+    document.getElementById('u').id='dsfsdghb'+num;
     let div=a.split('+');
     //8b335f7b12msh681633c2ffcabd1p193a52jsna97eed9c770d
   console.log(div[2]);
@@ -124,25 +134,27 @@ export class ChatDialogComponent implements OnInit {
     console.log(obj);
     if(obj.results.length!=0){
       if(obj.results.length==10){
-    document.getElementById('dsfsdghb').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los 10 primeros resultados de la búsqueda: <ul id="dalel2"></ul>';
+    document.getElementById('dsfsdghb'+num).innerHTML='<a name="Ancla4'+num+'" id="a">Aquí</a> te muestro los 10 primeros resultados de la búsqueda: <ul id="dalel2'+num+'"></ul>';
       }else{
-        document.getElementById('dsfsdghb').innerHTML='<a name="Ancla4" id="a">Aquí</a> te muestro los resultados de la búsqueda: <ul id="dalel2"></ul>';
+        document.getElementById('dsfsdghb'+num).innerHTML='<a name="Ancla4'+num+'" id="a">Aquí</a> te muestro los resultados de la búsqueda: <ul id="dalel2'+num+'"></ul>';
       }
     for(let i=0;i<10;i++){
-      document.getElementById('dalel2').innerHTML=document.getElementById('dalel2').innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #00ff5a;">'+obj.results[i].title+'</a></li>';
+      document.getElementById('dalel2'+num).innerHTML=document.getElementById('dalel2'+num).innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #00ff5a;">'+obj.results[i].title+'</a></li>';
     }
     setTimeout(() => {
       console.log('hola');
+      (<HTMLInputElement> document.getElementById("averq3")).href='#Ancla4'+num;
       document.getElementById('anclado4').click();
+      document.getElementById('inputtt').focus();
      }, 20);
     }else{
-      document.getElementById('dsfsdghb').innerHTML='No se han obtenido resultados en la búsqueda';
+      document.getElementById('dsfsdghb'+num).innerHTML='No se han obtenido resultados en la búsqueda';
       //document.getElementById('u').id='dsfsdghb';
     }
   })
   .catch(function(error) {
     console.log('Request failed', error)
-    document.getElementById('dsfsdghb').innerHTML='Esta funcionalidad está temporalmente fuera de servicio. Vuelva a intentarlo en unos minutos.';
+    document.getElementById('dsfsdghb'+num).innerHTML='Esta funcionalidad está temporalmente fuera de servicio. Vuelva a intentarlo en unos minutos.';
     //document.getElementById('u').id='dsfsdghb';
   });
 
