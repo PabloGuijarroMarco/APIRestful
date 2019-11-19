@@ -276,7 +276,17 @@ export class ChatDialogComponent implements OnInit {
   }
 
   youtubeprueba(){
-    document.getElementById('u').id='dfsdfdsfsd1';
+    var num=0;
+    if(localStorage.getItem('youtube')){
+      num=parseInt(localStorage.getItem('youtube'));
+      num=num+1;
+      localStorage.removeItem('youtube');
+    }
+    console.log(num);
+    if(!localStorage.getItem('youtube')){
+      localStorage.setItem('youtube',String(num));
+    }
+    document.getElementById('u').id='dfsdfdsfsd1'+num;
     let key='20aa83ba7d06fd6d3c88c09e1184fab5.c7e2e38416';
     this.http.get('https://youtube.trawlingweb.com/search/?token='+key+'&q=biblioteca%20virtual%20miguel%20de%20cervantes').subscribe(data => {
       console.log(data);
@@ -284,15 +294,15 @@ export class ChatDialogComponent implements OnInit {
       //document.getElementById(this.adarle).innerText=this.resultData.text[0];
       //console.log(this.resultData.text[0]);
     });
-    document.getElementById('dfsdfdsfsd1').innerHTML='<a name="Ancla3" id="a">Aquí</a> te dejo con 10 de los vídeos subidos en el canal oficial de la BVMC en YouTube: <ul id="dalel1"></ul>';
-    console.log(document.getElementById('dalel1'));
+    document.getElementById('dfsdfdsfsd1'+num).innerHTML='<a name="Ancla3'+num+'" id="a">Aquí</a> te dejo con 10 de los vídeos subidos en el canal oficial de la BVMC en YouTube: <ul id="dalel1'+num+'"></ul>';
+    console.log(document.getElementById('dalel1'+num));
     setTimeout(() => {
-      this.videosfrescos()
-     }, 1000);
+      this.videosfrescos(num)
+     }, 2000);
 
   }
 
-  videosfrescos(){
+  videosfrescos(num){
     var a=0;
     console.log(this.resultData3.response);
     for(let i=0;i<50;i++){
@@ -300,13 +310,13 @@ export class ChatDialogComponent implements OnInit {
       if(this.resultData3.response.data[i].channelTitle=="cervantesvirtual"){
         if(a<10){
         console.log('hola');
-        document.getElementById('dalel1').innerHTML=document.getElementById('dalel1').innerHTML+'<li type="disc" style="margin-left:-10%;">'+this.resultData3.response.data[i].title+':<span style="margin-left: -11%;"><iframe width="109%" height="100%" src="'+this.resultData3.response.data[i].urlEmbed+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></li>';
+        document.getElementById('dalel1'+num).innerHTML=document.getElementById('dalel1'+num).innerHTML+'<li type="disc" style="margin-left:-10%;">'+this.resultData3.response.data[i].title+':<span style="margin-left: -11%;"><iframe width="109%" height="100%" src="'+this.resultData3.response.data[i].urlEmbed+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span></li>';
         a=a+1;
         }
       }
     }
     setTimeout(() => {
-      this.abrirdenuevo3()
+      this.abrirdenuevo3(num)
      }, 20);
   }
 
@@ -1796,8 +1806,10 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado2').click();
   }
 
-  abrirdenuevo3(){
+  abrirdenuevo3(num){
+    (<HTMLInputElement> document.getElementById("averq1")).href='#Ancla3'+num;
     document.getElementById('anclado3').click();
+    document.getElementById('inputtt').focus();
   }
 
   abrirdenuevo4(num){
