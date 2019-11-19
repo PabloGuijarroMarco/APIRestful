@@ -723,8 +723,10 @@ export class ChatDialogComponent implements OnInit {
   }
 
   obrasdeautor(a){
-    document.getElementById("inputtt").disabled = true;
-    document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
+    (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
+    (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
+    //document.getElementById("inputtt").disabled = true;
+    //document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
     document.getElementById("inputtt").style.cursor="wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     document.getElementById('durico').style.cursor="auto";
@@ -866,8 +868,8 @@ export class ChatDialogComponent implements OnInit {
        }, 19400);
   }
   buscarAutorcito(a){
-    document.getElementById("inputtt").disabled = true;
-    document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
+    (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
+    (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
     document.getElementById("inputtt").style.cursor="wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     document.getElementById('durico').style.cursor="auto";
@@ -1002,7 +1004,7 @@ export class ChatDialogComponent implements OnInit {
         //}
         if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd').innerText.includes('Algunas de las obras que tenemos')){
           document.getElementById('kjdsjkhjsd').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-          
+
         }
       }
       if(document.getElementById('kjdsjkhjsd').innerText.includes('Algunas de las obras que tenemos')){
@@ -1017,7 +1019,7 @@ export class ChatDialogComponent implements OnInit {
         //}
         if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd').innerText.includes('Las obras que tenemos')){
           document.getElementById('kjdsjkhjsd').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-          
+
         }
       }
     }
@@ -1046,7 +1048,7 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('otro33').innerText='Se está realizando la búsqueda...';
     if(this.nuevoaux.length!=0){
 
-      
+
 
       document.getElementById('otro33').innerHTML='<a name="Ancla6" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
       //setTimeout(() => {
@@ -1058,10 +1060,10 @@ export class ChatDialogComponent implements OnInit {
         //}
         if(i==this.resultData.length-1 && !document.getElementById('otro33').innerText.includes('Algunas de las obras que tenemos')){
           document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-          
+
         }
       }
-      
+
       if(document.getElementById('otro33').innerText.includes('Algunas de las obras que tenemos')){
         document.getElementById('otro33').innerHTML=document.getElementById('otro33').innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
       }
@@ -1077,13 +1079,15 @@ export class ChatDialogComponent implements OnInit {
         //}
         if(i==this.resultData.length-1 && !document.getElementById('otro33').innerText.includes('Las obras que tenemos')){
           document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-          
+
         }
       }
       console.log('Hola');
     this.resultData=null;
-    document.getElementById("inputtt").disabled = false;
-    document.getElementById("inputtt").placeholder='Escribe tu mensaje';
+    (<HTMLInputElement> document.getElementById("inputtt")).disabled = false;
+    (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Escribe tu mensaje';
+    //document.getElementById("inputtt").disabled = false;
+    //document.getElementById("inputtt").placeholder='Escribe tu mensaje';
     document.getElementById("inputtt").style.cursor="auto";
     document.getElementById('durico').style.cursor="pointer";
     }
@@ -1096,7 +1100,7 @@ export class ChatDialogComponent implements OnInit {
      }, 20);
     document.getElementById('otro33').id='otro35';
     console.log('holajajaja');
-    
+
 
   }
 
@@ -1180,8 +1184,8 @@ export class ChatDialogComponent implements OnInit {
 
   obrasya(a){
     //this.resultData='';
-    document.getElementById("inputtt").disabled = true;
-    document.getElementById("inputtt").placeholder='Espere a que finalice la búsqueda...';
+    (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
+    (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
     document.getElementById("inputtt").style.cursor="wait";
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     document.getElementById('durico').style.cursor="auto";
@@ -1226,8 +1230,8 @@ export class ChatDialogComponent implements OnInit {
   limpiarvariable(){
     console.log('Hola');
     this.resultData=null;
-    document.getElementById("inputtt").disabled = false;
-    document.getElementById("inputtt").placeholder='Escribe tu mensaje';
+    (<HTMLInputElement> document.getElementById("inputtt")).disabled = false;
+    (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Escribe tu mensaje';
     document.getElementById("inputtt").style.cursor="auto";
     document.getElementById('durico').style.cursor="pointer";
   }
