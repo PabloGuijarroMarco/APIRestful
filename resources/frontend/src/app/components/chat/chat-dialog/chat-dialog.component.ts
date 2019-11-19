@@ -765,6 +765,16 @@ export class ChatDialogComponent implements OnInit {
   }
 
   obrasdeautor(a){
+    var num=0;
+    if(localStorage.getItem('autores')){
+      num=parseInt(localStorage.getItem('autores'));
+      num=num+1;
+      localStorage.removeItem('autores');
+    }
+    console.log(num);
+    if(!localStorage.getItem('autores')){
+      localStorage.setItem('autores',String(num));
+    }
     (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
     (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
     //document.getElementById("inputtt").disabled = true;
@@ -828,60 +838,67 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });
+    document.getElementById('u').id='u'+num;
+    setTimeout(() => {
+      this.daleahii(buscar, num, ui)
+     }, 2000);
+  }
+
+  daleahii(buscar, num, ui){
     if(this.resultData.length!=0){
-      document.getElementById('u').innerHTML='<a name="Ancla6" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
+      document.getElementById('u'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
-        if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('Algunas de las obras que tenemos')){
-          document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(i==this.resultData.length-1 && !document.getElementById('u'+num).innerText.includes('Algunas de las obras que tenemos')){
+          document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
           if(this.apellid=true){
             console.log('holadfsd');
-            document.getElementById('u').innerText='Se está realizando la búsqueda...';
+            document.getElementById('u'+num).innerText='Se está realizando la búsqueda...';
             buscar=ui[2]+', '+ui[0]+' '+ui[1];
-            this.otracosita2(buscar);
+            this.otracosita2(buscar, num);
           }
         }
       }
-      if(document.getElementById('u').innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('u').innerHTML=document.getElementById('u').innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+      if(document.getElementById('u'+num).innerText.includes('Algunas de las obras que tenemos')){
+        document.getElementById('u'+num).innerHTML=document.getElementById('u'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
       }
     }else{
       console.log('holano10');
-      document.getElementById('u').innerHTML='<a name="Ancla6" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #00ff5a;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
+      document.getElementById('u'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
-        if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('Las obras que tenemos')){
-          document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(i==this.resultData.length-1 && !document.getElementById('u'+num).innerText.includes('Las obras que tenemos')){
+          document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
           if(this.apellid=true){
             console.log('holadfsd');
-            document.getElementById('u').innerText='Se está realizando la búsqueda...';
+            document.getElementById('u'+num).innerText='Se está realizando la búsqueda...';
             buscar=ui[2]+', '+ui[0]+' '+ui[1];
-            this.otracosita2(buscar);
+            this.otracosita2(buscar, num);
           }
         }
       }
     }
   //}, 200);
     }else{
-      document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+      document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
       if(this.apellid=true){
         console.log('holadfsd');
-        document.getElementById('u').innerText='Se está realizando la búsqueda...';
+        document.getElementById('u'+num).innerText='Se está realizando la búsqueda...';
         buscar=ui[2]+', '+ui[0]+' '+ui[1];
-        this.otracosita2(buscar);
+        this.otracosita2(buscar, num);
       }
     }
     setTimeout(() => {
-      this.abrirdenuevo6()
+      this.abrirdenuevo6(num)
      }, 20);
-    document.getElementById('u').id='kjdsjkhjsd';
+    document.getElementById('u'+num).id='kjdsjkhjsd'+num;
     setTimeout(() => {
       this.limpiarvariable()
      }, 19400);
@@ -1014,7 +1031,7 @@ export class ChatDialogComponent implements OnInit {
        }, 19400);
   }
 
-  otracosita2(buscar){
+  otracosita2(buscar, num){
     console.log('entrar entra');
     console.log(buscar);
     this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor ?obra ?titulo WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") .	?autor <http://rdaregistry.info/Elements/a/authorOf> ?obra.  	?obra rdfs:label ?titulo. }';
@@ -1033,94 +1050,94 @@ export class ChatDialogComponent implements OnInit {
       this.nuevoaux = results.bindings;
     console.log(this.resultData);
     });
-    console.log(document.getElementById('kjdsjkhjsd'));
+    console.log(document.getElementById('kjdsjkhjsd'+num));
 
     if(this.resultData.length!=0){
-    document.getElementById('kjdsjkhjsd').innerHTML='<a name="Ancla6" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
+    document.getElementById('kjdsjkhjsd'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
-        if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd').innerText.includes('Algunas de las obras que tenemos')){
-          document.getElementById('kjdsjkhjsd').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd'+num).innerText.includes('Algunas de las obras que tenemos')){
+          document.getElementById('kjdsjkhjsd'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
 
         }
       }
-      if(document.getElementById('kjdsjkhjsd').innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('kjdsjkhjsd').innerHTML=document.getElementById('kjdsjkhjsd').innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+      if(document.getElementById('kjdsjkhjsd'+num).innerText.includes('Algunas de las obras que tenemos')){
+        document.getElementById('kjdsjkhjsd'+num).innerHTML=document.getElementById('kjdsjkhjsd'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
       }
     }else{
       console.log('holano10');
-      document.getElementById('kjdsjkhjsd').innerHTML='<a name="Ancla6" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #00ff5a;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
+      document.getElementById('kjdsjkhjsd'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
-        if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd').innerText.includes('Las obras que tenemos')){
-          document.getElementById('kjdsjkhjsd').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd'+num).innerText.includes('Las obras que tenemos')){
+          document.getElementById('kjdsjkhjsd'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
 
         }
       }
     }
   }else{
       console.log('entra2');
-      console.log(document.getElementById('kjdsjkhjsd'));
-      console.log(document.getElementById('u'));
+      console.log(document.getElementById('kjdsjkhjsd'+num));
+      console.log(document.getElementById('u'+num));
       //document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-      document.getElementById('u').id='kjdsjkhjsd';
-      console.log(document.getElementById('kjdsjkhjsd'));
+      document.getElementById('u'+num).id='kjdsjkhjsd'+num;
+      console.log(document.getElementById('kjdsjkhjsd'+num));
     this.resultData=null;
     }
-    if(document.getElementById('kjdsjkhjsd')){
+    if(document.getElementById('kjdsjkhjsd'+num)){
       setTimeout(() => {
-        this.aversiva2()
+        this.aversiva2(num)
        }, 5600);
     }
-    document.getElementById('kjdsjkhjsd').id='otro33';
+    document.getElementById('kjdsjkhjsd'+num).id='otro33'+num;
     this.apellid=false;
   }
 
-  aversiva2(){
+  aversiva2(num){
     console.log('probando');
     console.log(this.nuevoaux);
-    console.log(document.getElementById('otro33'));
-    document.getElementById('otro33').innerText='Se está realizando la búsqueda...';
+    console.log(document.getElementById('otro33'+num));
+    document.getElementById('otro33'+num).innerText='Se está realizando la búsqueda...';
     if(this.nuevoaux.length!=0){
 
 
 
-      document.getElementById('otro33').innerHTML='<a name="Ancla6" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
+      document.getElementById('otro33'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
-        if(i==this.resultData.length-1 && !document.getElementById('otro33').innerText.includes('Algunas de las obras que tenemos')){
-          document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(i==this.resultData.length-1 && !document.getElementById('otro33'+num).innerText.includes('Algunas de las obras que tenemos')){
+          document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
 
         }
       }
 
-      if(document.getElementById('otro33').innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('otro33').innerHTML=document.getElementById('otro33').innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+      if(document.getElementById('otro33'+num).innerText.includes('Algunas de las obras que tenemos')){
+        document.getElementById('otro33'+num).innerHTML=document.getElementById('otro33'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
       }
       setTimeout(() => {
         this.limpiarvariable()
        }, 5400);
     }else{
       console.log('holano10');
-      document.getElementById('otro33').innerHTML='<a name="Ancla6" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #00ff5a;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1"></ul>';
+      document.getElementById('otro33'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1').innerHTML=document.getElementById('listillo1').innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
-        if(i==this.resultData.length-1 && !document.getElementById('otro33').innerText.includes('Las obras que tenemos')){
-          document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        if(i==this.resultData.length-1 && !document.getElementById('otro33'+num).innerText.includes('Las obras que tenemos')){
+          document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
 
         }
       }
@@ -1132,15 +1149,16 @@ export class ChatDialogComponent implements OnInit {
     //document.getElementById("inputtt").placeholder='Escribe tu mensaje';
     document.getElementById("inputtt").style.cursor="auto";
     document.getElementById('durico').style.cursor="pointer";
+    document.getElementById('inputtt').focus();
     }
     }else{
 
-      document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+      document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
     }
     setTimeout(() => {
-      this.abrirdenuevo6()
+      this.abrirdenuevo6(num)
      }, 20);
-    document.getElementById('otro33').id='otro35';
+    document.getElementById('otro33'+num).id='otro35'+num;
     console.log('holajajaja');
 
 
@@ -1276,6 +1294,7 @@ export class ChatDialogComponent implements OnInit {
     (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Escribe tu mensaje';
     document.getElementById("inputtt").style.cursor="auto";
     document.getElementById('durico').style.cursor="pointer";
+    document.getElementById('inputtt').focus();
   }
 
   edicionesquijote(a){
@@ -1865,8 +1884,10 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('inputtt').focus();
   }
 
-  abrirdenuevo6(){
+  abrirdenuevo6(num){
+    (<HTMLInputElement> document.getElementById("averq6")).href='#Ancla6'+num;
     document.getElementById('anclado6').click();
+    document.getElementById('inputtt').focus();
   }
   prueba(a){
     console.log(a);
