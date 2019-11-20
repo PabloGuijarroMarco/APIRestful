@@ -1908,8 +1908,31 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado6').click();
     document.getElementById('inputtt').focus();
   }
+  abrirdenuevo8(num){
+    (<HTMLInputElement> document.getElementById("averq8")).href='#Ancla444'+num;
+    document.getElementById('anclado8').click();
+    document.getElementById('inputtt').focus();
+  }
   prueba(a){
     console.log(a);
+    if(a.includes('¿A qué idioma quieres que lo traduzca?')){
+      var num=0;
+    if(localStorage.getItem('hum')){
+      num=parseInt(localStorage.getItem('hum'));
+      num=num+1;
+      localStorage.removeItem('hum');
+    }
+    console.log(num);
+    if(!localStorage.getItem('hum')){
+      localStorage.setItem('hum',String(num));
+    }
+      //let hum=document.getElementById('u').innerText;
+      document.getElementById('u').innerHTML='<a name="Ancla444'+num+'" id="a"></a>'+a;
+      document.getElementById('u').id='uuu'+num;
+      setTimeout(() => {
+        this.abrirdenuevo8(num)
+       }, 20);
+    }
     if(a.includes('+ObrasPorAutor')){
       this.obrasdeautor(a);
     }
