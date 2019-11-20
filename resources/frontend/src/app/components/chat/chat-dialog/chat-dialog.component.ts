@@ -1213,28 +1213,39 @@ export class ChatDialogComponent implements OnInit {
   }
 
   aversiva(){
+    var num=0;
+    if(localStorage.getItem('aver')){
+      num=parseInt(localStorage.getItem('aver'));
+      num=num+1;
+      localStorage.removeItem('aver');
+    }
+    console.log(num);
+    if(!localStorage.getItem('aver')){
+      localStorage.setItem('aver',String(num));
+    }
+    document.getElementById('otro33').id='otro33'+num;
     console.log('probando');
     console.log(this.nuevoaux);
-    console.log(document.getElementById('otro33'));
-    document.getElementById('otro33').innerText='Se está realizando la búsqueda...';
+    console.log(document.getElementById('otro33'+num));
+    document.getElementById('otro33'+num).innerText='Se está realizando la búsqueda...';
     if(this.nuevoaux.length!=0){
 
       for(let i=0;i<this.nuevoaux.length;i++){
         if(this.nuevoaux[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('otro33').innerHTML='He encontrado a <a href="'+this.nuevoaux[i].autor.value+'" style="color: #00ff5a;">"'+this.nuevoaux[i].nombreautor.value+'"</a>.';
+          document.getElementById('otro33'+num).innerHTML='He encontrado a <a href="'+this.nuevoaux[i].autor.value+'" style="color: #00ff5a;">"'+this.nuevoaux[i].nombreautor.value+'"</a>.';
           setTimeout(() => {
             this.limpiarvariable()
            }, 5400);
         }
         if(i==this.nuevoaux.length-1 && !document.getElementById('otro22').innerText.includes('He encontrado a')){
-          document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+          document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
         }
       }
     }else{
 
-      document.getElementById('otro33').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+      document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
     }
-    document.getElementById('otro33').id='otro35';
+    document.getElementById('otro33'+num).id='otro35'+num;
     console.log('holajajaja');
     setTimeout(() => {
       this.limpiarvariable()
