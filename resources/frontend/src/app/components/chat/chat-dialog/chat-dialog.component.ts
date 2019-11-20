@@ -1160,7 +1160,15 @@ export class ChatDialogComponent implements OnInit {
      }, 20);
     document.getElementById('otro33'+num).id='otro35'+num;
     console.log('holajajaja');
-
+    console.log('Hola');
+    this.resultData=null;
+    (<HTMLInputElement> document.getElementById("inputtt")).disabled = false;
+    (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Escribe tu mensaje';
+    //document.getElementById("inputtt").disabled = false;
+    //document.getElementById("inputtt").placeholder='Escribe tu mensaje';
+    document.getElementById("inputtt").style.cursor="auto";
+    document.getElementById('durico').style.cursor="pointer";
+    document.getElementById('inputtt').focus();
 
   }
 
