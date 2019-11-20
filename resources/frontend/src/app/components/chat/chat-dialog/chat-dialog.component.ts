@@ -821,6 +821,9 @@ export class ChatDialogComponent implements OnInit {
     }
     if(ui.length==4){
       buscar=ui[2]+' '+ui[3]+', '+ui[0]+' '+ui[1];
+      if(a.includes(' i ')){
+        buscar=ui[1]+' '+ui[2]+' '+ui[3]+', '+ui[0];
+      }
     }
     }
     this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor ?obra ?titulo WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar+'", "i") .	?autor <http://rdaregistry.info/Elements/a/authorOf> ?obra.  	?obra rdfs:label ?titulo. }';
@@ -970,6 +973,9 @@ export class ChatDialogComponent implements OnInit {
     }
     if(ui.length==4){
       buscar=ui[2]+' '+ui[3]+', '+ui[0]+' '+ui[1];
+      if(a.includes(' i ')){
+        buscar=ui[1]+' '+ui[2]+' '+ui[3]+', '+ui[0];
+      }
     }
     }
     console.log(buscar);
