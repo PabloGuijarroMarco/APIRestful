@@ -841,7 +841,7 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('u').id='u'+num;
     setTimeout(() => {
       this.daleahii(buscar, num, ui)
-     }, 2000);
+     }, 2500);
   }
 
   daleahii(buscar, num, ui){
