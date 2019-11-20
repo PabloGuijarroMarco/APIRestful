@@ -55,6 +55,7 @@ export class ChatDialogComponent implements OnInit {
   public resultData4;
   public resultData5;
   public resultData88;
+  public resultData99;
   public result = '';
   //bsModalRef: BsModalRef;
   constructor(
@@ -799,10 +800,26 @@ export class ChatDialogComponent implements OnInit {
       let res=otravez[1]+', '+prob2[0]+'de';
       this.daleya=res;
       }else{
+        if(otravez.length==3){
+          let prob=a.split("+");
+        console.log(prob);
+        let otro=prob[2];
+        console.log(otro);
+        let prob2=otro.split("de");
+        console.log(prob2);
+        var nombb=prob2[0].split(' ');
+        var otravez=prob2[1].split(' ');
+        console.log(otravez);
+        var buscar2=otravez[2]+', '+nombb[0]+' de '+otravez[1];
+        console.log(buscar2);
+        //this.nuevoinbu(buscar2);
+        this.daleya=buscar2;
+        }else{
         for(let i=1;i<otravez.length-1;i++){
           this.daleya=otravez[i]+' ';
         }
         this.daleya=this.daleya+otravez[otravez.length-1]+', '+prob2[0]+'de';
+      }
       }
       console.log(this.daleya);
       buscar=this.daleya;
@@ -929,6 +946,8 @@ export class ChatDialogComponent implements OnInit {
         this.limpiarvariable()
        }, 19400);
   }
+
+
   buscarAutorcito(a){
     (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
     (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
@@ -951,11 +970,28 @@ export class ChatDialogComponent implements OnInit {
       let res=otravez[1]+', '+prob2[0]+'de';
       this.daleya=res;
       }else{
+        if(otravez.length==3){
+          let prob=a.split("+");
+        console.log(prob);
+        let otro=prob[2];
+        console.log(otro);
+        let prob2=otro.split("de");
+        console.log(prob2);
+        var nombb=prob2[0].split(' ');
+        var otravez=prob2[1].split(' ');
+        console.log(otravez);
+        var buscar2=otravez[2]+', '+nombb[0]+' de '+otravez[1];
+        console.log(buscar2);
+        //this.nuevoinbu(buscar2);
+        this.daleya=buscar2;
+        }else{
         for(let i=1;i<otravez.length-1;i++){
           this.daleya=otravez[i]+' ';
         }
         this.daleya=this.daleya+otravez[otravez.length-1]+', '+prob2[0]+'de';
       }
+      }
+      
       console.log(this.daleya);
       buscar=this.daleya;
     }else{
