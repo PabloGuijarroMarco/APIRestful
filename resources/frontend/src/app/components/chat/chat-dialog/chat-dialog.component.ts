@@ -1965,8 +1965,31 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado8').click();
     document.getElementById('inputtt').focus();
   }
+  abrirdenuevo9(num){
+    (<HTMLInputElement> document.getElementById("averq9")).href='#Ancla999'+num;
+    document.getElementById('anclado9').click();
+    document.getElementById('inputtt').focus();
+  }
   prueba(a){
     console.log(a);
+    if(a.includes('Las cosas que puedo hacer por ti son darte información sobre la BVMC y')){
+      var num=0;
+    if(localStorage.getItem('jaja8')){
+      num=parseInt(localStorage.getItem('jaja8'));
+      num=num+1;
+      localStorage.removeItem('jaja8');
+    }
+    console.log(num);
+    if(!localStorage.getItem('jaja8')){
+      localStorage.setItem('jaja8',String(num));
+    }
+      //let hum=document.getElementById('u').innerText;
+      document.getElementById('u').innerHTML='<a name="Ancla999'+num+'" id="a"></a>'+a;
+      document.getElementById('u').id='uwk'+num;
+      setTimeout(() => {
+        this.abrirdenuevo9(num)
+       }, 10);
+    }
     if(a.includes('¿A qué idioma quieres que lo traduzca?')){
       var num=0;
     if(localStorage.getItem('hum')){
