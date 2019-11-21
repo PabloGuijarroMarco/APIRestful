@@ -302,6 +302,7 @@ export class ChatDialogComponent implements OnInit {
     }
     document.getElementById('u').id='dfsdfdsfsd1'+num;
     let key='20aa83ba7d06fd6d3c88c09e1184fab5.c7e2e38416';
+    //let key='dsfsdf';
     this.http.get('https://youtube.trawlingweb.com/search/?token='+key+'&q=biblioteca%20virtual%20miguel%20de%20cervantes').subscribe(data => {
       console.log(data);
       this.resultData3=data;
@@ -318,7 +319,8 @@ export class ChatDialogComponent implements OnInit {
 
   videosfrescos(num){
     var a=0;
-    console.log(this.resultData3.response);
+    //console.log(this.resultData3.response);
+    if(this.resultData3!=undefined){
     for(let i=0;i<50;i++){
       console.log('holafuera');
       if(this.resultData3.response.data[i].channelTitle=="cervantesvirtual"){
@@ -332,6 +334,9 @@ export class ChatDialogComponent implements OnInit {
     setTimeout(() => {
       this.abrirdenuevo3(num)
      }, 20);
+    }else{
+      document.getElementById('dfsdfdsfsd1'+num).innerText='La búsqueda de vídeos de la BVMC en YouTube no está disponible ahora mismo, vuelva a solicitarla más tarde.';
+    }
   }
 
   noticiasprueba(){
@@ -348,6 +353,7 @@ export class ChatDialogComponent implements OnInit {
     //let key='a1fa704bfaa38ddafc3fa3cfdd2a2720.fb7c08da5b'; hasta el 13 de diciembre no va
     document.getElementById('u').id='dfsdfdsfsd'+num;
     let key='ccd3c6d9b6006efc99e69152cc46391c.73318dcc74';
+    //let key='yusdfy';
     this.http.get('https://api.trawlingweb.com/?token='+key+'&q=&order=desc&ts=1572562800000').subscribe(data => {
       console.log(data);
       this.resultData2=data;
@@ -367,7 +373,8 @@ export class ChatDialogComponent implements OnInit {
 
   noticiasfrescas(num){
     var a=0;
-    console.log(this.resultData2.response);
+    //console.log(this.resultData2.response);
+    if(this.resultData2!=undefined){
     for(let i=0;i<100;i++){
       console.log('holafuera');
       if(this.resultData2.response.data[i].site_language=="es"){
@@ -381,6 +388,9 @@ export class ChatDialogComponent implements OnInit {
     setTimeout(() => {
       this.abrirdenuevo2(num)
      }, 20);
+    }else{
+      document.getElementById('dfsdfdsfsd'+num).innerText='La búsqueda de noticias no está disponible ahora mismo, vuelva a solicitarla más tarde.';
+    }
   }
 
   pruebatraductor(a){
