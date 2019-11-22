@@ -1970,8 +1970,34 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado9').click();
     document.getElementById('inputtt').focus();
   }
+  abrirdenuevo9988(num){
+    (<HTMLInputElement> document.getElementById("averq9988")).href='#Ancla9988'+num;
+    document.getElementById('anclado9988').click();
+    document.getElementById('inputtt').focus();
+  }
   prueba(a){
     console.log(a);
+    if(a=='A través de la cuenta de correo'){
+      var num=0;
+      if(localStorage.getItem('jaja89')){
+        num=parseInt(localStorage.getItem('jaja89'));
+        num=num+1;
+        localStorage.removeItem('jaja89');
+      }
+      console.log(num);
+      if(!localStorage.getItem('jaja89')){
+        localStorage.setItem('jaja89',String(num));
+      }
+      document.getElementById('u').innerHTML='<a name="Ancla9988'+num+'" id="a">'+a+'</a> <span style="font-size: 85%; color: #e0e409;">bibliotecario@cervantesvirtual.com</span> puede ponerse en contacto con nosotros para plantearnos sus dudas sobre alguno de nuestros fondos o servicios, comunicarnos los problemas técnicos de tipo informático con los que se encuentre, proponernos la inclusión en nuestro catálogo de obras de su interés, sugerirnos mejoras o modificaciones, información bibliográfica y documental o cualquier otra cuestión que desee acerca de nuestros contenidos y del funcionamiento de nuestra Biblioteca Virtual.';
+      document.getElementById('u').id='uwkjdjdjdjjddjdsfgrege'+num;
+      setTimeout(() => {
+        this.abrirdenuevo9988(num)
+       }, 10);
+    }
+    if(a=='Sí, para acceder al blog haz click'){
+      document.getElementById('u').innerHTML=a+' <a href="http://blog.cervantesvirtual.com/?_ga=2.149746678.1136745688.1574074576-332001434.1568366996" style="color: #00ff5a;">aquí</a>';
+      document.getElementById('u').id='uwkjdjdjdjjddjd';
+    }
     if(a.includes('Las cosas que puedo hacer por ti son darte información sobre la BVMC y')){
       var num=0;
     if(localStorage.getItem('jaja8')){
