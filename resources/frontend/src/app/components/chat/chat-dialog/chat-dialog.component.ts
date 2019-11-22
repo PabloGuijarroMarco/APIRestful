@@ -57,6 +57,16 @@ export class ChatDialogComponent implements OnInit {
   public resultData88;
   public resultData99;
   public result = '';
+  public Ancla;
+  public Ancla2;
+  public Ancla3;
+  public Ancla4;
+  public Ancla5;
+  public Ancla6;
+  public Ancla444;
+  public Ancla999;
+  public Ancla9988;
+  public Ancla1188;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
@@ -72,6 +82,17 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(document.getElementById('averq7'));
+    this.Ancla='#Ancla';
+  this.Ancla2='#Ancla2';
+  this.Ancla3='#Ancla3';
+  this.Ancla4='#Ancla4';
+  this.Ancla5='#Ancla5';
+  this.Ancla6='#Ancla6';
+  this.Ancla444='#Ancla444';
+  this.Ancla999='#Ancla999';
+  this.Ancla9988='#Ancla9988';
+  this.Ancla1188='#Ancla1188';
     //this.obrasdeautor();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
@@ -113,6 +134,7 @@ export class ChatDialogComponent implements OnInit {
     if(!localStorage.getItem('buscar')){
       localStorage.setItem('buscar',String(num));
     }
+    this.Ancla4='#Ancla4'+num;
     document.getElementById('u').innerText='Se está realizando la búsqueda...';
     document.getElementById('u').id='dsfsdghb'+num;
     let div=a.split('+');
@@ -145,10 +167,11 @@ export class ChatDialogComponent implements OnInit {
     }
     setTimeout(() => {
       console.log('hola');
-      (<HTMLInputElement> document.getElementById("averq3")).href='#Ancla4'+num;
+      //(<HTMLInputElement> document.getElementById("averq3")).href='#Ancla4'+num;
+      
       document.getElementById('anclado4').click();
       document.getElementById('inputtt').focus();
-     }, 20);
+     }, 40);
     }else{
       document.getElementById('dsfsdghb'+num).innerHTML='No se han obtenido resultados en la búsqueda';
       //document.getElementById('u').id='dsfsdghb';
@@ -1932,53 +1955,83 @@ export class ChatDialogComponent implements OnInit {
   }
 
   abrirdenuevo(num){
-    (<HTMLInputElement> document.getElementById("averq7")).href='#Ancla'+num;
-    document.getElementById('anclado').click();
-    document.getElementById('inputtt').focus();
+    //(<HTMLInputElement> document.getElementById("averq7")).href='#Ancla'+num;
+    this.Ancla='#Ancla'+num;
+    console.log(document.getElementById("averq7"));
+    setTimeout(() => {
+      document.getElementById('anclado').click();
+      document.getElementById('inputtt').focus();
+     }, 10);
+    
+    
   }
 
   abrirdenuevo2(num){
-    (<HTMLInputElement> document.getElementById("averq2")).href='#Ancla2'+num;
+    //(<HTMLInputElement> document.getElementById("averq2")).href='#Ancla2'+num;
+    this.Ancla2='#Ancla2'+num;
+    setTimeout(() => {
     document.getElementById('anclado2').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
 
   abrirdenuevo3(num){
-    (<HTMLInputElement> document.getElementById("averq1")).href='#Ancla3'+num;
+    //(<HTMLInputElement> document.getElementById("averq1")).href='#Ancla3'+num;
+    this.Ancla3='#Ancla3'+num;
+    setTimeout(() => {
     document.getElementById('anclado3').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
 
   abrirdenuevo4(num){
-    (<HTMLInputElement> document.getElementById("averq")).href='#Ancla5'+num;
+    //(<HTMLInputElement> document.getElementById("averq")).href='#Ancla5'+num;
+    this.Ancla5='#Ancla5'+num;
+    setTimeout(() => {
     document.getElementById('anclado5').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
 
   abrirdenuevo6(num){
-    (<HTMLInputElement> document.getElementById("averq6")).href='#Ancla6'+num;
+    //(<HTMLInputElement> document.getElementById("averq6")).href='#Ancla6'+num;
+    this.Ancla6='#Ancla6'+num;
+    setTimeout(() => {
     document.getElementById('anclado6').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
   abrirdenuevo8(num){
-    (<HTMLInputElement> document.getElementById("averq8")).href='#Ancla444'+num;
+    //(<HTMLInputElement> document.getElementById("averq8")).href='#Ancla444'+num;
+    this.Ancla444='#Ancla444'+num;
+    setTimeout(() => {
     document.getElementById('anclado8').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
   abrirdenuevo9(num){
-    (<HTMLInputElement> document.getElementById("averq9")).href='#Ancla999'+num;
+    //(<HTMLInputElement> document.getElementById("averq9")).href='#Ancla999'+num;
+    this.Ancla999='#Ancla999'+num;
+    setTimeout(() => {
     document.getElementById('anclado9').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
   abrirdenuevo9988(num){
-    (<HTMLInputElement> document.getElementById("averq9988")).href='#Ancla9988'+num;
+    //(<HTMLInputElement> document.getElementById("averq9988")).href='#Ancla9988'+num;
+    this.Ancla9988='#Ancla9988'+num;
+    setTimeout(() => {
     document.getElementById('anclado9988').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
   abrirdenuevo1188(num){
-    (<HTMLInputElement> document.getElementById("averq1188")).href='#Ancla1188'+num;
+    //(<HTMLInputElement> document.getElementById("averq1188")).href='#Ancla1188'+num;
+    this.Ancla1188='#Ancla1188'+num;
+    setTimeout(() => {
     document.getElementById('anclado1188').click();
     document.getElementById('inputtt').focus();
+  }, 10);
   }
   prueba(a){
     console.log(a);
