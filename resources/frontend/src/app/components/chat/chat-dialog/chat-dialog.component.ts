@@ -1975,8 +1975,35 @@ export class ChatDialogComponent implements OnInit {
     document.getElementById('anclado9988').click();
     document.getElementById('inputtt').focus();
   }
+  abrirdenuevo1188(num){
+    (<HTMLInputElement> document.getElementById("averq1188")).href='#Ancla1188'+num;
+    document.getElementById('anclado1188').click();
+    document.getElementById('inputtt').focus();
+  }
   prueba(a){
     console.log(a);
+    if(a.includes('Te puedo decir qué es la Biblioteca Virtual Miguel de Cervantes, te')){
+      var num=0;
+      if(localStorage.getItem('jaja19')){
+        num=parseInt(localStorage.getItem('jaja19'));
+        num=num+1;
+        localStorage.removeItem('jaja19');
+      }
+      console.log(num);
+      if(!localStorage.getItem('jaja19')){
+        localStorage.setItem('jaja19',String(num));
+      }
+      document.getElementById('u').innerHTML='<a name="Ancla1188'+num+'" id="a"></a>'+a;
+      document.getElementById('u').id='uwkhkkhggk'+num;
+      setTimeout(() => {
+        this.abrirdenuevo1188(num)
+       }, 10);
+
+    }
+    if(a=='Para conocer las últimas novedades acerca de la BVMC haz click'){
+      document.getElementById('u').innerHTML=a+' <a href="http://suscripcion.cervantesvirtual.com/contenidos-bvmc?_ga=2.105241667.1136745688.1574074576-332001434.1568366996" style="color: #00ff5a;">aquí</a>';
+      document.getElementById('u').id='uwkjdjdjdjjddjwerewewed';
+    }
     if(a=='A través de la cuenta de correo'){
       var num=0;
       if(localStorage.getItem('jaja89')){
