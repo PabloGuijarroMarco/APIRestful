@@ -1,11 +1,11 @@
-<div class="engine-wrapper">
+<div class="engine-wrapper" (clickOutside)="onClickedOutsideChat($event)">
   <canvas #rendererCanvas id="renderCanvas" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('renderCanvas').style.display='none' "></canvas>
 </div>
-<div style="position: fixed; bottom: 0;  right:0; width: 350px;z-index: 9999;" (clickOutside)="onClickedOutsideChat($event)" class="chat-container">
+<div style="position: fixed; bottom: 0;  right:0; width: 350px;z-index: 9999;"  class="chat-container">
 
 
-     <button id="abrir" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('abrir').style.display='none' "><i class="fas fa-comment fa-2x"></i></button>
-
+     <!--<button id="abrir" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('abrir').style.display='none' "><i class="fas fa-comment fa-2x"></i></button>
+     -->
 
     <div id="general" class="vete d-none flex-column justify-content-between" style="float: right ; position: relative;width:100%;">
       <a href="{{Ancla}}" id='averq7'><span id='anclado' ></span></a>
@@ -22,7 +22,7 @@
             <p class="w-75" style="font-weight: 600;">Catalina - Asistente virtual de la BVMC</p>
             <div class="w-25 d-flex flex-row justify-content-end" style="padding-right: 8px; ">
                 <!-- <img id="minimizar" src="/assets/images/minimizar.PNG" alt="minimizar" onclick="document.getElementById('general').style.display='none'"> -->
-                <i class="fas fa-times" style="cursor: pointer;" onclick="document.getElementById('general').style.display='none'; document.getElementById('abrir').style.display='block'"></i>
+                <i class="fas fa-times" style="cursor: pointer;" onclick="document.getElementById('general').style.display='none'; document.getElementById('renderCanvas').style.display='block'"></i>
                 <!-- <img id="cerrar" src="/assets/images/cerrar.PNG" alt="cerrar" onclick="document.getElementById('general').style.display='none';
             document.getElementById('abrir').style.display='none';" > -->
             </div>

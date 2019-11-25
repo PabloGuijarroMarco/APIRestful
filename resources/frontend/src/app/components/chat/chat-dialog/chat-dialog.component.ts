@@ -111,7 +111,7 @@ export class ChatDialogComponent implements OnInit {
   public onClickedOutsideChat(e) {
     this.resultsVisible = false;
     document.getElementById('general').style.display='none';
-    document.getElementById('abrir').style.display='block';
+    document.getElementById('renderCanvas').style.display='block';
     // console.log('sdsdcsd');
   }
 
