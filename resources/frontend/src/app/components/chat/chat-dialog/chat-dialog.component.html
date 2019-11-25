@@ -1,5 +1,4 @@
-<div (clickOutside)="onClickedOutsideChat($event)">
-<div class="engine-wrapper" >
+<div class="engine-wrapper" (clickOutside)="onClickedOutsideChat($event)">
   <canvas #rendererCanvas id="renderCanvas" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('renderCanvas').style.display='none' "></canvas>
 </div>
 <div style="position: fixed; bottom: 0;  right:0; width: 350px;z-index: 9999;"  class="chat-container">
@@ -77,4 +76,3 @@
 
 </div>
 
-</div>
