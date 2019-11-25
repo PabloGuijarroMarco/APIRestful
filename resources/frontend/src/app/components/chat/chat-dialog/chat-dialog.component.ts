@@ -82,7 +82,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(document.getElementById('averq7'));
+    console.log(document.getElementById('WebGL-salida'));
     this.Ancla='#Ancla';
   this.Ancla2='#Ancla2';
   this.Ancla3='#Ancla3';
@@ -168,7 +168,7 @@ export class ChatDialogComponent implements OnInit {
     setTimeout(() => {
       console.log('hola');
       //(<HTMLInputElement> document.getElementById("averq3")).href='#Ancla4'+num;
-      
+
       document.getElementById('anclado4').click();
       document.getElementById('inputtt').focus();
      }, 40);
@@ -1024,7 +1024,7 @@ export class ChatDialogComponent implements OnInit {
         this.daleya=this.daleya+otravez[otravez.length-1]+', '+prob2[0]+'de';
       }
       }
-      
+
       console.log(this.daleya);
       buscar=this.daleya;
     }else{
@@ -1962,8 +1962,8 @@ export class ChatDialogComponent implements OnInit {
       document.getElementById('anclado').click();
       document.getElementById('inputtt').focus();
      }, 10);
-    
-    
+
+
   }
 
   abrirdenuevo2(num){
