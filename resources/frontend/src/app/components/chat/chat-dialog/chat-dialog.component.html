@@ -1,10 +1,10 @@
 <div class="engine-wrapper">
-  <canvas #rendererCanvas id="renderCanvas"></canvas>
+  <canvas #rendererCanvas id="renderCanvas" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('renderCanvas').style.display='none' "></canvas>
 </div>
 <div style="position: fixed; bottom: 0;  right:0; width: 350px;z-index: 9999;" (clickOutside)="onClickedOutsideChat($event)" class="chat-container">
 
 
-    <button id="abrir" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('abrir').style.display='none' "><i class="fas fa-comment fa-2x"></i></button>
+     <button id="abrir" onclick="document.getElementById('general').style.display='flex'; document.getElementById('general').classList.remove('d-none'); document.getElementById('abrir').style.display='none' "><i class="fas fa-comment fa-2x"></i></button>
 
 
     <div id="general" class="vete d-none flex-column justify-content-between" style="float: right ; position: relative;width:100%;">

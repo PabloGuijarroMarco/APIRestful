@@ -134,6 +134,15 @@ header {
     cursor: pointer;
 }
 
+#renderCanvas {
+  display: block;
+  position: fixed;
+  top: 85.2%;
+  margin-left: 89.4%;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
 #enviar {
     width: 8%;
     height: 80%;

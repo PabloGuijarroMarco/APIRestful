@@ -32,15 +32,15 @@ export class EngineService implements OnDestroy {
       alpha: true,    // transparent background
       antialias: true // smooth edges
     });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-
+    this.renderer.setSize(window.innerWidth/9, window.innerHeight/9);
+    //this.renderer.setSize(420, 320);
     // create the scene
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(
       75, window.innerWidth / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.z = 5;
+    this.camera.position.z = 1.6;
     this.scene.add(this.camera);
 
     // soft white light
@@ -84,8 +84,8 @@ export class EngineService implements OnDestroy {
   }
 
   resize() {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const width = window.innerWidth/9;
+    const height = window.innerHeight/9;
 
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
