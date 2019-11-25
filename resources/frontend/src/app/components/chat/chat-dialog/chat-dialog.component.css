@@ -53,15 +53,15 @@ header {
 
 .message.to {
     background-color: #fff;
-    color: #FF6201;
-    border: 2px solid #FF6201;
+    color: #b21f1f;
+    border: 2px solid #b21f1f;
     border-radius: 6px;
     margin-left: 100px;
     text-align: right;
 }
 
 .message.from {
-    background-color: #FF6201;
+    background-color: #b21f1f;
     color: #fff;
     margin-right: 100px;
     text-align: left;
@@ -94,7 +94,7 @@ header {
 
 #cabecera {
     padding-left: 5px;
-    background-color: #FF6201;
+    background-color: #b21f1f;
     color: white;
     opacity: 1;
     width: 100%;
@@ -128,7 +128,7 @@ header {
     margin-left: 93%;
     border-radius: 100%;
     border-width: 0;
-    background-color: #FF6201;
+    background-color: #b21f1f;
     text-align: center;
     color: white;
     cursor: pointer;
