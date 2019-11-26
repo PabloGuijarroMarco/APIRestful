@@ -79,21 +79,24 @@ export class EngineService implements OnDestroy {
           console.error( 'An error happened' );
         }
       );*/
+      var texture = new THREE.TextureLoader().load( 'assets/TexturaMoneda.png' );
 
+      // immediately use the texture for material creation
+      var material2 = new THREE.MeshBasicMaterial( { map: texture } );
       // Loader
     var loader = new THREE.BufferGeometryLoader();
         var mesh;
     // load a resource
     loader.load(
         // resource URL
-        'assets/moneda33.json',
+        'assets/moneda55.json',
  
         // onLoad callback
         function (geometry) {
  
             // create a mesh with the geometry
             // and a material, and add it to the scene
-            mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial({}));
+            mesh = new THREE.Mesh(geometry, material2);
             //this.scene.add(mesh);
           console.log(mesh);
           //this.cube=mesh;
@@ -104,6 +107,7 @@ export class EngineService implements OnDestroy {
         }
  
     );
+    
     setTimeout(() => {
     console.log(mesh);
     this.cube=mesh;
