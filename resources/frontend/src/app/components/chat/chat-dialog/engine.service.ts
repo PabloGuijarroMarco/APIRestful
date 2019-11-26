@@ -10,6 +10,7 @@ export class EngineService implements OnDestroy {
   private camera: THREE.PerspectiveCamera;
   private scene: THREE.Scene;
   private light: THREE.AmbientLight;
+  private loader: THREE.ObjectLoader;
 
   private cube: THREE.Mesh;
 
@@ -40,7 +41,7 @@ export class EngineService implements OnDestroy {
     this.camera = new THREE.PerspectiveCamera(
       75, window.innerWidth / window.innerHeight, 0.1, 1000
     );
-    this.camera.position.z = 1.6;
+    this.camera.position.z = 1.2;
     this.scene.add(this.camera);
 
     // soft white light
@@ -50,8 +51,65 @@ export class EngineService implements OnDestroy {
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    this.cube = new THREE.Mesh( geometry, material );
+      /*this.loader = new THREE.ObjectLoader();
+      this.loader.load(
+        // resource URL
+        "assets/untitled.json",
+      
+        // onLoad callback
+        // Here the loaded data is assumed to be an object
+        function ( obj ) {
+          console.log('ha cargado');
+          // Add the loaded object to the scene
+          
+          //this.cube=obj;
+          //this.scene.add( this.cube );
+        },
+      
+        // onProgress callback
+        function ( xhr) {
+          console.log('hola');
+          console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+          //console.log(obj);
+          
+        },
+      
+        // onError callback
+        function ( err ) {
+          console.error( 'An error happened' );
+        }
+      );*/
+
+      // Loader
+    var loader = new THREE.BufferGeometryLoader();
+        var mesh;
+    // load a resource
+    loader.load(
+        // resource URL
+        'assets/moneda33.json',
+ 
+        // onLoad callback
+        function (geometry) {
+ 
+            // create a mesh with the geometry
+            // and a material, and add it to the scene
+            mesh = new THREE.Mesh(geometry, new THREE.MeshNormalMaterial({}));
+            //this.scene.add(mesh);
+          console.log(mesh);
+          //this.cube=mesh;
+            // render the scene
+            //renderer.render(scene, camera);
+            //return mesh;
+ 
+        }
+ 
+    );
+    setTimeout(() => {
+    console.log(mesh);
+    this.cube=mesh;
+    //this.cube = new THREE.Mesh( geometry, material );
     this.scene.add(this.cube);
+  }, 400);
 
   }
 
@@ -78,7 +136,7 @@ export class EngineService implements OnDestroy {
       this.render();
     });
 
-    this.cube.rotation.x += 0.01;
+    //this.cube.rotation.x += 0.01;
     this.cube.rotation.y += 0.01;
     this.renderer.render(this.scene, this.camera);
   }
