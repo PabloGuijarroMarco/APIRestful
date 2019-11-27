@@ -30,3 +30,99 @@ $factory->define(App\Interaction::class, function (Faker\Generator $faker) {
         'time' => $faker->dateTime,*/
     ];
 });
+
+$factory->define(App\BusquedasAutor::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\BusquedasInternet::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\BusquedasObras::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\BusquedasObrasDeAutor::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\EdicionesQuijote::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\News::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\ObrasPorIdioma::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\PrediccionTiempo::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\Translation::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\Twitter::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\Wikidata::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
+
+$factory->define(App\YouTube::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});
