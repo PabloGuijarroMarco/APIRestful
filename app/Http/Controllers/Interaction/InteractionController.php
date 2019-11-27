@@ -13,10 +13,10 @@ class InteractionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function index()
     {
         $interacciones = Interaction::all();
-        return response()->json($interacciones)->header('Access-Control-Allow-Origin', '*');
+        return response()->json($interacciones);
     }
 
     /**
@@ -35,7 +35,7 @@ class InteractionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function store(Request $request)
     {
       /* $rules = [
             'date' => 'required',
@@ -44,16 +44,16 @@ class InteractionController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        //$interaction= new Interaction;
+        $interaction= new Interaction;
 
         /*$interaction->date = $request->input('date');
         $interaction->time = $request->input('time');*/
 
-        //$interaction->save();
-        $interaction = Interaction::create();
+        if($interaction->save()){
 
-        $interacciones = Interaction::all();
-        return response()->json($interacciones)->header('Access-Control-Allow-Origin', '*');
+            return new InteractionResource($interaction);
+
+        }
     }
 
     /**
