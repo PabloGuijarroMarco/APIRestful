@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Twitter;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Twitter;
 
 class TwitterController extends Controller
 {

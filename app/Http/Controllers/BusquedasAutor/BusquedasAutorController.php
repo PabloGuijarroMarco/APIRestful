@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BusquedasAutor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\BusquedasAutor;
 
 class BusquedasAutorController extends Controller
 {

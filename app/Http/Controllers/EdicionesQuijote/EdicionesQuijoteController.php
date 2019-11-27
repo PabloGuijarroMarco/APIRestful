@@ -4,6 +4,7 @@ namespace App\Http\Controllers\EdicionesQuijote;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\EdicionesQuijote;
 
 class EdicionesQuijoteController extends Controller
 {

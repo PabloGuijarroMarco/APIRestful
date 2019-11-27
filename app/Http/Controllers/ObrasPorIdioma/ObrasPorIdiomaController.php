@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ObrasPorIdioma;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ObrasPorIdioma;
 
 class ObrasPorIdiomaController extends Controller
 {

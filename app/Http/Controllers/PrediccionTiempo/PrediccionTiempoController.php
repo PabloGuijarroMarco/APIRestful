@@ -4,6 +4,7 @@ namespace App\Http\Controllers\PrediccionTiempo;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\PrediccionTiempo;
 
 class PrediccionTiempoController extends Controller
 {

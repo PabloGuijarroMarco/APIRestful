@@ -4,6 +4,7 @@ namespace App\Http\Controllers\YouTube;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\YouTube;
 
 class YouTubeController extends Controller
 {

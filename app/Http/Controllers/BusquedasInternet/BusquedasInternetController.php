@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BusquedasInternet;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\BusquedasInternet;
 
 class BusquedasInternetController extends Controller
 {

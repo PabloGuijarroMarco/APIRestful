@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Wikidata;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Wikidata;
 
 class WikidataController extends Controller
 {

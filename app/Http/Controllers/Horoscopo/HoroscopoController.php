@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Horoscopo;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Horoscopo;
 
 class HoroscopoController extends Controller
 {
