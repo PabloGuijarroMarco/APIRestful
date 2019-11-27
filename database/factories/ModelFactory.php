@@ -126,3 +126,11 @@ $factory->define(App\YouTube::class, function (Faker\Generator $faker) {
         'time' => $faker->dateTime,*/
     ];
 });
+
+$factory->define(App\Horoscopo::class, function (Faker\Generator $faker) {
+
+    return [
+       /* 'date' => $faker->date,
+        'time' => $faker->dateTime,*/
+    ];
+});

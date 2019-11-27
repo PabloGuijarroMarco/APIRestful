@@ -13,6 +13,7 @@ use App\ObrasPorIdioma;
 use App\PrediccionTiempo;
 use App\Translation;
 use App\Wikidata;
+use App\Horoscopo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -88,5 +89,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $cantidadYouTube = 10;
         factory(YouTube::class, $cantidadYouTube)->create();
+
+        Horoscopo::truncate();
+        // $this->call(UsersTableSeeder::class);
+        $cantidadHoroscopo = 10;
+        factory(Horoscopo::class, $cantidadHoroscopo)->create();
     }
 }

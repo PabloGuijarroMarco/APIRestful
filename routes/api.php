@@ -30,3 +30,4 @@ Route::resource('translation', 'Translation\TranslationController');
 Route::resource('twitter', 'Twitter\TwitterController');
 Route::resource('wikidata', 'Wikidata\WikidataController');
 Route::resource('youtube', 'YouTube\YouTubeController');
+Route::resource('horoscopo', 'Horoscopo\HoroscopoController');
