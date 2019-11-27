@@ -13,7 +13,7 @@ class InteractionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function index()
     {
         $interacciones = Interaction::all();
         return response()->json($interacciones)->header('Access-Control-Allow-Origin', '*');
@@ -38,7 +38,7 @@ class InteractionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function store(Request $request)
     {
       /* $rules = [
             'date' => 'required',
