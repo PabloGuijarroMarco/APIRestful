@@ -13,7 +13,10 @@ class CreateTranslationTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('translation', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateTranslationTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('translation');
     }
 }

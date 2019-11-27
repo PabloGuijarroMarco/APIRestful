@@ -13,7 +13,10 @@ class CreateYoutubeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('youtube', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateYoutubeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('youtube');
     }
 }

@@ -13,7 +13,10 @@ class CreateEdicionesquijoteTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('edicionesquijote', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateEdicionesquijoteTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('edicionesquijote');
     }
 }

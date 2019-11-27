@@ -13,7 +13,10 @@ class CreatePredicciontiempoTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('predicciontiempo', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreatePredicciontiempoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('predicciontiempo');
     }
 }

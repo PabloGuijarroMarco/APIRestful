@@ -13,7 +13,10 @@ class CreateBusquedasobrasTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('busquedasobras', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateBusquedasobrasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('busquedasobras');
     }
 }

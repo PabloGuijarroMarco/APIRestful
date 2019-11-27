@@ -13,7 +13,10 @@ class CreateBusquedasinternetTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('busquedasinternet', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateBusquedasinternetTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('busquedasinternet');
     }
 }

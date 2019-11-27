@@ -13,7 +13,10 @@ class CreateWikidataTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('wikidata', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +26,6 @@ class CreateWikidataTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('wikidata');
     }
 }
