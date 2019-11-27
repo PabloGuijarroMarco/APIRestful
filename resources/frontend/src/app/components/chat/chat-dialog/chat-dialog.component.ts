@@ -7,6 +7,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 import { Headers, RequestOptions } from '@angular/http';
 import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
 import { EngineService } from './engine.service';
+import { InteractionsService } from 'src/app/interactions.service';
 //import { TwitterService } from 'ngx-twitter-api';
 //import { nextContext } from '@angular/core/src/render3';
 //import { BookingsService } from 'src/app/services/bookings.service';
@@ -70,12 +71,14 @@ export class ChatDialogComponent implements OnInit {
   public Ancla9988;
   public Ancla1188;
   public rendererCanvas: ElementRef<HTMLCanvasElement>;
+  public iii;
   //bsModalRef: BsModalRef;
   constructor(
     //private modalService: BsModalService,
     protected http: HttpClient,
     public chat: ChatService,
     private engServ: EngineService,
+    public interactionsService: InteractionsService,
     //private twitter: TwitterService,
     //private bookingService: BookingsService,
     //private router: Router,
@@ -86,6 +89,7 @@ export class ChatDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.iii=0;
     //console.log(document.getElementById('WebGL-salida'));
     this.Ancla='#Ancla';
   this.Ancla2='#Ancla2';
@@ -117,6 +121,17 @@ export class ChatDialogComponent implements OnInit {
   }
 
   sendMessage(){
+    if(this.iii==0){
+      this.interactionsService.newInteraction().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      this.iii=this.iii+1;
+    }
     //console.log(this.formValue);
     if(this.formValue!=undefined && this.formValue!=''){
     this.chat.converse(this.formValue);
