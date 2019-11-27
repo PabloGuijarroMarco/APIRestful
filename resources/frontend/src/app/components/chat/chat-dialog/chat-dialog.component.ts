@@ -87,8 +87,6 @@ export class ChatDialogComponent implements OnInit {
 
   ngOnInit() {
     //console.log(document.getElementById('WebGL-salida'));
-    this.engServ.createScene(this.rendererCanvas);
-    this.engServ.animate();
     this.Ancla='#Ancla';
   this.Ancla2='#Ancla2';
   this.Ancla3='#Ancla3';
@@ -102,10 +100,13 @@ export class ChatDialogComponent implements OnInit {
     //this.obrasdeautor();
     localStorage.setItem('a','0');
     //console.log(this.getTiempo());
+
     this.messages = this.chat.conversation.asObservable().
     pipe(scan((acc, val) => acc.concat(val)));
       window.document.getElementById('chat').scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest'});
       document.getElementById('inputtt').focus;
+      this.engServ.createScene(this.rendererCanvas);
+    this.engServ.animate();
   }
 
   public onClickedOutsideChat(e) {
