@@ -12,6 +12,6 @@ export class InteractionsService {
   newInteraction(): Observable<any> {
     let headers;
       headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get('http://apirestful.test/interactions', headers);
+    return this.http.get('http://apirestful.test/interactions/create', headers);
   }
 }

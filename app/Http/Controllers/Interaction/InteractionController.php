@@ -26,7 +26,10 @@ class InteractionController extends Controller
      */
     public function create()
     {
-        //
+        $interaction = Interaction::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($interaction)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -50,10 +53,7 @@ class InteractionController extends Controller
         $interaction->time = $request->input('time');*/
 
         //$interaction->save();
-        $interaction = Interaction::create();
-
-        $interacciones = Interaction::all();
-        return response()->json($interacciones)->header('Access-Control-Allow-Origin', '*');
+        
     }
 
     /**
