@@ -14,7 +14,8 @@ class BusquedasObrasDeAutorController extends Controller
      */
     public function index()
     {
-        //
+        $busquedasobrasdeautor = BusquedasObrasDeAutor::all();
+        return response()->json($busquedasobrasdeautor);
     }
 
     /**
@@ -35,7 +36,23 @@ class BusquedasObrasDeAutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      /* $rules = [
+            'date' => 'required',
+            'time' => 'required',
+        ];
+        $this->validate($request, $rules);
+         $interaction = Interaction::create($request->all());
+        return $this->showOne($interaction, 201);*/
+        $busquedasobrasdeautor= new BusquedasObrasDeAutor;
+
+        /*$interaction->date = $request->input('date');
+        $interaction->time = $request->input('time');*/
+
+        if($busquedasobrasdeautor->save()){
+
+            return new BusquedasObrasDeAutorResource($busquedasobrasdeautor);
+
+        }
     }
 
     /**

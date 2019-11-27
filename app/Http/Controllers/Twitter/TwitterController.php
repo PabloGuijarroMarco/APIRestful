@@ -14,7 +14,8 @@ class TwitterController extends Controller
      */
     public function index()
     {
-        //
+        $twitter = Twitter::all();
+        return response()->json($twitter);
     }
 
     /**
@@ -35,7 +36,23 @@ class TwitterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      /* $rules = [
+            'date' => 'required',
+            'time' => 'required',
+        ];
+        $this->validate($request, $rules);
+         $interaction = Interaction::create($request->all());
+        return $this->showOne($interaction, 201);*/
+        $twitter= new Twitter;
+
+        /*$interaction->date = $request->input('date');
+        $interaction->time = $request->input('time');*/
+
+        if($twitter->save()){
+
+            return new TwitterResource($twitter);
+
+        }
     }
 
     /**

@@ -14,7 +14,8 @@ class ObrasPorIdiomaController extends Controller
      */
     public function index()
     {
-        //
+        $obrasporidioma = ObrasPorIdioma::all();
+        return response()->json($obrasporidioma);
     }
 
     /**
@@ -35,7 +36,23 @@ class ObrasPorIdiomaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      /* $rules = [
+            'date' => 'required',
+            'time' => 'required',
+        ];
+        $this->validate($request, $rules);
+         $interaction = Interaction::create($request->all());
+        return $this->showOne($interaction, 201);*/
+        $obrasporidioma= new ObrasPorIdioma;
+
+        /*$interaction->date = $request->input('date');
+        $interaction->time = $request->input('time');*/
+
+        if($obrasporidioma->save()){
+
+            return new ObrasPorIdiomaResource($obrasporidioma);
+
+        }
     }
 
     /**

@@ -14,7 +14,8 @@ class BusquedasInternetController extends Controller
      */
     public function index()
     {
-        //
+        $busquedasinternet = BusquedasInternet::all();
+        return response()->json($busquedasinternet);
     }
 
     /**
@@ -35,7 +36,23 @@ class BusquedasInternetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      /* $rules = [
+            'date' => 'required',
+            'time' => 'required',
+        ];
+        $this->validate($request, $rules);
+         $interaction = Interaction::create($request->all());
+        return $this->showOne($interaction, 201);*/
+        $busquedasinternet= new BusquedasInternet;
+
+        /*$interaction->date = $request->input('date');
+        $interaction->time = $request->input('time');*/
+
+        if($busquedasinternet->save()){
+
+            return new BusquedasInternetResource($busquedasinternet);
+
+        }
     }
 
     /**

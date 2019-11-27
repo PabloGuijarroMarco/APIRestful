@@ -14,7 +14,8 @@ class EdicionesQuijoteController extends Controller
      */
     public function index()
     {
-        //
+        $edicionesquijote = EdicionesQuijote::all();
+        return response()->json($edicionesquijote);
     }
 
     /**
@@ -35,7 +36,23 @@ class EdicionesQuijoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      /* $rules = [
+            'date' => 'required',
+            'time' => 'required',
+        ];
+        $this->validate($request, $rules);
+         $interaction = Interaction::create($request->all());
+        return $this->showOne($interaction, 201);*/
+        $edicionesquijote= new EdicionesQuijote;
+
+        /*$interaction->date = $request->input('date');
+        $interaction->time = $request->input('time');*/
+
+        if($edicionesquijote->save()){
+
+            return new EdicionesQuijoteResource($edicionesquijote);
+
+        }
     }
 
     /**
