@@ -485,6 +485,14 @@ export class ChatDialogComponent implements OnInit {
     }else{
       document.getElementById('dfsdfdsfsd'+num).innerText='La búsqueda de noticias no está disponible ahora mismo, vuelva a solicitarla más tarde.';
     }
+    this.newsService.newNews().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log( <any> error);
+      }
+    );
   }
 
   pruebatraductor(a){
