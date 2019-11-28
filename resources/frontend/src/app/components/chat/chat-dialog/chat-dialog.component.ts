@@ -231,7 +231,14 @@ export class ChatDialogComponent implements OnInit {
     //document.getElementById('u').id='dsfsdghb';
   });
 
-
+  this.busquedasinternetService.newBusquedaInternet().subscribe(
+    response => {
+      console.log(response);
+    },
+    error => {
+      console.log( <any> error);
+    }
+  );
 
 
   }
