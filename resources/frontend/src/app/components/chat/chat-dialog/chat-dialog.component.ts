@@ -1103,6 +1103,14 @@ export class ChatDialogComponent implements OnInit {
 
 
   buscarAutorcito(a){
+    this.busquedasautorService.newBusquedaAutor().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
     var num=0;;
      if(localStorage.getItem('autores')){
       num=parseInt(localStorage.getItem('autores'));
