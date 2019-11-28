@@ -1484,6 +1484,31 @@ export class ChatDialogComponent implements OnInit {
   }
 
   obrasya(a){
+    if(!localStorage.getItem('chinitos2')){
+      localStorage.setItem('chinitos2','hoj');
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos2')=='hoj'){
+        ghj=ghj+1;
+      this.busquedasobrasService.newBusquedaObra().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos2');
+      localStorage.setItem('chinitos2','hojas');
+      setTimeout(() => {
+        localStorage.removeItem('chinitos2');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
+    
     //this.resultData='';
     (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
     (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
@@ -1524,7 +1549,7 @@ export class ChatDialogComponent implements OnInit {
 
       setTimeout(() => {
         this.limpiarvariable()
-       }, 19400);
+       }, 23400);
 
   }
 
