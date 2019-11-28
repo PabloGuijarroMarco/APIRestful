@@ -1561,7 +1561,29 @@ export class ChatDialogComponent implements OnInit {
 
   pruebabvmc(a){
     console.log(a);
-
+    if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
 
     if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus' || a=='ObrasSiriac' || a=='ObrasDan' || a=='ObrasLengSig' || a=='ObrasCreo' || a=='ObrasRuma' || a=='ObrasHungar' || a=='ObrasSignIn' || 'ObrasTaga' || a=='ObrasPola' || a=='ObrasJapos' || a=='ObrasMulti' || a=='ObrasEusk' || a=='ObrasLitu' || a=='ObrasPersa'){
       this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
