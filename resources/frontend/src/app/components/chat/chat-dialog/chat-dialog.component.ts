@@ -8,15 +8,15 @@ import { Headers, RequestOptions } from '@angular/http';
 import { Injectable, ElementRef, OnDestroy, NgZone } from '@angular/core';
 import { EngineService } from './engine.service';
 import { InteractionsService } from 'src/app/interactions.service';
-import { BusquedasAutorService } from 'src/app/busquedasautor.service';
-import { BusquedasInternetService } from 'src/app/busquedasinternet.service';
-import { BusquedasObrasService } from 'src/app/busquedasobras.service';
-import { BusquedasObrasDeAutorService } from 'src/app/busquedasobrasdeautor.service';
-import { EdicionesQuijoteService } from 'src/app/edicionesquijote.service';
+import { BusquedasautorService } from 'src/app/busquedasautor.service';
+import { BusquedasinternetService } from 'src/app/busquedasinternet.service';
+import { BusquedasobrasService } from 'src/app/busquedasobras.service';
+import { BusquedasobrasdeautorService } from 'src/app/busquedasobrasdeautor.service';
+import { EdicionesquijoteService } from 'src/app/edicionesquijote.service';
 import { HoroscopoService } from 'src/app/horoscopo.service';
 import { NewsService } from 'src/app/news.service';
-import { ObrasPorIdiomaService } from 'src/app/obrasporidioma.service';
-import { PrediccionTiempoService } from 'src/app/predicciontiempo.service';
+import { ObrasporidiomaService } from 'src/app/obrasporidioma.service';
+import { PredicciontiempoService } from 'src/app/predicciontiempo.service';
 import { TranslationService } from 'src/app/translation.service';
 import { TwitterService } from 'src/app/twitter.service';
 import { WikidataService } from 'src/app/wikidata.service';
@@ -92,15 +92,15 @@ export class ChatDialogComponent implements OnInit {
     public chat: ChatService,
     private engServ: EngineService,
     public interactionsService: InteractionsService,
-    public busquedasautorService: BusquedasAutorService,
-    public busquedasinternetService: BusquedasInternetService,
-    public busquedasobrasService: BusquedasObrasService,
-    public busquedasobrasdeautorService: BusquedasObrasDeAutorService,
-    public edicionesquijoteService: EdicionesQuijoteService,
+    public busquedasautorService: BusquedasautorService,
+    public busquedasinternetService: BusquedasinternetService,
+    public busquedasobrasService: BusquedasobrasService,
+    public busquedasobrasdeautorService: BusquedasobrasdeautorService,
+    public edicionesquijoteService: EdicionesquijoteService,
     public horoscopoService: HoroscopoService,
     public newsService: NewsService,
-    public obrasporidiomaService: ObrasPorIdiomaService,
-    public predicciontiempoService: PrediccionTiempoService,
+    public obrasporidiomaService: ObrasporidiomaService,
+    public predicciontiempoService: PredicciontiempoService,
     public translationService: TranslationService,
     public twitterService: TwitterService,
     public wikidataService: WikidataService,
