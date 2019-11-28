@@ -3879,6 +3879,14 @@ export class ChatDialogComponent implements OnInit {
       console.log(document.getElementById('u'));
       //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
       document.getElementById('u').id='otro';
+      this.predicciontiempoService.newPrediccionTiempo().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
     });
 
 
@@ -3895,6 +3903,14 @@ export class ChatDialogComponent implements OnInit {
       console.log(document.getElementById('u'));
       //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
       document.getElementById('u').id='otro';
+      this.predicciontiempoService.newPrediccionTiempo().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
     });
 
 

@@ -9,15 +9,15 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angul
 export class PredicciontiempoService {
 
   constructor(private http: Http) { }
-  newObrasPorIdioma(): Observable<any> {
+  newPrediccionTiempo(): Observable<any> {
     let headers;
       headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get('http://apirestful.test/obrasporidioma/create', headers);
+    return this.http.get('http://apirestful.test/predicciontiempo/create', headers);
   }
 
-  getObrasPorIdioma(): Observable<any> {
+  getPrediccionTiempo(): Observable<any> {
     let headers;
       headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.get('http://apirestful.test/obrasporidioma', headers);
+    return this.http.get('http://apirestful.test/predicciontiempo', headers);
   }
 }
