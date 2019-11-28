@@ -1057,6 +1057,27 @@ export class ChatDialogComponent implements OnInit {
      }, 19400);
   }
 
+  intentalo(buscar33){
+    this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar33+'", "i") . }';
+
+      this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
+     console.log(this.fullUrl);
+
+
+     let requestHeaders: any = { 'Accept': 'application/sparql-results+json','content-type': 'application/x-www-form-urlencoded; charset=UTF-8' };
+     let responseLogin = fetch(this.fullUrl, {
+      method: 'POST',
+      headers: requestHeaders
+    }).then( body => body.json() ).then( json => {
+      var { head: { vars }, results } = json;
+      this.resultData = results.bindings;
+    console.log(this.resultData);
+    });
+    setTimeout(() => {
+          this.nuevointento();
+         }, 4500);
+  }
+
   nuevointento(){
 
     console.log(document.getElementById('otro22'));
@@ -1180,7 +1201,7 @@ export class ChatDialogComponent implements OnInit {
     }
   }else{
     document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-    if(this.apellid=true){
+    if(this.apellid==true){
       console.log('holadfsd');
       document.getElementById('u').innerText='Se está realizando la búsqueda...';
       buscar=ui[2]+', '+ui[0]+' '+ui[1];
@@ -1193,9 +1214,12 @@ export class ChatDialogComponent implements OnInit {
       if(otravez){
         console.log('entra');
       if(otravez.length>2){
+        console.log(otravez);
+        nombb
+        var buscar33=otravez[1]+' '+otravez[2]+', '+nombb[0]+' de';
         document.getElementById('otro22').innerText='Se está realizando la búsqueda...';
         setTimeout(() => {
-          this.nuevointento();
+          this.intentalo(buscar33);
          }, 4500);
 
       }
