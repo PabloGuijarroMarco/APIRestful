@@ -882,7 +882,20 @@ export class ChatDialogComponent implements OnInit {
       //console.log(document.getElementById('u'));
       //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
   //    document.getElementById('u').id='otro';
+  setTimeout(() => {
+
+
+    this.horoscopoService.newHoroscopo().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log( <any> error);
+      }
+    );
+  }, 2500);
     });
+
   }
 
   obrasdeautor(a){
