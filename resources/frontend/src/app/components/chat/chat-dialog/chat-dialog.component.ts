@@ -899,6 +899,14 @@ export class ChatDialogComponent implements OnInit {
   }
 
   obrasdeautor(a){
+    this.busquedasobrasdeautorService.newBusquedaObrasDeAutor().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log( <any> error);
+      }
+    );
     var num=0;
     if(localStorage.getItem('autores')){
       num=parseInt(localStorage.getItem('autores'));
