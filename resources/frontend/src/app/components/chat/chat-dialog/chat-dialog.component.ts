@@ -1561,29 +1561,9 @@ export class ChatDialogComponent implements OnInit {
 
   pruebabvmc(a){
     console.log(a);
-    if(!localStorage.getItem('chinitos')){
-      localStorage.setItem('chinitos',0);
-    }
-    var ghj=0;
-    setTimeout(() => {
-      if(localStorage.getItem('chinitos')==0){
-        ghj=ghj+1;
-      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log( <any> error);
-        }
-      );
-      localStorage.removeItem('chinitos');
-      localStorage.setItem('chinitos',1);
-      setTimeout(() => {
-        localStorage.removeItem('chinitos');
-      //localStorage.setItem('chinitos',);
-      }, 4500);
-    }
-    }, 4500);
+    
+    
+  
 
     if(a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc'  || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus' || a=='ObrasSiriac' || a=='ObrasDan' || a=='ObrasLengSig' || a=='ObrasCreo' || a=='ObrasRuma' || a=='ObrasHungar' || a=='ObrasSignIn' || 'ObrasTaga' || a=='ObrasPola' || a=='ObrasJapos' || a=='ObrasMulti' || a=='ObrasEusk' || a=='ObrasLitu' || a=='ObrasPersa'){
       this.sparqlQuery = 'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> PREFIX madsrdf: <http://www.loc.gov/mads/rdf/v1#> PREFIX dc: <http://purl.org/dc/elements/1.1/> SELECT ?language (COUNT(?manifestation) AS ?no_manifestations) ?code WHERE { 	?language rdf:type madsrdf:Language .	?language madsrdf:code ?code .	?manifestation dc:language ?language }GROUP BY ?language ?code';
@@ -1608,6 +1588,30 @@ export class ChatDialogComponent implements OnInit {
     if(a=='idiomasBiblio'){
       document.getElementById('u').innerText='La Biblioteca Virtual Miguel de Cervantes posee obras en '+this.resultData.length+' idiomas diferentes. Dígame el idioma del que desea que le muestre obras';
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasEs'){
       for(let i=0;i<this.resultData.length;i++){
@@ -1616,6 +1620,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasVal'){
       //console.log('holaa');
@@ -1625,6 +1653,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasGrieA'){
       //console.log('holaa');
@@ -1634,6 +1686,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSerb'){
       //console.log('holaa');
@@ -1643,6 +1719,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasYid'){
       //console.log('holaa');
@@ -1652,6 +1752,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasGal'){
       //console.log('holaa');
@@ -1661,6 +1785,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasChec'){
       //console.log('holaa');
@@ -1670,6 +1818,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasAram'){
       //console.log('holaa');
@@ -1679,6 +1851,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasFin'){
       //console.log('holaa');
@@ -1688,6 +1884,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasIta'){
       //console.log('holaa');
@@ -1697,6 +1917,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasHeb'){
       //console.log('holaa');
@@ -1706,6 +1950,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasAmh'){
       //console.log('holaa');
@@ -1715,6 +1983,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasJav'){
       //console.log('holaa');
@@ -1724,6 +2016,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasCro'){
       //console.log('holaa');
@@ -1733,6 +2049,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasChi'){
       //console.log('holaa');
@@ -1742,6 +2082,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasLen'){
       //console.log('holaa');
@@ -1751,6 +2115,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSud'){
       //console.log('holaa');
@@ -1760,6 +2148,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasLadin'){
       //console.log('holaa');
@@ -1769,6 +2181,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasMitico'){
       //console.log('holaa');
@@ -1778,6 +2214,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasKara'){
       //console.log('holaa');
@@ -1787,6 +2247,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasUgar'){
       //console.log('holaa');
@@ -1796,6 +2280,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasNoru'){
       //console.log('holaa');
@@ -1805,6 +2313,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSiri'){
       //console.log('holaa');
@@ -1814,6 +2346,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasNah'){
       //console.log('holaa');
@@ -1823,6 +2379,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasLatin'){
       //console.log('holaa');
@@ -1832,6 +2412,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasHol'){
       //console.log('holaa');
@@ -1841,6 +2445,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasGall'){
       //console.log('holaa');
@@ -1850,6 +2478,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSerbi'){
       //console.log('holaa');
@@ -1859,6 +2511,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasIngl'){
       //console.log('holaa');
@@ -1868,6 +2544,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasEsper'){
       //console.log('holaa');
@@ -1877,6 +2577,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasOjib'){
       //console.log('holaa');
@@ -1886,6 +2610,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSuec'){
       //console.log('holaa');
@@ -1895,6 +2643,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasAlem'){
       //console.log('holaa');
@@ -1904,6 +2676,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasPortu'){
       //console.log('holaa');
@@ -1913,6 +2709,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasFranc'){
       //console.log('holaa');
@@ -1922,6 +2742,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasGrieg'){
       //console.log('holaa');
@@ -1931,6 +2775,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasArabe'){
       //console.log('holaa');
@@ -1940,6 +2808,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasCatal'){
       //console.log('holaa');
@@ -1949,6 +2841,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasRus'){
       //console.log('holaa');
@@ -1958,6 +2874,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSiriac'){
       //console.log('holaa');
@@ -1967,6 +2907,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasDan'){
       //console.log('holaa');
@@ -1976,6 +2940,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasLengSig'){
 
@@ -1986,6 +2974,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasCreo'){
       for(let i=0;i<this.resultData.length;i++){
@@ -1995,6 +3007,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasRuma'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2004,6 +3040,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasHungar'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2013,6 +3073,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasSignIn'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2022,6 +3106,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasTaga'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2031,6 +3139,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasPola'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2040,6 +3172,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasJapos'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2049,6 +3205,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasMulti'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2058,6 +3238,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasEusk'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2067,6 +3271,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasLitu'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2076,6 +3304,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
     if(a=='ObrasPersa'){
       for(let i=0;i<this.resultData.length;i++){
@@ -2085,6 +3337,30 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       document.getElementById('u').id='otro';
+      if(!localStorage.getItem('chinitos')){
+      localStorage.setItem('chinitos',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('chinitos')==0){
+        ghj=ghj+1;
+      this.obrasporidiomaService.newObrasPorIdioma().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('chinitos');
+      localStorage.setItem('chinitos',1);
+      setTimeout(() => {
+        localStorage.removeItem('chinitos');
+        localStorage.removeItem('twinkis');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     }
   }
 
@@ -2301,8 +3577,10 @@ export class ChatDialogComponent implements OnInit {
     if(a=='TiempoYaMañana'){
       this.getTiempoManana();
     }
-
+  
     if( a=='idiomasBiblio' || a=='ObrasEs' || a=='ObrasVal' || a=='ObrasGrieA' || a =='ObrasSerb' || a =='ObrasYid' || a =='ObrasGal' || a=='ObrasChec' || a=='ObrasAram' || a=='ObrasFin' || a=='ObrasIta' || a=='ObrasHeb' || a=='ObrasAmh' || a=='ObrasJav' || a=='ObrasCro' || a=='ObrasChi' || a=='ObrasLen' || a=='ObrasSud' || a=='ObrasLadin' || a=='ObrasMitico' || a=='ObrasKara' || a=='ObrasUgar' || a=='ObrasNoru' || a=='ObrasSiri' || a=='ObrasNah' || a=='ObrasLatin' || a=='ObrasHol' || a=='ObrasGall' || a=='ObrasSerbi' || a=='ObrasIngl' || a=='ObrasEsper' || a=='ObrasOjib' || a=='ObrasSuec' || a=='ObrasAlem' || a=='ObrasPortu' || a=='ObrasFranc' || a=='ObrasGrieg' || a=='ObrasArabe' || a=='ObrasCatal' || a=='ObrasRus' || a=='ObrasSiriac' || a=='ObrasDan' || a=='ObrasLengSig' || a=='ObrasCreo' || a=='ObrasRuma' || a=='ObrasHungar' || a=='ObrasSignIn' || 'ObrasTaga' || a=='ObrasPola' || a=='ObrasJapos' || a=='ObrasMulti' || a=='ObrasEusk' || a=='ObrasLitu' || a=='ObrasPersa'){
+      //localStorage.setItem('twinkis',12);
+      console.log(a);
       this.pruebabvmc(a);
     }
 
@@ -2313,7 +3591,7 @@ export class ChatDialogComponent implements OnInit {
     if(a=='EdicionesQuijote'){
       this.edicionesquijote(a);
     }
-
+  
     if(a=='ocupacionMiguel' || a=='movimientoMiguel' || 'hijaMiguel' || 'generosMiguel' || 'causamuerteMiguel' || 'religionMiguel' || 'enterradoMiguel' || 'idiomasMiguel' || 'mujerMiguel'){
       this.sparqlQuery = 'PREFIX entity: <http://www.wikidata.org/entity/> SELECT ?propUrl ?propLabel ?valUrl ?valLabel ?picture WHERE {	hint:Query hint:optimizer "None" .	{	BIND(entity:Q5682 AS ?valUrl) .		BIND("N/A" AS ?propUrl ) .		BIND("identity"@en AS ?propLabel ) .	}	UNION	{	entity:Q5682 ?propUrl ?valUrl .		?property ?ref ?propUrl .		?property rdf:type wikibase:Property .		?property rdfs:label ?propLabel	}	  	?valUrl rdfs:label ?valLabel	FILTER (LANG(?valLabel) = "es") .	OPTIONAL{ ?valUrl wdt:P18 ?picture .} FILTER (lang(?propLabel) = "es" ) } ORDER BY ?propUrl ?valUrl LIMIT 200';
       document.getElementById('u').innerText='';
@@ -2338,7 +3616,29 @@ export class ChatDialogComponent implements OnInit {
   }
 
   getWikidata(a){
-
+    if(!localStorage.getItem('japoneses')){
+      localStorage.setItem('japoneses',0);
+    }
+    var ghj=0;
+    setTimeout(() => {
+      if(localStorage.getItem('japoneses')==0){
+        ghj=ghj+1;
+      this.wikidataService.newWikidata().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+      localStorage.removeItem('japoneses');
+      localStorage.setItem('japoneses',1);
+      setTimeout(() => {
+        localStorage.removeItem('japoneses');
+      //localStorage.setItem('chinitos',);
+      }, 4500);
+    }
+    }, 4500);
     this.fullUrl = this.endpointUrl + '?query=' + encodeURIComponent( this.sparqlQuery );
      console.log(this.fullUrl);
      let requestHeaders: any = { 'Accept': 'application/sparql-results+json' };
