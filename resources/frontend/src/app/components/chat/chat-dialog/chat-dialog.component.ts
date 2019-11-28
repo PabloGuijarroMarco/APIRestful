@@ -364,6 +364,14 @@ export class ChatDialogComponent implements OnInit {
       //this.result = res.json().map(tweet => tweet.text);
       //console.log(this.result);
   });*/
+  this.twitterService.newTwitter().subscribe(
+    response => {
+      console.log(response);
+    },
+    error => {
+      console.log( <any> error);
+    }
+  );
 
   }
 
