@@ -821,6 +821,14 @@ export class ChatDialogComponent implements OnInit {
     let temp2=String(temporal);
     localStorage.removeItem('a');
     localStorage.setItem('a',temp2);
+    this.translationService.newTraduccion().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log( <any> error);
+      }
+    );
   }
 
   pruebahoroscopo(a){
