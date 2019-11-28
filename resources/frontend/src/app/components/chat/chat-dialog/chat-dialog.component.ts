@@ -423,6 +423,14 @@ export class ChatDialogComponent implements OnInit {
     }else{
       document.getElementById('dfsdfdsfsd1'+num).innerText='La búsqueda de vídeos de la BVMC en YouTube no está disponible ahora mismo, vuelva a solicitarla más tarde.';
     }
+    this.youtubeService.newYouTube().subscribe(
+      response => {
+        console.log(response);
+      },
+      error => {
+        console.log( <any> error);
+      }
+    );
   }
 
   noticiasprueba(){
