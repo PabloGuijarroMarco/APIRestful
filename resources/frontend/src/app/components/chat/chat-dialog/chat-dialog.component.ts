@@ -1492,6 +1492,18 @@ export class ChatDialogComponent implements OnInit {
   }
 
   edicionesquijote(a){
+    setTimeout(() => {
+
+
+      this.edicionesquijoteService.newEdicionesQuijote().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log( <any> error);
+        }
+      );
+    }, 2500);
     var num=0;
     if(localStorage.getItem('quijote')){
       num=parseInt(localStorage.getItem('quijote'));
