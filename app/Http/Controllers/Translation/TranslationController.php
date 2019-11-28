@@ -16,7 +16,7 @@ class TranslationController extends Controller
     public function index()
     {
         $translation = Translation::all();
-        return response()->json($translation);
+        return response()->json($translation)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class TranslationController extends Controller
      */
     public function create()
     {
-        //
+        $translation =Translation::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($translation)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class TranslationController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $translation= new Translation;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($translation->save()){
-
-            return new TranslationResource($translation);
-
-        }
+        
     }
 
     /**

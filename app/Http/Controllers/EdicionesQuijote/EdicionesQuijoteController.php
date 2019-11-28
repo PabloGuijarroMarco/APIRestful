@@ -16,7 +16,7 @@ class EdicionesQuijoteController extends Controller
     public function index()
     {
         $edicionesquijote = EdicionesQuijote::all();
-        return response()->json($edicionesquijote);
+        return response()->json($edicionesquijote)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class EdicionesQuijoteController extends Controller
      */
     public function create()
     {
-        //
+        $edicionesquijote =EdicionesQuijote::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($edicionesquijote)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class EdicionesQuijoteController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $edicionesquijote= new EdicionesQuijote;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($edicionesquijote->save()){
-
-            return new EdicionesQuijoteResource($edicionesquijote);
-
-        }
+        
     }
 
     /**

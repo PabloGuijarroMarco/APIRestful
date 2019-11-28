@@ -16,7 +16,7 @@ class WikidataController extends Controller
     public function index()
     {
         $wikidata = Wikidata::all();
-        return response()->json($wikidata);
+        return response()->json($wikidata)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class WikidataController extends Controller
      */
     public function create()
     {
-        //
+        $wikidata =Wikidata::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($wikidata)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class WikidataController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $wikidata= new Wikidata;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($wikidata->save()){
-
-            return new WikidataResource($wikidata);
-
-        }
+        
     }
 
     /**

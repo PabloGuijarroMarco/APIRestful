@@ -16,7 +16,7 @@ class BusquedasObrasDeAutorController extends Controller
     public function index()
     {
         $busquedasobrasdeautor = BusquedasObrasDeAutor::all();
-        return response()->json($busquedasobrasdeautor);
+        return response()->json($busquedasobrasdeautor)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class BusquedasObrasDeAutorController extends Controller
      */
     public function create()
     {
-        //
+        $busquedaobradeautor =BusquedasObrasDeAutor::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($busquedaobradeautor)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,12 @@ class BusquedasObrasDeAutorController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $busquedasobrasdeautor= new BusquedasObrasDeAutor;
+        
 
         /*$interaction->date = $request->input('date');
         $interaction->time = $request->input('time');*/
 
-        if($busquedasobrasdeautor->save()){
-
-            return new BusquedasObrasDeAutorResource($busquedasobrasdeautor);
-
-        }
+        
     }
 
     /**

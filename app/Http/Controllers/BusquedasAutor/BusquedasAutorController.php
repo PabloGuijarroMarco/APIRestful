@@ -16,7 +16,7 @@ class BusquedasAutorController extends Controller
     public function index()
     {
         $busquedasautor = BusquedasAutor::all();
-        return response()->json($busquedasautor);
+        return response()->json($busquedasautor)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class BusquedasAutorController extends Controller
      */
     public function create()
     {
-        //
+        $busquedaautor =BusquedasAutor::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($busquedaautor)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,12 @@ class BusquedasAutorController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $busquedasautor= new BusquedasAutor;
+       
 
         /*$interaction->date = $request->input('date');
         $interaction->time = $request->input('time');*/
 
-        if($busquedasautor->save()){
-
-            return new BusquedasAutorResource($busquedasautor);
-
-        }
+        
     }
 
     /**

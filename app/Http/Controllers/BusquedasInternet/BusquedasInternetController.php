@@ -16,7 +16,7 @@ class BusquedasInternetController extends Controller
     public function index()
     {
         $busquedasinternet = BusquedasInternet::all();
-        return response()->json($busquedasinternet);
+        return response()->json($busquedasinternet)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class BusquedasInternetController extends Controller
      */
     public function create()
     {
-        //
+        $busquedainternet =BusquedasInternet::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($busquedainternet)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,12 @@ class BusquedasInternetController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $busquedasinternet= new BusquedasInternet;
+       
 
         /*$interaction->date = $request->input('date');
         $interaction->time = $request->input('time');*/
 
-        if($busquedasinternet->save()){
-
-            return new BusquedasInternetResource($busquedasinternet);
-
-        }
+        
     }
 
     /**

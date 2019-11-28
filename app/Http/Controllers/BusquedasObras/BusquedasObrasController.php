@@ -16,7 +16,7 @@ class BusquedasObrasController extends Controller
     public function index()
     {
         $busquedasobras = BusquedasObras::all();
-        return response()->json($busquedasobras);
+        return response()->json($busquedasobras)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class BusquedasObrasController extends Controller
      */
     public function create()
     {
-        //
+        $busquedaobra =BusquedasObras::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($busquedaobra)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,12 @@ class BusquedasObrasController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $busquedasobras= new BusquedasObras;
+        
 
         /*$interaction->date = $request->input('date');
         $interaction->time = $request->input('time');*/
 
-        if($busquedasobras->save()){
-
-            return new BusquedasObrasResource($busquedasobras);
-
-        }
+        
     }
 
     /**

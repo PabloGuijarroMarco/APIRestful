@@ -16,7 +16,7 @@ class ObrasPorIdiomaController extends Controller
     public function index()
     {
         $obrasporidioma = ObrasPorIdioma::all();
-        return response()->json($obrasporidioma);
+        return response()->json($obrasporidioma)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class ObrasPorIdiomaController extends Controller
      */
     public function create()
     {
-        //
+        $obrasporidioma =ObrasPorIdioma::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($obrasporidioma)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class ObrasPorIdiomaController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $obrasporidioma= new ObrasPorIdioma;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($obrasporidioma->save()){
-
-            return new ObrasPorIdiomaResource($obrasporidioma);
-
-        }
+        
     }
 
     /**

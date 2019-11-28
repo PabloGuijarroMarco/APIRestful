@@ -16,7 +16,7 @@ class HoroscopoController extends Controller
     public function index()
     {
         $horoscopos = Horoscopo::all();
-        return response()->json($horoscopos);
+        return response()->json($horoscopos)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class HoroscopoController extends Controller
      */
     public function create()
     {
-        //
+        $horoscopo =Horoscopo::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($horoscopo)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class HoroscopoController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $horoscopo= new Horoscopo;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($horoscopo->save()){
-
-            return new HoroscopoResource($horoscopo);
-
-        }
+        
     }
 
     /**

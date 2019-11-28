@@ -16,7 +16,7 @@ class TwitterController extends Controller
     public function index()
     {
         $twitter = Twitter::all();
-        return response()->json($twitter);
+        return response()->json($twitter)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class TwitterController extends Controller
      */
     public function create()
     {
-        //
+        $twitter =Twitter::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($twitter)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class TwitterController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $twitter= new Twitter;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($twitter->save()){
-
-            return new TwitterResource($twitter);
-
-        }
+        
     }
 
     /**

@@ -16,7 +16,7 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
-        return response()->json($news);
+        return response()->json($news)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $news =News::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($news)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class NewsController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $news= new News;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($news->save()){
-
-            return new NewsResource($news);
-
-        }
+        
     }
 
     /**

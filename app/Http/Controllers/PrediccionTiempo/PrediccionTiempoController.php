@@ -16,7 +16,7 @@ class PrediccionTiempoController extends Controller
     public function index()
     {
         $predicciontiempo = PrediccionTiempo::all();
-        return response()->json($predicciontiempo);
+        return response()->json($predicciontiempo)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -26,7 +26,10 @@ class PrediccionTiempoController extends Controller
      */
     public function create()
     {
-        //
+        $predicciontiempo =PrediccionTiempo::create();
+
+        //$interacciones = Interaction::all();
+        return response()->json($predicciontiempo)->header('Access-Control-Allow-Origin', '*');
     }
 
     /**
@@ -44,16 +47,7 @@ class PrediccionTiempoController extends Controller
         $this->validate($request, $rules);
          $interaction = Interaction::create($request->all());
         return $this->showOne($interaction, 201);*/
-        $predicciontiempo= new PrediccionTiempo;
-
-        /*$interaction->date = $request->input('date');
-        $interaction->time = $request->input('time');*/
-
-        if($predicciontiempo->save()){
-
-            return new PrediccionTiempoResource($predicciontiempo);
-
-        }
+        
     }
 
     /**
