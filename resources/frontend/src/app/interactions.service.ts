@@ -14,4 +14,10 @@ export class InteractionsService {
       headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this.http.get('http://apirestful.test/interactions/create', headers);
   }
+
+  getInteractions(): Observable<any> {
+    let headers;
+      headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.get('http://apirestful.test/interactions', headers);
+  }
 }
