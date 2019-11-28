@@ -1057,7 +1057,7 @@ export class ChatDialogComponent implements OnInit {
      }, 19400);
   }
 
-  intentalo(buscar33){
+  intentalo(buscar33,num){
     this.sparqlQuery = 'PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> SELECT ?autor ?nombreautor WHERE { ?autor rdfs:label ?nombreautor . FILTER regex ((?nombreautor), "'+buscar33+'", "i") . }';
 
       this.fullUrl = '/bvmc-lod/repositories/data' + '?query=' + encodeURIComponent( this.sparqlQuery );
@@ -1074,27 +1074,27 @@ export class ChatDialogComponent implements OnInit {
     console.log(this.resultData);
     });
     setTimeout(() => {
-          this.nuevointento();
-         }, 4500);
+          this.nuevointento(num);
+         }, 5500);
   }
 
-  nuevointento(){
+  nuevointento(num){
 
-    console.log(document.getElementById('otro22'));
+    console.log(document.getElementById('otro22'+num));
     console.log(this.resultData);
     if(this.resultData.length!=0){
     for(let i=0;i<this.resultData.length;i++){
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-        document.getElementById('otro22').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+        document.getElementById('otro22'+num).innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
       }
-      if(i==this.resultData.length-1 && !document.getElementById('otro22').innerText.includes('He encontrado a')){
-        document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+      if(i==this.resultData.length-1 && !document.getElementById('otro22'+num).innerText.includes('He encontrado a')){
+        document.getElementById('otro22'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
       }
     }
   }else{
-    document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+    document.getElementById('otro22'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
   }
-      document.getElementById('u').id='otro';
+      //document.getElementById('u').id='otro';
       //this.daleya='';
       setTimeout(() => {
         this.limpiarvariable()
@@ -1103,6 +1103,16 @@ export class ChatDialogComponent implements OnInit {
 
 
   buscarAutorcito(a){
+    var num=0;;
+     if(localStorage.getItem('autores')){
+      num=parseInt(localStorage.getItem('autores'));
+      num=num+1;
+      localStorage.removeItem('autores');
+    }
+    console.log(num);
+    if(!localStorage.getItem('autores')){
+      localStorage.setItem('autores',String(num));
+    }
     (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
     (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
     document.getElementById("inputtt").style.cursor="wait";
@@ -1184,47 +1194,52 @@ export class ChatDialogComponent implements OnInit {
       this.resultData = results.bindings;
     console.log(this.resultData);
     });
+     document.getElementById('u').id='u'+num;
+     setTimeout(() => {
+        
+       
     if(this.resultData.length!=0){
     for(let i=0;i<this.resultData.length;i++){
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-        document.getElementById('u').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+        document.getElementById('u'+num).innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
       }
       if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('He encontrado a')){
-        document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+        document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
         if(this.apellid=true){
           console.log('holadfsd');
-          document.getElementById('u').innerText='Se está realizando la búsqueda...';
+          document.getElementById('u'+num).innerText='Se está realizando la búsqueda...';
           buscar=ui[2]+', '+ui[0]+' '+ui[1];
           this.otracosita(buscar);
         }
       }
     }
   }else{
-    document.getElementById('u').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
+    document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
     if(this.apellid==true){
       console.log('holadfsd');
-      document.getElementById('u').innerText='Se está realizando la búsqueda...';
+      document.getElementById('u'+num).innerText='Se está realizando la búsqueda...';
       buscar=ui[2]+', '+ui[0]+' '+ui[1];
       this.otracosita(buscar);
     }
   }
-      document.getElementById('u').id='otro22';
+      document.getElementById('u'+num).id='otro22'+num;
       //this.daleya='';
       console.log(otravez);
       if(otravez){
         console.log('entra');
       if(otravez.length>2){
+        document.getElementById('otro22'+num).innerText='Se está realizando la búsqueda...';
         console.log(otravez);
-        nombb
         var buscar33=otravez[1]+' '+otravez[2]+', '+nombb[0]+' de';
-        document.getElementById('otro22').innerText='Se está realizando la búsqueda...';
+        
         setTimeout(() => {
-          this.intentalo(buscar33);
+          this.intentalo(buscar33,num);
          }, 4500);
 
       }
+      
     }
-
+}, 4400);
       setTimeout(() => {
         this.limpiarvariable()
        }, 19400);
