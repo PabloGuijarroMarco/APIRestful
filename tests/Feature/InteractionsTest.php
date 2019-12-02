@@ -7,17 +7,22 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class InteractionsTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testGetAll()
     {
-        $response = $this->get('/');
-
+        $response = $this->get(env('API_URL') . '/interactions');
+        $response->assertStatus(200);
+    }
+    public function testCreate()
+    {
+        //$this->assertTrue(true);
+        $response = $this->get(env('API_URL') . '/interactions/create');
         $response->assertStatus(200);
     }
 }
