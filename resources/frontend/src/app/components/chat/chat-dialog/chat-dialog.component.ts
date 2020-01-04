@@ -3657,7 +3657,7 @@ if(this.resultData.length!=0){
       document.getElementById('u').innerHTML=a+' <a href="http://blog.cervantesvirtual.com/?_ga=2.149746678.1136745688.1574074576-332001434.1568366996" style="color: #FA7F42;">aquí</a>';
       document.getElementById('u').id='uwkjdjdjdjjddjd';
     }
-    if(a.includes('Las cosas que puedo hacer por ti son darte información sobre la BVMC y')){
+    if(a.includes('Las cosas que puedo hacer por ti son:')){
       var num=0;
     if(localStorage.getItem('jaja8')){
       num=parseInt(localStorage.getItem('jaja8'));
