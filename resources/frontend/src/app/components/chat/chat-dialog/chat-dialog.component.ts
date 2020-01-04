@@ -211,7 +211,7 @@ export class ChatDialogComponent implements OnInit {
         document.getElementById('dsfsdghb'+num).innerHTML='<a name="Ancla4'+num+'" id="a">Aquí</a> te muestro los resultados de la búsqueda: <ul id="dalel2'+num+'"></ul>';
       }
     for(let i=0;i<10;i++){
-      document.getElementById('dalel2'+num).innerHTML=document.getElementById('dalel2'+num).innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #00ff5a;">'+obj.results[i].title+'</a></li>';
+      document.getElementById('dalel2'+num).innerHTML=document.getElementById('dalel2'+num).innerHTML+'<li type="disc"><a href="'+obj.results[i].url+'" style="color: #FA7F42;">'+obj.results[i].title+'</a></li>';
     }
     setTimeout(() => {
       console.log('hola');
@@ -474,7 +474,7 @@ export class ChatDialogComponent implements OnInit {
       if(this.resultData2.response.data[i].site_language=="es"){
         if(a<10){
         console.log('hola');
-        document.getElementById('dalel'+num).innerHTML=document.getElementById('dalel'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData2.response.data[i].url+'" style="color: #00ff5a;">'+this.resultData2.response.data[i].title+'</a></li>';
+        document.getElementById('dalel'+num).innerHTML=document.getElementById('dalel'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData2.response.data[i].url+'" style="color: #FA7F42;">'+this.resultData2.response.data[i].title+'</a></li>';
         a=a+1;
         }
       }
@@ -1007,13 +1007,13 @@ export class ChatDialogComponent implements OnInit {
 
   daleahii(buscar, num, ui, otravez, nombb){
     if(this.resultData.length!=0){
-      document.getElementById('u'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('u'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('u'+num).innerText.includes('Algunas de las obras que tenemos')){
           document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1026,14 +1026,14 @@ export class ChatDialogComponent implements OnInit {
         }
       }
       if(document.getElementById('u'+num).innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('u'+num).innerHTML=document.getElementById('u'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+        document.getElementById('u'+num).innerHTML=document.getElementById('u'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">aquí</a>.'
       }
     }else{
       console.log('holano10');
-      document.getElementById('u'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('u'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('u'+num).innerText.includes('Las obras que tenemos')){
           document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1055,7 +1055,7 @@ export class ChatDialogComponent implements OnInit {
         buscar=ui[2]+', '+ui[0]+' '+ui[1];
         this.otracosita2(buscar, num);
       }
-      
+
       //this.daleya='';
       console.log(otravez);
       if(otravez){
@@ -1065,13 +1065,13 @@ export class ChatDialogComponent implements OnInit {
         document.getElementById('otro22'+num).innerText='Se está realizando la búsqueda...';
         console.log(otravez);
         var buscar33=otravez[1]+' '+otravez[2]+', '+nombb[0]+' de';
-        
+
         setTimeout(() => {
           this.intentalo2(buscar33,num);
          }, 4500);
 
       }
-      
+
     }
       //var buscar33=otravez[1]+' '+otravez[2]+', '+nombb[0]+' de';
     }
@@ -1129,39 +1129,39 @@ export class ChatDialogComponent implements OnInit {
   nuevointento2(num){
 
 if(this.resultData.length!=0){
-      document.getElementById('otro22'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('otro22'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('otro22'+num).innerText.includes('Algunas de las obras que tenemos')){
           document.getElementById('otro22'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-          
+
         }
       }
       if(document.getElementById('otro22'+num).innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('otro22'+num).innerHTML=document.getElementById('otro22'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+        document.getElementById('otro22'+num).innerHTML=document.getElementById('otro22'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">aquí</a>.'
       }
     }else{
       console.log('holano10');
-      document.getElementById('otro22'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('otro22'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('otro22'+num).innerText.includes('Las obras que tenemos')){
           document.getElementById('otro22'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-          
+
         }
       }
     }
   //}, 200);
     }else{
       document.getElementById('otro22'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
-      
+
     }
       //document.getElementById('u').id='otro';
       //this.daleya='';
@@ -1180,7 +1180,7 @@ if(this.resultData.length!=0){
     if(this.resultData.length!=0){
     for(let i=0;i<this.resultData.length;i++){
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-        document.getElementById('otro22'+num).innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+        document.getElementById('otro22'+num).innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #FA7F42;">"'+this.resultData[i].nombreautor.value+'"</a>.';
       }
       if(i==this.resultData.length-1 && !document.getElementById('otro22'+num).innerText.includes('He encontrado a')){
         document.getElementById('otro22'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1299,12 +1299,12 @@ if(this.resultData.length!=0){
     });
      document.getElementById('u').id='u'+num;
      setTimeout(() => {
-        
-       
+
+
     if(this.resultData.length!=0){
     for(let i=0;i<this.resultData.length;i++){
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-        document.getElementById('u'+num).innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+        document.getElementById('u'+num).innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #FA7F42;">"'+this.resultData[i].nombreautor.value+'"</a>.';
       }
       if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('He encontrado a')){
         document.getElementById('u'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1334,13 +1334,13 @@ if(this.resultData.length!=0){
         document.getElementById('otro22'+num).innerText='Se está realizando la búsqueda...';
         console.log(otravez);
         var buscar33=otravez[1]+' '+otravez[2]+', '+nombb[0]+' de';
-        
+
         setTimeout(() => {
           this.intentalo(buscar33,num);
          }, 4500);
 
       }
-      
+
     }
 }, 4400);
       setTimeout(() => {
@@ -1370,13 +1370,13 @@ if(this.resultData.length!=0){
     console.log(document.getElementById('kjdsjkhjsd'+num));
 
     if(this.resultData.length!=0){
-    document.getElementById('kjdsjkhjsd'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+    document.getElementById('kjdsjkhjsd'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd'+num).innerText.includes('Algunas de las obras que tenemos')){
           document.getElementById('kjdsjkhjsd'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1384,14 +1384,14 @@ if(this.resultData.length!=0){
         }
       }
       if(document.getElementById('kjdsjkhjsd'+num).innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('kjdsjkhjsd'+num).innerHTML=document.getElementById('kjdsjkhjsd'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+        document.getElementById('kjdsjkhjsd'+num).innerHTML=document.getElementById('kjdsjkhjsd'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">aquí</a>.'
       }
     }else{
       console.log('holano10');
-      document.getElementById('kjdsjkhjsd'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('kjdsjkhjsd'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('kjdsjkhjsd'+num).innerText.includes('Las obras que tenemos')){
           document.getElementById('kjdsjkhjsd'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1426,13 +1426,13 @@ if(this.resultData.length!=0){
 
 
 
-      document.getElementById('otro33'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('otro33'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Algunas</a> de las obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       //setTimeout(() => {
       if(this.resultData.length>=10){
         console.log('hola10');
       for(let i=0;i<10;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('otro33'+num).innerText.includes('Algunas de las obras que tenemos')){
           document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1441,17 +1441,17 @@ if(this.resultData.length!=0){
       }
 
       if(document.getElementById('otro33'+num).innerText.includes('Algunas de las obras que tenemos')){
-        document.getElementById('otro33'+num).innerHTML=document.getElementById('otro33'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">aquí</a>.'
+        document.getElementById('otro33'+num).innerHTML=document.getElementById('otro33'+num).innerHTML+' Si desea ver más obras de este autor haga click <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">aquí</a>.'
       }
       setTimeout(() => {
         this.limpiarvariable()
        }, 5400);
     }else{
       console.log('holano10');
-      document.getElementById('otro33'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #e0e409;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
+      document.getElementById('otro33'+num).innerHTML='<a name="Ancla6'+num+'" id="a">Las</a> obras que tenemos registradas de <a href="'+this.resultData[0].autor.value+'" style="color: #FF3104;">"'+this.resultData[0].nombreautor.value+'"</a> son:<ul id="listillo1'+num+'"></ul>';
       for(let i=0;i<this.resultData.length;i++){
         //if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #00ff5a;">'+this.resultData[i].titulo.value+'</a></li>';
+          document.getElementById('listillo1'+num).innerHTML=document.getElementById('listillo1'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData[i].obra.value+'" style="color: #FA7F42;">'+this.resultData[i].titulo.value+'</a></li>';
         //}
         if(i==this.resultData.length-1 && !document.getElementById('otro33'+num).innerText.includes('Las obras que tenemos')){
           document.getElementById('otro33'+num).innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1513,7 +1513,7 @@ if(this.resultData.length!=0){
       //console.log('entra1');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('otro22').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>.';
+          document.getElementById('otro22').innerHTML='He encontrado a <a href="'+this.resultData[i].autor.value+'" style="color: #FA7F42;">"'+this.resultData[i].nombreautor.value+'"</a>.';
         }
         if(i==this.resultData.length-1 && !document.getElementById('otro22').innerText.includes('He encontrado a')){
           document.getElementById('otro22').innerText='No he encontrado ningún autor/a registrado en la biblioteca con ese nombre.';
@@ -1557,7 +1557,7 @@ if(this.resultData.length!=0){
 
       for(let i=0;i<this.nuevoaux.length;i++){
         if(this.nuevoaux[i].autor.value.includes('http://data.cervantesvirtual.com/person/')){
-          document.getElementById('otro33'+num).innerHTML='He encontrado a <a href="'+this.nuevoaux[i].autor.value+'" style="color: #00ff5a;">"'+this.nuevoaux[i].nombreautor.value+'"</a>.';
+          document.getElementById('otro33'+num).innerHTML='He encontrado a <a href="'+this.nuevoaux[i].autor.value+'" style="color: #FA7F42;">"'+this.nuevoaux[i].nombreautor.value+'"</a>.';
           setTimeout(() => {
             this.limpiarvariable()
            }, 5400);
@@ -1603,7 +1603,7 @@ if(this.resultData.length!=0){
       }, 4500);
     }
     }, 4500);
-    
+
     //this.resultData='';
     (<HTMLInputElement> document.getElementById("inputtt")).disabled = true;
     (<HTMLInputElement> document.getElementById("inputtt")).placeholder = 'Espere a que finalice la búsqueda...';
@@ -1631,7 +1631,7 @@ if(this.resultData.length!=0){
     if(this.resultData.length!=0){
     for(let i=0;i<this.resultData.length;i++){
       if(this.resultData[i].autor.value.includes('http://data.cervantesvirtual.com/work/')){
-        document.getElementById('u').innerHTML='He encontrado <a href="'+this.resultData[i].autor.value+'" style="color: #00ff5a;">"'+this.resultData[i].nombreautor.value+'"</a>';
+        document.getElementById('u').innerHTML='He encontrado <a href="'+this.resultData[i].autor.value+'" style="color: #FA7F42;">"'+this.resultData[i].nombreautor.value+'"</a>';
       }
       if(i==this.resultData.length-1 && !document.getElementById('u').innerText.includes('He encontrado')){
         document.getElementById('u').innerText='No he encontrado ninguna obra en la biblioteca con ese nombre.';
@@ -1719,7 +1719,7 @@ if(this.resultData.length!=0){
   otroo(num){
 
       for(let i=0;i<this.resultData88.length;i++){
-        document.getElementById('lis'+num).innerHTML=document.getElementById('lis'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData88[i].m.value+'" style="color: #00ff5a;">'+this.resultData88[i].title.value+'</a></li>';
+        document.getElementById('lis'+num).innerHTML=document.getElementById('lis'+num).innerHTML+'<li type="disc"> <a href="'+this.resultData88[i].m.value+'" style="color: #FA7F42;">'+this.resultData88[i].title.value+'</a></li>';
       }
       setTimeout(() => {
         this.abrirdenuevo(num)
@@ -1783,7 +1783,7 @@ if(this.resultData.length!=0){
     if(a=='ObrasEs'){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='es'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en español haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en español haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -1816,7 +1816,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].language.value=='http://data.cervantesvirtual.com/language/'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en valenciano haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en valenciano haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -1849,7 +1849,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='grc'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en griego antiguo haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en griego antiguo haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -1882,7 +1882,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='sh'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en serbocroata haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en serbocroata haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -1915,7 +1915,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='yi'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en yidish haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en yidish haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -1948,7 +1948,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='cy'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en galés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en galés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -1981,7 +1981,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='cs'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en checo haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en checo haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2014,7 +2014,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='arc'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en arameo haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en arameo haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2047,7 +2047,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='fi'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en finés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en finés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2080,7 +2080,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='it'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en italiano haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en italiano haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2113,7 +2113,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='he'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en hebreo haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en hebreo haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2146,7 +2146,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='am'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en amhárico haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en amhárico haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2179,7 +2179,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='jv'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en javanés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en javanés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2212,7 +2212,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='hr'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en croata haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en croata haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2245,7 +2245,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='zh'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en chino haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en chino haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2278,7 +2278,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='cai'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lenguas índias de américa central haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lenguas índias de américa central haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2311,7 +2311,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='sai'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lenguas índias de sudamérica haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lenguas índias de sudamérica haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2344,7 +2344,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='lad'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ladino haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ladino haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2377,7 +2377,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='sem'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en semítico haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en semítico haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2410,7 +2410,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='kaa'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en kara-Kalpak haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en kara-Kalpak haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2443,7 +2443,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='uga'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ugaritic haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ugaritic haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2476,7 +2476,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='no'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en noruego haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en noruego haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2509,7 +2509,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='syr'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sirio moderno haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sirio moderno haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2542,7 +2542,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='nah'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en nahua haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en nahua haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2575,7 +2575,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='la'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en latín haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en latín haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2608,7 +2608,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='nl'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en holandés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en holandés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2641,7 +2641,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='gl'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en gallego haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en gallego haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2674,7 +2674,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='sr'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en serbio haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en serbio haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2707,7 +2707,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='en'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en inglés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en inglés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2740,7 +2740,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='eo'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en esperanto haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en esperanto haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2773,7 +2773,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='oj'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ojibwa haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ojibwa haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2806,7 +2806,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='sw'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sueco haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sueco haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2839,7 +2839,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='de'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en alemán haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en alemán haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2872,7 +2872,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='pt'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en portugués haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en portugués haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2905,7 +2905,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='fr'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en francés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en francés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2938,7 +2938,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='el'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en griego haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en griego haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -2971,7 +2971,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='ar'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en árabe haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en árabe haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3004,7 +3004,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='ca'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en catalán haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en catalán haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3037,7 +3037,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='ru'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ruso haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en ruso haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3070,7 +3070,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='syc'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en siriaco haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en siriaco haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3103,7 +3103,7 @@ if(this.resultData.length!=0){
       //console.log('holaa');
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='da'){
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en danés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en danés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3137,7 +3137,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='LSE'){
           console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lengua de signos española haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lengua de signos española haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3170,7 +3170,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='bi'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en creole haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en creole haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3203,7 +3203,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='ro'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en rumano haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en rumano haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3236,7 +3236,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='hu'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en húngaro haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en húngaro haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3269,7 +3269,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='SSI'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sistema de signos internacional haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en sistema de signos internacional haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3302,7 +3302,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='tl'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en tagalo haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en tagalo haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3335,7 +3335,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='pl'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en polaco haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en polaco haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3368,7 +3368,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='ja'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en japonés haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en japonés haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3401,7 +3401,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='mul'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en múltiples lenguajes haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en múltiples lenguajes haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3434,7 +3434,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='eu'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en euskera haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en euskera haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3467,7 +3467,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='li'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lituano haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en lituano haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3500,7 +3500,7 @@ if(this.resultData.length!=0){
       for(let i=0;i<this.resultData.length;i++){
         if(this.resultData[i].code.value=='fa'){
           //console.log('holaa');
-          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en persa haga click <a href="'+this.resultData[i].language.value+'" style="color: #00ff5a;">aquí</a>';
+          document.getElementById('u').innerHTML='Para consultar todas las obras que tenemos en persa haga click <a href="'+this.resultData[i].language.value+'" style="color: #FA7F42;">aquí</a>';
         }
       }
       document.getElementById('u').id='otro';
@@ -3631,7 +3631,7 @@ if(this.resultData.length!=0){
 
     }
     if(a=='Para conocer las últimas novedades acerca de la BVMC haz click'){
-      document.getElementById('u').innerHTML=a+' <a href="http://suscripcion.cervantesvirtual.com/contenidos-bvmc?_ga=2.105241667.1136745688.1574074576-332001434.1568366996" style="color: #00ff5a;">aquí</a>';
+      document.getElementById('u').innerHTML=a+' <a href="http://suscripcion.cervantesvirtual.com/contenidos-bvmc?_ga=2.105241667.1136745688.1574074576-332001434.1568366996" style="color: #FA7F42;">aquí</a>';
       document.getElementById('u').id='uwkjdjdjdjjddjwerewewed';
     }
     if(a=='A través de la cuenta de correo'){
@@ -3645,14 +3645,14 @@ if(this.resultData.length!=0){
       if(!localStorage.getItem('jaja89')){
         localStorage.setItem('jaja89',String(num));
       }
-      document.getElementById('u').innerHTML='<a name="Ancla9988'+num+'" id="a">'+a+'</a> <span style="font-size: 85%; color: #e0e409;">bibliotecario@cervantesvirtual.com</span> puede ponerse en contacto con nosotros para plantearnos sus dudas sobre alguno de nuestros fondos o servicios, comunicarnos los problemas técnicos de tipo informático con los que se encuentre, proponernos la inclusión en nuestro catálogo de obras de su interés, sugerirnos mejoras o modificaciones, información bibliográfica y documental o cualquier otra cuestión que desee acerca de nuestros contenidos y del funcionamiento de nuestra Biblioteca Virtual.';
+      document.getElementById('u').innerHTML='<a name="Ancla9988'+num+'" id="a">'+a+'</a> <span style="font-size: 85%; color: #FF3104;">bibliotecario@cervantesvirtual.com</span> puede ponerse en contacto con nosotros para plantearnos sus dudas sobre alguno de nuestros fondos o servicios, comunicarnos los problemas técnicos de tipo informático con los que se encuentre, proponernos la inclusión en nuestro catálogo de obras de su interés, sugerirnos mejoras o modificaciones, información bibliográfica y documental o cualquier otra cuestión que desee acerca de nuestros contenidos y del funcionamiento de nuestra Biblioteca Virtual.';
       document.getElementById('u').id='uwkjdjdjdjjddjdsfgrege'+num;
       setTimeout(() => {
         this.abrirdenuevo9988(num)
        }, 10);
     }
     if(a=='Sí, para acceder al blog haz click'){
-      document.getElementById('u').innerHTML=a+' <a href="http://blog.cervantesvirtual.com/?_ga=2.149746678.1136745688.1574074576-332001434.1568366996" style="color: #00ff5a;">aquí</a>';
+      document.getElementById('u').innerHTML=a+' <a href="http://blog.cervantesvirtual.com/?_ga=2.149746678.1136745688.1574074576-332001434.1568366996" style="color: #FA7F42;">aquí</a>';
       document.getElementById('u').id='uwkjdjdjdjjddjd';
     }
     if(a.includes('Las cosas que puedo hacer por ti son darte información sobre la BVMC y')){
@@ -3695,7 +3695,7 @@ if(this.resultData.length!=0){
       this.obrasdeautor(a);
     }
     if(a=='DameLasRedecitas'){
-      document.getElementById('u').innerHTML='¡Por supuesto! La BVMC tiene cuenta de <a href="http://twitter.com/fbvmc" style="color: #00ff5a;">Twitter</a>, página de <a href="http://www.facebook.com/pages/Biblioteca-Virtual-Miguel-de-Cervantes/115005045196224" style="color: #00ff5a;">Facebook</a> y canal de <a href="http://www.youtube.com/cervantesvirtual" style="color: #00ff5a;">YouTube</a>. Además puedes pedirme a mí directamente sus últimos tweets o vídeos y te los enseñaré encantada';
+      document.getElementById('u').innerHTML='¡Por supuesto! La BVMC tiene cuenta de <a href="http://twitter.com/fbvmc" style="color: #FA7F42;">Twitter</a>, página de <a href="http://www.facebook.com/pages/Biblioteca-Virtual-Miguel-de-Cervantes/115005045196224" style="color: #FA7F42;">Facebook</a> y canal de <a href="http://www.youtube.com/cervantesvirtual" style="color: #FA7F42;">YouTube</a>. Además puedes pedirme a mí directamente sus últimos tweets o vídeos y te los enseñaré encantada';
       document.getElementById('u').id='jtjytjytyt';
     }
     if(a=='+TwitterATope'){
@@ -4042,7 +4042,7 @@ if(this.resultData.length!=0){
       this.resultData=data;
       let url = this.resultData.datos;
       console.log(document.getElementById('u'));
-      document.getElementById('u').innerHTML='La predicción del tiempo general de españa para hoy la puede consultar haciendo clic <a href='+url+' style="color: #00ff5a;">aquí</a>';
+      document.getElementById('u').innerHTML='La predicción del tiempo general de españa para hoy la puede consultar haciendo clic <a href='+url+' style="color: #FA7F42;">aquí</a>';
       console.log(document.getElementById('u'));
       //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
       document.getElementById('u').id='otro';
@@ -4066,7 +4066,7 @@ if(this.resultData.length!=0){
       this.resultData=data;
       let url = this.resultData.datos;
       console.log(document.getElementById('u'));
-      document.getElementById('u').innerHTML='La predicción del tiempo general de españa para mañana la puede consultar haciendo clic <a href='+url+' style="color: #00ff5a;">aquí</a>';
+      document.getElementById('u').innerHTML='La predicción del tiempo general de españa para mañana la puede consultar haciendo clic <a href='+url+' style="color: #FA7F42;">aquí</a>';
       console.log(document.getElementById('u'));
       //document.getElementById('u').innerText='La predicción del tiempo general de españa para hoy la puede consultar en el siguiente enlace: '+url;
       document.getElementById('u').id='otro';
