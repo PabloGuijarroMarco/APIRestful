@@ -30,7 +30,7 @@
     "ngx-twitter-api": "^0.4.2",
     "node-bing-api": "^4.0.1",
     "rxjs": "~6.4.0",
-    "three": "^0.110.0",
+    "three": "^0.125.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
